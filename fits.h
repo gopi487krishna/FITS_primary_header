@@ -9,8 +9,6 @@
 */
 
 
-
-
 /**
  * @brief This namespace contains all the classes required to parse the FITS primary header
  * @author Gopi Krishna Menon
@@ -47,8 +45,8 @@ namespace fits {
 		std::string file_data_buffer;
 		bool memory_mapped{ false };
 
-
 	public:
+		
 		void readData();
 		const int& operator [](const std::string& keyword);
 		void insert();
