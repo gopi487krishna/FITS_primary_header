@@ -5,6 +5,7 @@
 #include <unordered_map>
 #include <iterator>
 #include <iostream>
+#include <filesystem>
 /**
  * @file fits.h
  * @author Gopi Krishna Menon
@@ -18,7 +19,7 @@
 */
 namespace fits {
 
-
+	constexpr int size_of_card = 80;
 	class fits_standard_spec {
 
 		std::unordered_map<std::string, int> required_keywords_order;
@@ -46,7 +47,7 @@ namespace fits {
 	class fits_parser : parsing_policy {
 
 	public:
-		bool parseOnStream( std::ifstream& input_file_stream);
+		bool parseOnStream(const std::string& filename);
 		bool parseOnMappedFile(/*boost mapped file here*/) { return true; }
 
 
@@ -69,6 +70,7 @@ namespace fits {
 
 	public:
 
+		
 		bool readData(const std::string& filename, bool memmap = false);
 		const int& operator [](const std::string& keyword) {}
 		void insert() {}
@@ -84,61 +86,80 @@ namespace fits {
 	bool primary_header<parsing_policy>::readData(const std::string& filename, bool requires_memmap) {
 
 		memory_mapped = requires_memmap;
-		if (!memory_mapped) {
-
-			std::ifstream input_file_stream(filename);
-
-			if (input_file_stream.is_open()) {
-
-				
-				return parser_instance.parseOnStream(input_file_stream);
-
-
-
-			}
-			// Not able to open input file 
-			return false;
-		}
-
+		if (!memory_mapped) { return parser_instance.parseOnStream(filename) };
 		
-		//boost mapped calling
-		// Code for memory mapped calling
-
-		return parser_instance.parseOnMappedFile();
+		return parser_instance.parseOnMappedFile();// Use boost mapped file interface
 
 	}
 
 
 	template<class parsing_policy>
-	bool fits_parser<parsing_policy>::parseOnStream(std::ifstream& input_file_stream) {
+	bool fits_parser<parsing_policy>::parseOnStream(const std::string& filename) {
 
-		std::istreambuf_iterator<char> inp_iter(input_file_stream);
-		std::istreambuf_iterator<char> end_of_file;
 
-		while (inp_iter != end_of_file) {
-		
-			std::string raw_card;
-			
-			// raw_card is always 80 hence reserve early to avoid reallocations
-			raw_card.reserve(80);
+		// Fetch raw card is a lambda that fetches a raw_card from the iterator
+		auto fetch_raw_card = [](std::istreambuf_iterator<char>& iter) {
+			std::string raw_card;   //Raw card containing keyword value and comments
+			raw_card.reserve(size_of_card); // raw_card is always 80 hence reserve early to avoid reallocations
+			for (int count = 0; count < size_of_card; count++) raw_card.push_back(*iter++);
+			return raw_card;
 
-			//Put character by character into the string
-			for (int count = 0; count < 80; count++) {
-			
-				raw_card.push_back(*inp_iter++);
-			
+		};
+
+
+		// Open file for reading
+		std::ifstream input_file_stream(filename);
+		if (input_file_stream.is_open()) {
+			std::istreambuf_iterator<char> inp_iter(input_file_stream); // Iterators for traversing the entire stream
+			std::istreambuf_iterator<char> end_of_file;
+
+			// Checks if atleast three cards are present as three required keywords should be present ( so 3 cards )
+			// TODO: Exceptions are activated here
+			if (auto total_card_count = std::filesystem::file_size(filename) / 80; total_card_count >= 2)
+			{
+				for (int current_card_count = 0; current_card_count < 3; current_card_count++)
+				{
+
+
+					std::string raw_card = fetch_raw_card(inp_iter); //Raw card containing keyword value and comment
+					auto keyword = getKeyword(raw_card);
+					if (!this->isRequiredKeyword_InOrder(keyword, count)) return false;
+
+					// Parse the value
+					// Put the keyword and value and offset into collection
+
+				}
+
+
+				// Parse the Cards with user defined keywords
+				while (inp_iter != end_of_file) {
+					std::string raw_card = fetch_raw_card(inp_iter); // Fetch a raw record
+					if (auto [keyword,key_type] = this->getKeyword(raw_card); keyword != std::string::empty()) {
+						
+						auto value = 0;
+						if (key_type == fits::keyword_types::reserved) {
+						
+							value = this->parseValueOf(keyword,key_type);
+						
+						}
+						else {
+						
+							value = this->parseValueOf(keyword);
+						
+						}
+
+						//put keyword and value into collection 
+
+
+					}
+					return false;
+				}
 			}
-
-			// Do rest of things here
-
-			//std::cout << raw_card << std::endl;
-		
+			// Records were not greater than or equal to 3
+			return false;
 		}
-		
-		return true;
-	
-	
+		//Unable to open the input file
+		return false;
 	}
-
 
 }
