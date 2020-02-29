@@ -3,13 +3,8 @@
 
 #include <iostream>
 #include "fits.h"
+#include "fits_standard_spec.h"
 #include <chrono>
-class DummyParsingPolicy {
-
-
-
-
-};
 
 //
 //void test_raw_fetch_header_from_buffer() {
@@ -24,7 +19,7 @@ void test_something()
 {
 
     auto start = std::chrono::high_resolution_clock::now();
-    fits::primary_header<DummyParsingPolicy> prime_header;
+    fits::primary_header<fits::fits_standard_spec> prime_header;
     prime_header.readData("F:\\Projects\\GSOC\\Boost_Primary_Fits_Header\\FITS_FILES\\FITS_SATELLITE.txt");
   
     auto end = std::chrono::high_resolution_clock::now();

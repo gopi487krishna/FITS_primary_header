@@ -6,6 +6,7 @@
 #include <iterator>
 #include <iostream>
 #include <filesystem>
+
 /**
  * @file fits.h
  * @author Gopi Krishna Menon
@@ -20,28 +21,6 @@
 namespace fits {
 
 	constexpr int size_of_card = 80;
-	class fits_standard_spec {
-
-		std::unordered_map<std::string, int> required_keywords_order;
-
-	public:
-
-		fits_standard_spec() {
-
-			required_keywords_order.reserve(3);
-
-			required_keywords_order["SIMPLE"] = 0;
-
-
-		}
-		std::string getKeyword() { return ""; }
-		std::string getValue() { return ""; }
-		bool isrequiredKeyword() { return true; }
-
-
-
-	};
-
 
 	template<typename parsing_policy>
 	class fits_parser : parsing_policy {
@@ -70,7 +49,7 @@ namespace fits {
 
 	public:
 
-		
+
 		bool readData(const std::string& filename, bool memmap = false);
 		const int& operator [](const std::string& keyword) {}
 		void insert() {}
@@ -86,8 +65,8 @@ namespace fits {
 	bool primary_header<parsing_policy>::readData(const std::string& filename, bool requires_memmap) {
 
 		memory_mapped = requires_memmap;
-		if (!memory_mapped) { return parser_instance.parseOnStream(filename) };
-		
+		if (!memory_mapped) { return parser_instance.parseOnStream(filename); }
+
 		return parser_instance.parseOnMappedFile();// Use boost mapped file interface
 
 	}
@@ -117,43 +96,49 @@ namespace fits {
 			// TODO: Exceptions are activated here
 			if (auto total_card_count = std::filesystem::file_size(filename) / 80; total_card_count >= 2)
 			{
+
+				// Check if the first three cards contain the required keywords in order
 				for (int current_card_count = 0; current_card_count < 3; current_card_count++)
 				{
 
 
 					std::string raw_card = fetch_raw_card(inp_iter); //Raw card containing keyword value and comment
-					auto keyword = getKeyword(raw_card);
-					if (!this->isRequiredKeyword_InOrder(keyword, count)) return false;
+					auto [keyword,key_class] = this->getKeyword(raw_card);					
+					
+					if (!this->isRequiredKeywordInOrder(keyword, current_card_count)) return false;
+
+
 
 					// Parse the value
 					// Put the keyword and value and offset into collection
 
 				}
 
+				
 
 				// Parse the Cards with user defined keywords
-				while (inp_iter != end_of_file) {
-					std::string raw_card = fetch_raw_card(inp_iter); // Fetch a raw record
-					if (auto [keyword,key_type] = this->getKeyword(raw_card); keyword != std::string::empty()) {
-						
-						auto value = 0;
-						if (key_type == fits::keyword_types::reserved) {
-						
-							value = this->parseValueOf(keyword,key_type);
-						
-						}
-						else {
-						
-							value = this->parseValueOf(keyword);
-						
-						}
+				//while (inp_iter != end_of_file) {
+				//	std::string raw_card = fetch_raw_card(inp_iter); // Fetch a raw record
+				//	if (auto [keyword, key_type] = this->getKeyword(raw_card); keyword != std::string::empty()) {
 
-						//put keyword and value into collection 
+				//		auto value = 0;
+				//		if (key_type == fits::keyword_types::reserved) {
+
+				//			value = this->parseValueOf(keyword, key_type);
+
+				//		}
+				//		else {
+
+				//			value = this->parseValueOf(keyword);
+
+				//		}
+
+				//		//put keyword and value into collection 
 
 
-					}
-					return false;
-				}
+				//	}
+				//	return false;
+				//}
 			}
 			// Records were not greater than or equal to 3
 			return false;
@@ -161,5 +146,9 @@ namespace fits {
 		//Unable to open the input file
 		return false;
 	}
+
+
+
+	
 
 }

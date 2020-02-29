@@ -23,5 +23,8 @@
     <ClInclude Include="fits.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="fits_standard_spec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
