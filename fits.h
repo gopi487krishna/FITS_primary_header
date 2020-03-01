@@ -98,14 +98,15 @@ namespace fits {
 			{
 
 				// Check if the first three cards contain the required keywords in order
-				for (int current_card_count = 0; current_card_count < 3; current_card_count++)
+				for (int current_card_count = 0; current_card_count < 256; current_card_count++)
 				{
 
 
 					std::string raw_card = fetch_raw_card(inp_iter); //Raw card containing keyword value and comment
 					auto [keyword,key_class] = this->getKeyword(raw_card);					
 					
-					if (!this->isRequiredKeywordInOrder(keyword, current_card_count)) return false;
+
+					//if (!this->isRequiredKeywordInOrder(keyword, current_card_count)) return false;
 
 
 
@@ -113,8 +114,6 @@ namespace fits {
 					// Put the keyword and value and offset into collection
 
 				}
-
-				
 
 				// Parse the Cards with user defined keywords
 				//while (inp_iter != end_of_file) {

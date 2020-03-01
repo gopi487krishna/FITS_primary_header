@@ -1,18 +1,24 @@
 #pragma once
 
+#include<complex>
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <variant>
 
 
 namespace fits {
 	class fits_standard_spec {
 
+		// This puppy costs a lot ( 40 bytes ) per value
+		// Optimizations are under way
+		using value_type = std::variant<std::string, int, float, bool, std::complex<int>, std::complex<double>>;
 		enum keyword_class {
 
 			reserved,
 			user_defined,
 			blank,
+			no_value,
 			none
 
 		};
@@ -96,7 +102,8 @@ namespace fits {
 					if (isReservedKeyword(keyword)) { key_class = keyword_class::reserved; result_keyword = std::move(keyword); }
 					else {
 
-						key_class = keyword_class::none;
+						result_keyword = std::move(keyword);
+						key_class = keyword_class::no_value;
 					}
 				}
 			}
