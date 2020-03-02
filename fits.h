@@ -10,17 +10,7 @@
 // For testing
 #include <variant>
 
-/**
- * @file fits.h
- * @author Gopi Krishna Menon
- * @details Contains the classes to parse FITS files
-*/
 
-
-/**
- * @brief This namespace contains all the classes required to parse the FITS primary header
- * @author Gopi Krishna Menon
-*/
 namespace fits {
 
 	constexpr int size_of_card = 80;
@@ -36,14 +26,6 @@ namespace fits {
 	};
 
 
-
-	/**
-	 * @brief	The main class for parsing the primary header of a FITS file
-	 * @details	Primary Header is responsible for reading the data from the data file and parse the data and provide the ability for the
-	 *          user to query a keywords value or write/update a  CARD back into the file
-	 * @author	Gopi Krishna Menon
-
-	*/
 	template<class parsing_policy>
 	class primary_header {
 
@@ -96,8 +78,6 @@ namespace fits {
 			std::istreambuf_iterator<char> end_of_file;
 
 			// Checks if atleast three cards are present as three required keywords should be present ( so 3 cards )
-			// TODO: Exceptions are activated here
-			//std::cout.precision(20);
 			if (auto total_card_count = std::filesystem::file_size(filename) / 80; total_card_count >= 2)
 			{
 
@@ -112,24 +92,7 @@ namespace fits {
 
 					auto value = this->getValue(raw_card, keyword, key_class);
 
-					/*if (auto ptr = std::get_if<char>(&value); ptr) {
-						std::cout << "Hold Logical\t "<< keyword<<"\t"<< *ptr << '\n';
-
-					}
-					else if(auto ptr= std::get_if<std::string>(&value); ptr) {
-
-						std::cout << "Hold String\t " << keyword << "\t" << *ptr<<'\n';
-					}
-					else if (auto ptr=std::get_if<long long>(&value);ptr){
-
-						std::cout << "Hold long\t " << keyword << "\t" << *ptr << '\n';
-					}
-					else if (auto ptr = std::get_if<double>(&value); ptr) {
-
-						std::cout << "Hold double\t " << keyword << "\t" << *ptr << '\n';
-					}*/
-
-					// Parse the value
+					
 					// Put the keyword and value and offset into collection
 				}
 
@@ -162,9 +125,4 @@ namespace fits {
 		}
 		return false; //Unable to open the input file
 	}
-
-
-
-
-
 }
