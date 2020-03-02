@@ -14,7 +14,29 @@ namespace fits {
 
 	class fits_standard_spec {
 		const std::vector<std::string>required_keywords = { "SIMPLE","BITPIX","NAXIS" };
-		const std::vector<std::string>reserved_keywords = { "HISTORY","COMMENT" };
+		const std::vector<std::pair<std::string, char>>reserved_keywords = {
+			{"HISTORY",'N'},
+			{"COMMENT",'N' },
+			{"BUNIT",'C'},
+			{"BSCALE",'F'},
+			{"BZERO",'F'},
+			{"BLANK",'I'},
+			{"DATAMAX",'F'},
+			{"DATAMIN",'F'},
+			{"DATE",'C'},
+			{"DATE-OBS",'C'},
+			{"ORIGIN",'C'},
+			{"TELESCOP",'C'},
+			{"INSTRUME",'C'},
+			{"OBSERVER",'C'},
+			{"OBJECT",'C'},
+			{"AUTHOR",'C'},
+			{"REFERENC",'C'},
+			{"EQUINOX",'F'},
+			{"BLOCKED",'L'},
+
+
+		};
 
 	public:
 		typedef std::variant<std::monostate, std::string, long long, double, char, std::complex<long long>, std::complex<double>> value_type;
@@ -35,14 +57,15 @@ namespace fits {
 		};
 		fits_standard_spec() {
 		}
-		
+
 		// Keyword Related Helpers
 		std::pair<std::string, keyword_class> getKeyword(const std::string& raw_card);
-		bool isReservedKeyword(const std::string& keyword) { return std::find(reserved_keywords.begin(), reserved_keywords.end(), keyword) != reserved_keywords.end(); }
-		bool isRequiredKeyword(const std::string& keyword) { return std::find(required_keywords.begin(), required_keywords.end(), keyword) != required_keywords.end(); }
+		bool isReservedKeyword(const std::string& keyword);
+		bool isRequiredKeyword(const std::string& keyword);
 		bool isRequiredKeywordInOrder(const std::string& keyword, int index);
-		
+
 		// Value Related Helpers
+		auto getReservedKeyPos(const std::string& keyword);
 		value_type getValue(const std::string& raw_card, const std::string& keyword, keyword_class key_class);
 		value_type getValueForReserved(const std::string& raw_card, const std::string& keyword);
 
@@ -57,6 +80,22 @@ namespace fits {
 
 
 	// Implementation ( Could be defined in terms of a compiled binary as well )
+	auto fits_standard_spec::getReservedKeyPos(const std::string& keyword) {
+	
+		return std::find_if(reserved_keywords.begin(), reserved_keywords.end(), [&keyword](std::pair<std::string, char> keyw) {return keyword == keyw.first; });
+	
+	
+	}
+	
+	bool fits_standard_spec::isReservedKeyword(const std::string& keyword) {
+		return std::find_if(reserved_keywords.begin(), reserved_keywords.end(), [&keyword](std::pair<std::string, char> keyw) {return keyword == keyw.first; }) != reserved_keywords.end();
+	}
+
+	bool fits_standard_spec::isRequiredKeyword(const std::string& keyword) {
+		return std::find(required_keywords.begin(), required_keywords.end(), keyword) != required_keywords.end();
+	}
+
+
 
 	std::pair<long long, bool> fits_standard_spec::parseInteger(const std::string& value_part) {
 
@@ -174,7 +213,50 @@ namespace fits {
 
 
 	}
-	fits_standard_spec::value_type fits_standard_spec::getValueForReserved(const std::string& raw_card, const std::string& keyword) { return std::monostate{}; }
+	fits_standard_spec::value_type fits_standard_spec::getValueForReserved(const std::string& raw_card, const std::string& keyword) {
+
+		// Need to optimize this code further
+		if (keyword == "COMMENT" | keyword == "HISTORY") {
+		
+			std::string::const_iterator starting_pos = raw_card.begin();
+
+			if (raw_card[8] == '=') {
+				std::advance(starting_pos, 9);
+			}
+			else {
+				std::advance(starting_pos, 8);
+			}	
+
+			return std::string(starting_pos, raw_card.end());
+		}
+
+		auto reserved_key_type = getReservedKeyPos(keyword)->second;
+		std::string r_c(raw_card.begin() + 10, raw_card.end());
+		boost::algorithm::trim(r_c);
+
+		if (reserved_key_type == 'L'){
+		
+			if (auto x = parseLogical(r_c); x != 'N') { return x; }
+
+		
+		}
+		else if (reserved_key_type == 'F') {
+		
+			if (auto x = parseFloatingPoint(r_c); x.second) { return x.first; }
+		
+		}
+		else if (reserved_key_type == 'I') {
+		
+			if (auto x = parseInteger(r_c); x.second) { return x.first; }
+		}
+		else if (reserved_key_type == 'C') {
+		
+			if (auto x = parseCharacterString(r_c); !x.empty()) { return x; }
+		}
+
+		return std::monostate{};
+
+	}
 	char fits_standard_spec::parseLogical(const std::string& value_part) {
 
 		if (value_part[0] == 'T' || value_part[0] == 'F') { return value_part[0]; }
@@ -191,7 +273,7 @@ namespace fits {
 		if (key_class == keyword_class::reserved) {
 
 			getValueForReserved(raw_card, keyword);
-			 
+
 
 		}
 
@@ -261,7 +343,14 @@ namespace fits {
 			if (distance == keyword.length() - 1)
 			{
 
-				if (raw_card[8] == '=' && raw_card[9] == ' ') {
+				if (isReservedKeyword(keyword)) {
+
+					// Checking whether the format is valid is done at the value end
+					key_class = keyword_class::reserved;
+					result_keyword = std::move(keyword);
+
+				}
+				else if (raw_card[8] == '=' && raw_card[9] == ' ') {
 
 					result_keyword = std::move(keyword);
 					key_class = keyword_class::user_defined;
@@ -269,12 +358,10 @@ namespace fits {
 				}
 				else {
 
-					if (isReservedKeyword(keyword)) { key_class = keyword_class::reserved; result_keyword = std::move(keyword); }
-					else {
 
-						result_keyword = std::move(keyword);
-						key_class = keyword_class::no_value;
-					}
+					result_keyword = std::move(keyword);
+					key_class = keyword_class::no_value;
+
 				}
 			}
 			else {

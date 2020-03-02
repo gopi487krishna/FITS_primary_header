@@ -27,7 +27,7 @@ namespace fits {
 
 	template<typename parsing_policy>
 	class fits_parser : parsing_policy {
-		
+
 	public:
 		bool parseOnStream(const std::string& filename);
 		bool parseOnMappedFile(/*boost mapped file here*/) { return true; }
@@ -102,70 +102,60 @@ namespace fits {
 			{
 
 				// Check if the first three cards contain the required keywords in order
-				for (int current_card_count = 0; current_card_count <3; current_card_count++)
+				for (int current_card_count = 0; current_card_count < 3; current_card_count++)
 				{
 
 					std::string raw_card = fetch_raw_card(inp_iter); //Raw card containing keyword value and comment
-					auto [keyword,key_class] = this->getKeyword(raw_card);					
-					
+					auto [keyword, key_class] = this->getKeyword(raw_card);
+
 					if (!this->isRequiredKeywordInOrder(keyword, current_card_count)) return false;
-					
+
 					auto value = this->getValue(raw_card, keyword, key_class);
-					
+
 					/*if (auto ptr = std::get_if<char>(&value); ptr) {
 						std::cout << "Hold Logical\t "<< keyword<<"\t"<< *ptr << '\n';
-					
+
 					}
 					else if(auto ptr= std::get_if<std::string>(&value); ptr) {
-					
+
 						std::cout << "Hold String\t " << keyword << "\t" << *ptr<<'\n';
 					}
 					else if (auto ptr=std::get_if<long long>(&value);ptr){
-					
+
 						std::cout << "Hold long\t " << keyword << "\t" << *ptr << '\n';
 					}
 					else if (auto ptr = std::get_if<double>(&value); ptr) {
 
 						std::cout << "Hold double\t " << keyword << "\t" << *ptr << '\n';
 					}*/
-							
+
 					// Parse the value
 					// Put the keyword and value and offset into collection
 				}
-				
 
 				// Parse the Cards with user defined keywords
 				while (inp_iter != end_of_file) {
+
 					std::string raw_card = fetch_raw_card(inp_iter); // Fetch a raw record
-					if (auto [keyword, key_class] = this->getKeyword(raw_card);key_class!= parsing_policy::keyword_class::none) {
-					
-						if (key_class ==  parsing_policy::keyword_class::no_value) {
-						  
-							typename parsing_policy::value_type val = this->getValue(raw_card, keyword, key_class);
-							if (auto ptr = std::get_if<std::monostate>(&val); ptr)
-								std::cout << keyword << "\n";
-
-							if (keyword == "END") 
-							{ 
-								break;
-							}
-							//Push the keyword with no value into the collection
-						
-
-						}
-						if (key_class ==  parsing_policy::keyword_class::reserved || key_class ==  parsing_policy::keyword_class::user_defined)
+					if (auto [keyword, key_class] = this->getKeyword(raw_card); key_class != parsing_policy::keyword_class::none) {
+						if (key_class == parsing_policy::keyword_class::reserved || key_class == parsing_policy::keyword_class::user_defined)
 						{
 							typename parsing_policy::value_type val = this->getValue(raw_card, keyword, key_class);
-							if (auto ptr = std::get_if<std::monostate>(&val); !ptr)
-								std::cout << keyword << "\n";
+						//Push the keyword with no value into the collection
+
+						}
+
+						if (key_class == parsing_policy::keyword_class::no_value) {
+
+								if (keyword == "END")
+								{
+									break;
+								}
 							//Push the keyword with no value into the collection
 
 						}
-						
-					
 					}
 					else { return false; }
-
 				}
 			}
 			return false; // Records were not greater than or equal to 3 ( Fails to satify basic fits requirements )
@@ -175,6 +165,6 @@ namespace fits {
 
 
 
-	
+
 
 }
