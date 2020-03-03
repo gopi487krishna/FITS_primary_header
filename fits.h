@@ -17,6 +17,7 @@ namespace fits {
 
 	template<typename parsing_policy>
 	class fits_parser : parsing_policy {
+		std::unordered_multimap<std::string, typename parsing_policy::value_type> header_data;
 
 	public:
 		bool parseOnStream(const std::string& filename);
@@ -28,6 +29,7 @@ namespace fits {
 
 	template<class parsing_policy>
 	class primary_header {
+
 
 		bool memory_mapped{ false };
 		fits_parser<parsing_policy> parser_instance;
@@ -86,40 +88,65 @@ namespace fits {
 				{
 
 					std::string raw_card = fetch_raw_card(inp_iter); //Raw card containing keyword value and comment
-					auto [keyword, key_class] = this->getKeyword(raw_card);
+					auto [keyword, key_class, multi_valued] = this->getKeyword(raw_card);
 
 					if (!this->isRequiredKeywordInOrder(keyword, current_card_count)) return false;
 
 					auto value = this->getValue(raw_card, keyword, key_class);
 
-					
-					// Put the keyword and value and offset into collection
+
+					if (auto key_iter = header_data.find(keyword); key_iter == header_data.end()) {
+						header_data.insert({ keyword,value });
+					}
+					else {
+						key_iter->second = value;
+
+					}
+
 				}
 
 				// Parse the Cards with user defined keywords
 				while (inp_iter != end_of_file) {
 
 					std::string raw_card = fetch_raw_card(inp_iter); // Fetch a raw record
-					if (auto [keyword, key_class] = this->getKeyword(raw_card); key_class != parsing_policy::keyword_class::none) {
+					if (auto [keyword, key_class, multivalued] = this->getKeyword(raw_card); key_class != parsing_policy::keyword_class::none) {
 						if (key_class == parsing_policy::keyword_class::reserved || key_class == parsing_policy::keyword_class::user_defined)
 						{
-							typename parsing_policy::value_type val = this->getValue(raw_card, keyword, key_class);
-						//Push the keyword with no value into the collection
+							typename parsing_policy::value_type value = this->getValue(raw_card, keyword, key_class);
+							
+							if (auto k_iter = header_data.find(keyword); k_iter != header_data.end() && !multivalued) {
+							
+								k_iter->second = value;
+							
+							}
+							else {
+							
+								header_data.insert({ keyword,value });
+							}
+
+							
 
 						}
 
 						if (key_class == parsing_policy::keyword_class::no_value) {
 
-								if (keyword == "END")
-								{
-									break;
-								}
-							//Push the keyword with no value into the collection
+							if (keyword == "END")
+							{
+								break;
+							}
+							header_data.insert({ keyword,std::monostate{} });
+
+
 
 						}
 					}
 					else { return false; }
 				}
+
+				auto dat = header_data.find("BSCALE")->second;
+
+				std::cout << "BAXIS" << *std::get_if<double>(&(header_data.find("BSCALE")->second));
+
 			}
 			return false; // Records were not greater than or equal to 3 ( Fails to satify basic fits requirements )
 		}

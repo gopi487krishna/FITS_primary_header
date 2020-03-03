@@ -12,28 +12,29 @@ namespace fits {
 
 
 
+
 	class fits_standard_spec {
 		const std::vector<std::string>required_keywords = { "SIMPLE","BITPIX","NAXIS" };
-		const std::vector<std::pair<std::string, char>>reserved_keywords = {
-			{"HISTORY",'N'},
-			{"COMMENT",'N' },
-			{"BUNIT",'C'},
-			{"BSCALE",'F'},
-			{"BZERO",'F'},
-			{"BLANK",'I'},
-			{"DATAMAX",'F'},
-			{"DATAMIN",'F'},
-			{"DATE",'C'},
-			{"DATE-OBS",'C'},
-			{"ORIGIN",'C'},
-			{"TELESCOP",'C'},
-			{"INSTRUME",'C'},
-			{"OBSERVER",'C'},
-			{"OBJECT",'C'},
-			{"AUTHOR",'C'},
-			{"REFERENC",'C'},
-			{"EQUINOX",'F'},
-			{"BLOCKED",'L'},
+		const std::vector<std::pair<std::string, std::pair<char,bool>>>reserved_keywords = {
+			{"HISTORY",{'N',true}},
+			{"COMMENT",{'N', true}},
+			{"BUNIT",{'C', false}},
+			{"BSCALE",{'F',false}},
+			{"BZERO",{'F',false }},
+			{"BLANK",{'I',false}},
+			{"DATAMAX",{'F',false }},
+			{"DATAMIN",{'F',false}},
+			{"DATE",{'C',false}},
+			{"DATE-OBS",{'C',false }},
+			{"ORIGIN",{'C',false}},
+			{"TELESCOP",{'C',false}},
+			{"INSTRUME",{'C',false}},
+			{"OBSERVER",{'C',false }},
+			{"OBJECT",{'C',false}},
+			{"AUTHOR",{'C',false}},
+			{"REFERENC",{'C',false }},
+			{"EQUINOX",{'F',false}},
+			{"BLOCKED",{'L',false}},
 
 
 		};
@@ -55,11 +56,20 @@ namespace fits {
 			variable
 
 		};
+
+		struct keyword_info {
+
+			std::string name;
+			keyword_class key_class;
+			bool multivalued{false};
+
+		};
+
 		fits_standard_spec() {
 		}
 
 		// Keyword Related Helpers
-		std::pair<std::string, keyword_class> getKeyword(const std::string& raw_card);
+		keyword_info getKeyword(const std::string& raw_card);
 		bool isReservedKeyword(const std::string& keyword);
 		bool isRequiredKeyword(const std::string& keyword);
 		bool isRequiredKeywordInOrder(const std::string& keyword, int index);
@@ -82,13 +92,13 @@ namespace fits {
 	// Implementation ( Could be defined in terms of a compiled binary as well )
 	auto fits_standard_spec::getReservedKeyPos(const std::string& keyword) {
 	
-		return std::find_if(reserved_keywords.begin(), reserved_keywords.end(), [&keyword](std::pair<std::string, char> keyw) {return keyword == keyw.first; });
+		return std::find_if(reserved_keywords.begin(), reserved_keywords.end(), [&keyword](std::pair<std::string, std::pair<char, bool>> keyw) {return keyword == keyw.first; });
 	
 	
 	}
 	
 	bool fits_standard_spec::isReservedKeyword(const std::string& keyword) {
-		return std::find_if(reserved_keywords.begin(), reserved_keywords.end(), [&keyword](std::pair<std::string, char> keyw) {return keyword == keyw.first; }) != reserved_keywords.end();
+		return std::find_if(reserved_keywords.begin(), reserved_keywords.end(), [&keyword](std::pair<std::string, std::pair<char,bool>> keyw) {return keyword == keyw.first; }) != reserved_keywords.end();
 	}
 
 	bool fits_standard_spec::isRequiredKeyword(const std::string& keyword) {
@@ -230,7 +240,7 @@ namespace fits {
 			return std::string(starting_pos, raw_card.end());
 		}
 
-		auto reserved_key_type = getReservedKeyPos(keyword)->second;
+		auto reserved_key_type = getReservedKeyPos(keyword)->second.first;
 		std::string r_c(raw_card.begin() + 10, raw_card.end());
 		boost::algorithm::trim(r_c);
 
@@ -271,13 +281,8 @@ namespace fits {
 
 		// Check for  Logical 
 		if (key_class == keyword_class::reserved) {
-
-			getValueForReserved(raw_card, keyword);
-
-
+			return getValueForReserved(raw_card, keyword);
 		}
-
-
 		if (key_class == keyword_class::user_defined) {
 
 
@@ -312,12 +317,11 @@ namespace fits {
 		// Not in spec pos
 		return false;
 	}
-	std::pair<std::string, fits_standard_spec::keyword_class> fits_standard_spec::getKeyword(const std::string& raw_card) {
+	fits_standard_spec::keyword_info fits_standard_spec::getKeyword(const std::string& raw_card) {
 
+		keyword_info key_info;
 
-		std::string result_keyword; // Will store the keyword
-		keyword_class key_class;
-
+		
 		auto keyword_start_pos = raw_card.begin();
 		auto keyword_end_pos = keyword_start_pos + 7;
 
@@ -325,7 +329,7 @@ namespace fits {
 
 		if (keyword_end_pos == keyword_start_pos && *keyword_end_pos == ' ') {
 
-			key_class = keyword_class::blank;
+			key_info.key_class = keyword_class::blank;
 
 		}
 		else {
@@ -343,36 +347,37 @@ namespace fits {
 			if (distance == keyword.length() - 1)
 			{
 
-				if (isReservedKeyword(keyword)) {
+				if (auto element = getReservedKeyPos(keyword); element!=reserved_keywords.end()) {
 
 					// Checking whether the format is valid is done at the value end
-					key_class = keyword_class::reserved;
-					result_keyword = std::move(keyword);
+					key_info.key_class = keyword_class::reserved;
+					key_info.name = std::move(keyword);
+					key_info.multivalued = element->second.second;
 
 				}
 				else if (raw_card[8] == '=' && raw_card[9] == ' ') {
 
-					result_keyword = std::move(keyword);
-					key_class = keyword_class::user_defined;
+					key_info.name = std::move(keyword);
+					key_info.key_class = keyword_class::user_defined;
 
 				}
 				else {
 
 
-					result_keyword = std::move(keyword);
-					key_class = keyword_class::no_value;
+					key_info.name = std::move(keyword);
+					key_info.key_class = keyword_class::no_value;
 
 				}
 			}
 			else {
 
-				key_class = keyword_class::none;
+				key_info.key_class = keyword_class::none;
 
 			}
 		}
 
 		// Return the keyword along with its class
-		return { result_keyword,key_class };
+		return key_info;
 
 	}
 
