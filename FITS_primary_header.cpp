@@ -20,7 +20,7 @@ void test_something()
 
     auto start = std::chrono::high_resolution_clock::now();
     fits::primary_header<fits::fits_standard_spec> prime_header;
-    prime_header.readData("F:\\Projects\\GSOC\\Boost_Primary_Fits_Header\\FITS_FILES\\FITS_SATELLITE.txt");
+    prime_header.readData("FITS_SATELLITE.txt",fits::reading_mode::stream);
   
     auto end = std::chrono::high_resolution_clock::now();
     auto time = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
