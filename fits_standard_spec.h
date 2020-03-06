@@ -15,7 +15,7 @@ namespace fits {
 
 	class fits_standard_spec {
 		const std::vector<std::string>required_keywords = { "SIMPLE","BITPIX","NAXIS" };
-		const std::vector<std::pair<std::string, std::pair<char,bool>>>reserved_keywords = {
+		const std::vector<std::pair<std::string, std::pair<char, bool>>>reserved_keywords = {
 			{"HISTORY",{'N',true}},
 			{"COMMENT",{'N', true}},
 			{"BUNIT",{'C', false}},
@@ -61,7 +61,7 @@ namespace fits {
 
 			std::string name;
 			keyword_class key_class;
-			bool multivalued{false};
+			bool multivalued{ false };
 
 		};
 
@@ -76,8 +76,8 @@ namespace fits {
 
 		// Value Related Helpers
 		auto getReservedKeyPos(const std::string& keyword);
-		value_type getValue(const std::string& raw_card, const std::string& keyword, keyword_class key_class);
-		value_type getValueForReserved(const std::string& raw_card, const std::string& keyword);
+		value_type parseValue(const std::string& raw_card, const std::string& keyword, keyword_class key_class);
+		value_type parseValueForReserved(const std::string& raw_card, const std::string& keyword);
 
 		// Type parse related Helpers
 		char parseLogical(const std::string& value_part);
@@ -85,20 +85,98 @@ namespace fits {
 		std::pair<long long, bool> parseInteger(const std::string& value_part);
 		std::pair<double, bool>parseFloatingPoint(const std::string& value_part);
 
+		template<typename Type>
+		std::pair<std::complex<Type>, bool> parse_fixed_Complex(const std::string& value_part);
+
+		template<typename Type>
+		std::pair<std::complex<Type>, bool> parse_Complex(const std::string& value_part);
 	};
 
+	//----------------------------------------------------------------------------------------------------------------------------
+
+	// Is it really required here ? . I have to research
+
+	template<typename T>
+	struct get_spirit_type { typedef typename  T value_type; };
+
+	template<>
+	struct get_spirit_type<long long> { static inline auto value_type = boost::spirit::qi::long_long; };
+	template<>
+	struct get_spirit_type<double> { static inline auto value_type = boost::spirit::qi::double_; };
+	template<>
+	struct get_spirit_type<int> { static inline auto value_type = boost::spirit::qi::int_; };
+
+	//-----------------------------------------------------------------------------------------------------------------------------
+
+	template<typename Type>
+	std::pair<std::complex<Type>, bool> fits_standard_spec::parse_Complex(const std::string& value_part) {
+
+		auto starting_position = value_part.begin();
+		auto current_position = starting_position;
+		auto comment_position = std::find(starting_position, value_part.end(), '/');
+		auto ending_position = comment_position;
+
+		// Remove spaces before '/'
+		while (*ending_position == ' ' && ending_position != starting_position) { ending_position--; }
+
+		// Parse Real Part
+		Type real_part{ 0 };
+		Type imaginary_part{ 0 };
+
+		// Get the real part
+		boost::spirit::qi::parse(current_position, ending_position, get_spirit_type<Type>::value_type, real_part);
+
+		if (current_position == ending_position) {
+			// Imaginary value is 0
+			return { std::complex<Type>(), false };
+		}
+		else if (*current_position == ' ') {
+			while (*current_position == ' ') current_position++;
+			boost::spirit::qi::parse(current_position, ending_position, get_spirit_type<Type>::value_type, imaginary_part);
+
+			if (current_position == ending_position) {
+				return { std::complex<Type>(real_part,imaginary_part),true };
+			};
+
+		}
+		return { std::complex<Type>(),false };
+
+	}
+
+	template<typename Type>
+	std::pair<std::complex<Type>, bool> fits_standard_spec::parse_fixed_Complex(const std::string& value_part) {
+
+		Type real_part{ 0 };
+		Type imaginary_part{ 0 };
+
+		auto starting_position = value_part.begin();
+		auto current_position = starting_position;
+		auto real_end_position = current_position + 30;
+
+		if (boost::spirit::qi::parse(current_position, real_end_position, get_spirit_type<Type>::value_type, real_part) && std::distance(current_position, starting_position) == 29) {
+
+			// Clear the leading spaces before imaginary number
+			while (*current_position == ' ') { current_position++; }
+			if (boost::spirit::qi::parse(current_position, value_part.end(), get_spirit_type<Type>::value_type, imaginary_part) && std::distance(current_position, starting_position) == 49) {
+
+				return { std::complex<Type>(real_part,imaginary_part),true };
 
 
+			}
+		}
+
+		return { std::complex<Type>(),false };
+	}
 	// Implementation ( Could be defined in terms of a compiled binary as well )
 	auto fits_standard_spec::getReservedKeyPos(const std::string& keyword) {
-	
+
 		return std::find_if(reserved_keywords.begin(), reserved_keywords.end(), [&keyword](std::pair<std::string, std::pair<char, bool>> keyw) {return keyword == keyw.first; });
-	
-	
+
+
 	}
-	
+
 	bool fits_standard_spec::isReservedKeyword(const std::string& keyword) {
-		return std::find_if(reserved_keywords.begin(), reserved_keywords.end(), [&keyword](std::pair<std::string, std::pair<char,bool>> keyw) {return keyword == keyw.first; }) != reserved_keywords.end();
+		return std::find_if(reserved_keywords.begin(), reserved_keywords.end(), [&keyword](std::pair<std::string, std::pair<char, bool>> keyw) {return keyword == keyw.first; }) != reserved_keywords.end();
 	}
 
 	bool fits_standard_spec::isRequiredKeyword(const std::string& keyword) {
@@ -223,11 +301,11 @@ namespace fits {
 
 
 	}
-	fits_standard_spec::value_type fits_standard_spec::getValueForReserved(const std::string& raw_card, const std::string& keyword) {
+	fits_standard_spec::value_type fits_standard_spec::parseValueForReserved(const std::string& raw_card, const std::string& keyword) {
 
 		// Need to optimize this code further
 		if (keyword == "COMMENT" | keyword == "HISTORY") {
-		
+
 			std::string::const_iterator starting_pos = raw_card.begin();
 
 			if (raw_card[8] == '=') {
@@ -235,7 +313,7 @@ namespace fits {
 			}
 			else {
 				std::advance(starting_pos, 8);
-			}	
+			}
 
 			return std::string(starting_pos, raw_card.end());
 		}
@@ -244,23 +322,23 @@ namespace fits {
 		std::string r_c(raw_card.begin() + 10, raw_card.end());
 		boost::algorithm::trim(r_c);
 
-		if (reserved_key_type == 'L'){
-		
+		if (reserved_key_type == 'L') {
+
 			if (auto x = parseLogical(r_c); x != 'N') { return x; }
 
-		
+
 		}
 		else if (reserved_key_type == 'F') {
-		
+
 			if (auto x = parseFloatingPoint(r_c); x.second) { return x.first; }
-		
+
 		}
 		else if (reserved_key_type == 'I') {
-		
+
 			if (auto x = parseInteger(r_c); x.second) { return x.first; }
 		}
 		else if (reserved_key_type == 'C') {
-		
+
 			if (auto x = parseCharacterString(r_c); !x.empty()) { return x; }
 		}
 
@@ -275,13 +353,13 @@ namespace fits {
 		return 'N';
 
 	}
-	fits_standard_spec::value_type fits_standard_spec::getValue(const std::string& raw_card, const std::string& keyword, keyword_class key_class) {
+	fits_standard_spec::value_type fits_standard_spec::parseValue(const std::string& raw_card, const std::string& keyword, keyword_class key_class) {
 
 
 
 		// Check for  Logical 
 		if (key_class == keyword_class::reserved) {
-			return getValueForReserved(raw_card, keyword);
+			return parseValueForReserved(raw_card, keyword);
 		}
 		if (key_class == keyword_class::user_defined) {
 
@@ -292,11 +370,19 @@ namespace fits {
 
 			if (auto x = parseLogical(r_c); x != 'N') { return x; }
 
-			if (auto x = parseCharacterString(r_c); !x.empty()) { return x; }
+			else if (auto x = parseCharacterString(r_c); !x.empty()) { return x; }
 
-			if (auto x = parseInteger(r_c); x.second) { return x.first; }
+			else if (auto x = parseInteger(r_c); x.second) { return x.first; }
 
-			if (auto x = parseFloatingPoint(r_c); x.second) { return x.first; }
+			else if (auto x = parseFloatingPoint(r_c); x.second) { return x.first; }
+
+			else if (auto x = parse_fixed_Complex<long long>(r_c); x.second) { return x.first; }
+
+			else if (auto x = parse_fixed_Complex<double>(r_c); x.second) { return x.first; }
+
+			else if (auto x = parse_Complex<long long>(r_c); x.second) { return x.first; }
+
+			else if (auto x = parse_Complex<double>(r_c); x.second) { return x.first; }
 
 
 		}
@@ -321,7 +407,7 @@ namespace fits {
 
 		keyword_info key_info;
 
-		
+
 		auto keyword_start_pos = raw_card.begin();
 		auto keyword_end_pos = keyword_start_pos + 7;
 
@@ -347,7 +433,7 @@ namespace fits {
 			if (distance == keyword.length() - 1)
 			{
 
-				if (auto element = getReservedKeyPos(keyword); element!=reserved_keywords.end()) {
+				if (auto element = getReservedKeyPos(keyword); element != reserved_keywords.end()) {
 
 					// Checking whether the format is valid is done at the value end
 					key_info.key_class = keyword_class::reserved;

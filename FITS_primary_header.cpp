@@ -6,33 +6,90 @@
 #include "fits_standard_spec.h"
 #include <chrono>
 
-//
-//void test_raw_fetch_header_from_buffer() {
-//
-//    fits::primary_header<DummyParsingPolicy> primeheader;
-//    primeheader.readData("FITS_SATELLITE.txt");
-//
-//    primeheader.printrawCards(801);
-//}
 
-void test_something() 
+
+#ifdef LOCAL
+
+std::string filename("F:\\Projects\\GSOC\\Boost_Primary_Fits_Header\\FITS_FILES\\FITS_SATELLITE.txt");
+
+
+#else
+std::string filename("FITS_SATELLITE.txt");
+
+#endif // LOCAL
+
+
+
+void test_memory_mapped() 
 {
-
-    auto start = std::chrono::high_resolution_clock::now();
     fits::primary_header<fits::fits_standard_spec> prime_header;
-    prime_header.readData("FITS_SATELLITE.txt",fits::reading_mode::stream);
-  
+    auto start = std::chrono::high_resolution_clock::now();
+    prime_header.readData(filename,fits::reading_mode::memory_map);
+    /*std::cout.precision(20);
+    auto values = prime_header.get<std::vector<std::string>>("HISTORY");
+    if (values) {
+        
+        for(auto& value: *values)
+        std::cout << value<<"\n"; 
+    }
+    auto single = prime_header.get<double>("MEANC100");
+    if (single) { std::cout << *single << "\n"; }*/
     auto end = std::chrono::high_resolution_clock::now();
     auto time = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
 
-    std::cout << "Done: " << time.count();
+    std::cout << "Done: " << time.count() << "\n";
 
 }
+void test_stream_based()
+{
+    fits::primary_header<fits::fits_standard_spec> prime_header;
+    auto start = std::chrono::high_resolution_clock::now();
+    prime_header.readData(filename, fits::reading_mode::stream);
+    /*std::cout.precision(20);
+    auto values = prime_header.get<std::vector<std::string>>("HISTORY");
+    if (values) {
+
+        for(auto& value: *values)
+        std::cout << value<<"\n";
+    }
+    auto single = prime_header.get<double>("MEANC100");
+    if (single) { std::cout << *single << "\n"; }*/
+    auto end = std::chrono::high_resolution_clock::now();
+    auto time = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+
+    std::cout << "Done: " << time.count() << "\n";
+
+}
+void test_string_buffer()
+{
+    fits::primary_header<fits::fits_standard_spec> prime_header;
+    auto start = std::chrono::high_resolution_clock::now();
+    prime_header.readData(filename, fits::reading_mode::string_buffer);
+    /*std::cout.precision(20);
+    auto values = prime_header.get<std::vector<std::string>>("HISTORY");
+    if (values) {
+
+        for(auto& value: *values)
+        std::cout << value<<"\n";
+    }
+    auto single = prime_header.get<double>("MEANC100");
+    if (single) { std::cout << *single << "\n"; }*/
+    auto end = std::chrono::high_resolution_clock::now();
+    auto time = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+
+    std::cout << "Done: " << time.count()<<"\n";
+
+}
+
+
+
 int main(){
     
-   
     //test_raw_fetch_header_from_buffer();
-    test_something();
+    test_memory_mapped();
+    test_stream_based();
+    test_string_buffer();
+
     std::cin.get();
 }
 
