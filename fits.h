@@ -101,6 +101,12 @@ namespace fits {
 
 			if (!std::any_of(scheduled_for_write.begin(), scheduled_for_write.end(), [position](std::pair<int, std::string>sch_write) {return position == sch_write.first && position != -1; })) {
 				scheduled_for_write.push_back({ position,result_string });
+				if (parsing_policy::isMultivalued(keyword) || header_data.find(keyword)==header_data.end() ) {
+				
+					header_data.insert({ keyword,comment });
+				
+				}
+				
 				return true;
 			}
 			return false;
@@ -147,12 +153,27 @@ namespace fits {
 			// We have the card now
 			if (position == -1) {
 				scheduled_for_write.push_back({ position,result_string });
+				if (auto iter_pos = header_data.find(keyword); parsing_policy::isMultivalued(keyword) ||iter_pos== header_data.end()) {
+
+					header_data.insert({ keyword,value });
+				}
+				else {
+					iter_pos->second = value;					
+				}
+
 				return true;
 			}
 			else {
 				if (!std::any_of(scheduled_for_write.begin(), scheduled_for_write.end(), [position](std::pair<int, std::string>sch_write) {return position == sch_write.first && position != -1; })) {
 
 					scheduled_for_write.push_back({ position,result_string });
+					if (auto iter_pos = header_data.find(keyword); parsing_policy::isMultivalued(keyword) || iter_pos == header_data.end()) {
+
+						header_data.insert({ keyword,value });
+					}
+					else {
+						iter_pos->second = value;
+					}
 					return true;
 				}
 				return false;
@@ -209,7 +230,7 @@ namespace fits {
 				while (starting_pos != pos_iter) {
 
 					std::copy(starting_pos->second.begin(), starting_pos->second.end(), std::ostreambuf_iterator<char>(output_file));
-
+					starting_pos++;
 				}
 
 

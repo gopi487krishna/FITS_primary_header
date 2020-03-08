@@ -26,9 +26,27 @@ void test_memory_mapped()
     auto start = std::chrono::high_resolution_clock::now();
    auto result= prime_header.readData(filename,fits::reading_mode::memory_map);
    
-    prime_header.insert("HISTORY", "This is the first record", 4);
-    prime_header.insert("KEANUSAN", long long(487),4,"KATTA");
-    prime_header.writeToFile("MASTER.txt");
+    prime_header.insert("HISTORY", "This is the first record", -1);
+    prime_header.insert("KEANUSAN", long long(487),-1,"KATTA");
+    prime_header.insert("COMMENT", "I love this baby", 5);
+    prime_header.insert("GOPI", long long(487), -1, "THE SBAONE");
+
+
+    auto m=prime_header.writeToFile("MASTER.txt");
+
+    auto value=prime_header.get<long long>("GOPI");
+    auto value2 = prime_header.get<long long>("KEANUSAN");
+
+    std::cout << *value << std::endl;
+    std::cout << *value2 << std::endl;
+
+    auto his_vec = prime_header.get<std::vector<std::string>>("HISTORY");
+    
+    for (auto element : *his_vec) {
+    
+        std::cout << element << std::endl;
+    }
+
     /*std::cout.precision(20);
     auto values = prime_header.get<std::vector<std::string>>("HISTORY");
     if (values) {

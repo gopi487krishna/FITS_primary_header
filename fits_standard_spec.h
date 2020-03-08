@@ -73,6 +73,7 @@ namespace fits {
 		bool isReservedKeyword(const std::string& keyword);
 		bool isRequiredKeyword(const std::string& keyword);
 		bool isRequiredKeywordInOrder(const std::string& keyword, int index);
+		bool isMultivalued(const std::string& keyword);
 
 		// Value Related Helpers
 		auto getReservedKeyPos(const std::string& keyword);
@@ -100,6 +101,11 @@ namespace fits {
 	};
 
 	//----------------------------------------------------------------------------------------------------------------------------
+
+
+	bool fits_standard_spec::isMultivalued(const std::string& keyword) {
+		return std::any_of(reserved_keywords.begin(), reserved_keywords.end(), [](const std::pair<std::string, std::pair<char, bool>>& r_key) {return r_key.second.second; });	
+	}
 
 	std::string fits_standard_spec::cnvToString(long long value) {
 	
