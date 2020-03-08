@@ -6,7 +6,7 @@
 #include "fits_standard_spec.h"
 #include <chrono>
 
-
+#define LOCAL
 
 #ifdef LOCAL
 
@@ -25,6 +25,9 @@ void test_memory_mapped()
     fits::primary_header<fits::fits_standard_spec> prime_header;
     auto start = std::chrono::high_resolution_clock::now();
     prime_header.readData(filename,fits::reading_mode::memory_map);
+   
+    prime_header.insert("HISTORY", "This is the first record", 4);
+    prime_header.insert("KEANUSAN", long long(487),4,"KATTA");
     /*std::cout.precision(20);
     auto values = prime_header.get<std::vector<std::string>>("HISTORY");
     if (values) {
@@ -45,6 +48,7 @@ void test_stream_based()
     fits::primary_header<fits::fits_standard_spec> prime_header;
     auto start = std::chrono::high_resolution_clock::now();
     prime_header.readData(filename, fits::reading_mode::stream);
+
     /*std::cout.precision(20);
     auto values = prime_header.get<std::vector<std::string>>("HISTORY");
     if (values) {
@@ -87,8 +91,8 @@ int main(){
     
     //test_raw_fetch_header_from_buffer();
     test_memory_mapped();
-    test_stream_based();
-    test_string_buffer();
+    /*test_stream_based();
+    test_string_buffer();*/
 
     std::cin.get();
 }
