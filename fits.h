@@ -182,13 +182,14 @@ namespace fits {
 
 			while (current_offset != end_offset) {
 
-				auto card_pos = std::find_if(scheduled_for_write.begin(), scheduled_for_write.end(), [current_offset](std::pair<int, std::string>sch_write) {
+				auto card_pos = std::find_if(scheduled_for_write.begin(), scheduled_for_write.end(), [current_offset](std::pair<int, std::string>& sch_write) {
 					return current_offset == sch_write.first;
 					});
 
 				if (card_pos != scheduled_for_write.end()) {
-
-					std::copy(card_pos->second.begin(), card_pos->second().end(), std::ostreambuf_iterator<char>(output_file));
+					
+					
+					std::copy(card_pos->second.begin(), card_pos->second.end(), std::ostreambuf_iterator<char>(output_file));
 
 				}
 				else {
@@ -207,7 +208,7 @@ namespace fits {
 				auto starting_pos = scheduled_for_write.begin();
 				while (starting_pos != pos_iter) {
 
-					std::copy(starting_pos->second.begin(), starting_pos->second().end(), std::ostreambuf_iterator<char>(output_file));
+					std::copy(starting_pos->second.begin(), starting_pos->second.end(), std::ostreambuf_iterator<char>(output_file));
 
 				}
 
@@ -216,9 +217,9 @@ namespace fits {
 
 			// Copy the rest of the data as it is
 			std::copy(current_ipfile_pos, end_ipfile_pos, std::ostreambuf_iterator<char>(output_file));
-
+			return true;
 		}
-
+		return false;
 	}
 
 	//-------------------  FOR TAG DISPATCHING -------------------------------------------------------------------//
@@ -330,9 +331,8 @@ namespace fits {
 
 	template<class parsing_policy>
 	bool fits_parser<parsing_policy>::parseCard(const std::string& raw_card, int& card_count, bool& found_end, int header_size_hint) {
-
+		
 		++card_count;
-
 		header_data.reserve(header_size_hint);
 		// found_end will only be set to true when the END keyword is found
 		found_end = false;
@@ -343,7 +343,7 @@ namespace fits {
 			auto [keyword, keyword_class, _] = this->getKeyword(raw_card);
 			if (!keyword.empty()) {
 				// No need to check for keyword class here because it is automatically check by the check below
-				if (this->isRequiredKeywordInOrder(keyword, card_count)) {
+				if (this->isRequiredKeywordInOrder(keyword, card_count-1)) {
 					auto value = this->parseValue(raw_card, keyword, keyword_class);
 					if (auto key_iter = header_data.find(keyword); key_iter == header_data.end()) {
 						offset_map[keyword] = card_count;

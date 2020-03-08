@@ -24,10 +24,11 @@ void test_memory_mapped()
 {
     fits::primary_header<fits::fits_standard_spec> prime_header;
     auto start = std::chrono::high_resolution_clock::now();
-    prime_header.readData(filename,fits::reading_mode::memory_map);
+   auto result= prime_header.readData(filename,fits::reading_mode::memory_map);
    
     prime_header.insert("HISTORY", "This is the first record", 4);
     prime_header.insert("KEANUSAN", long long(487),4,"KATTA");
+    prime_header.writeToFile("MASTER.txt");
     /*std::cout.precision(20);
     auto values = prime_header.get<std::vector<std::string>>("HISTORY");
     if (values) {
