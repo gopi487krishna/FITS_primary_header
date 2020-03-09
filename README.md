@@ -4,8 +4,8 @@
 
 It provides the users with a *clean* and *easy to use* API with support for *reading*, *writing* and *accessing* header data of FITS file.
 
-
+**Note :** This API is developed as a part of GSOC Programming Competency Test for Boost.org under the Astronomy Section.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNTcwMjA0NTIsMjExOTk0MDE2NywxOD
-EzNTA5NDY2LDExMTQxMTk3MTBdfQ==
+eyJoaXN0b3J5IjpbMzA4NjU2NDcxLDIxMTk5NDAxNjcsMTgxMz
+UwOTQ2NiwxMTE0MTE5NzEwXX0=
 -->
