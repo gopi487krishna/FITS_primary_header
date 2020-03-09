@@ -55,12 +55,14 @@ int main(){
     std::cin.get();
 }
 ```
+## Basic Structure of FITS Reader
 
+The FITS Reader API is divided into two classes and one polof which only two 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjg3NTY4OTgzLDEzMzc4NjUwNjksOTc5Mj
-AzNTE5LDIxMTc5MDQ0NjcsMTA1Nzg2MzY4MiwxMTQxNzEwNzA0
-LDMwODM4NDM4OSwyMTE5OTQwMTY3LDE4MTM1MDk0NjYsMTExND
-ExOTcxMF19
+eyJoaXN0b3J5IjpbMzkzODYzMTA3LDI4NzU2ODk4MywxMzM3OD
+Y1MDY5LDk3OTIwMzUxOSwyMTE3OTA0NDY3LDEwNTc4NjM2ODIs
+MTE0MTcxMDcwNCwzMDgzODQzODksMjExOTk0MDE2NywxODEzNT
+A5NDY2LDExMTQxMTk3MTBdfQ==
 -->
