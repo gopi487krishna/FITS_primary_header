@@ -59,14 +59,15 @@ int main(){
 
 The FITS Reader API is divided into two classes and one policy of which any class that follows the contract of policy is accepted ( Policy is enforced at compile time not runtime ).
 
-<a href='https://photos.google.com/share/AF1QipNckOBR_cD_YKxWG1M7NQHsdyXvsiGgDM-27t7TL8c7M7VQvgoGyvdryMpHqvR1eA?key=TmZsSzYwRW1PRWxHTzFqbXpGeGgxTHlaOEtoUjJn&source=ctrlq.org'><img src='https://lh3.googleusercontent.com/8tIWdIGxiYJPyYwhMngnhAFVHDe8Yj2Al1aqracH-01uD55Qfe99hzQMpZm4uo2mhx3TQHCefzkFC1ZTk-M2zru3jvUIB_wi8m5BYD_AMHR5Dm-evIRW9Y7CH8orugjObaUV5btm=w400' /></a>
+![enter image description here](https://lh3.googleusercontent.com/8tIWdIGxiYJPyYwhMngnhAFVHDe8Yj2Al1aqracH-01uD55Qfe99hzQMpZm4uo2mhx3TQHCefzkFC1ZTk-M2zru3jvUIB_wi8m5BYD_AMHR5Dm-evIRW9Y7CH8orugjObaUV5btm=w400)
+
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA3NDQzMDQzMSwxMTk3NDYyNjIzLC0xNj
-k2MDc4OTA3LC02MTU0MDE0MjUsLTE5NDAyMDgyMjcsLTE3NzYy
-MzQxOTYsLTcwMDk4ODg5NSwyODc1Njg5ODMsMTMzNzg2NTA2OS
-w5NzkyMDM1MTksMjExNzkwNDQ2NywxMDU3ODYzNjgyLDExNDE3
-MTA3MDQsMzA4Mzg0Mzg5LDIxMTk5NDAxNjcsMTgxMzUwOTQ2Ni
-wxMTE0MTE5NzEwXX0=
+eyJoaXN0b3J5IjpbMjE5MTMxNjg3LDEwNzQ0MzA0MzEsMTE5Nz
+Q2MjYyMywtMTY5NjA3ODkwNywtNjE1NDAxNDI1LC0xOTQwMjA4
+MjI3LC0xNzc2MjM0MTk2LC03MDA5ODg4OTUsMjg3NTY4OTgzLD
+EzMzc4NjUwNjksOTc5MjAzNTE5LDIxMTc5MDQ0NjcsMTA1Nzg2
+MzY4MiwxMTQxNzEwNzA0LDMwODM4NDM4OSwyMTE5OTQwMTY3LD
+E4MTM1MDk0NjYsMTExNDExOTcxMF19
 -->
