@@ -6,10 +6,10 @@ It provides the users with a *clean* and *easy to use* API with support for *rea
 
 **Note :** This API is developed as a part of GSOC Programming Competency Test for Boost.org under the Astronomy Section.
 
-**Why should you choose this API for you ?**
+**Why should you choose this API ?**
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MDAwMTg1OTUsMjExOTk0MDE2NywxOD
-EzNTA5NDY2LDExMTQxMTk3MTBdfQ==
+eyJoaXN0b3J5IjpbMzA4Mzg0Mzg5LDIxMTk5NDAxNjcsMTgxMz
+UwOTQ2NiwxMTE0MTE5NzEwXX0=
 -->
