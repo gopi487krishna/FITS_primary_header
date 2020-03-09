@@ -32,15 +32,35 @@ FITS Reader API has been designed keeping in mind the above principles (Please r
 
  - Download the latest [release](https://github.com/gopi487krishna/FITS_primary_header/releases) of FITS Reader library from the Releases Section of the Repository
  - Now unzip the file  that you just downloaded and place it in your projects directory
- - Inside the FITS Reader folder you will find a folder named **include** . It contains all the header files that will be required for use this API in your project and should be included in the include directory of your project settings
- - To include the folder in your Visual Studio based project
+ - Inside the FITS Reader folder you will find two folders named **include**, **library** . It contains all the header files that will be required to use this API in your project and should be included in the include directory of your project settings
+ - To include the folders in your Visual Studio based project
 	- Go to Project -> Project Properties->C/C++ ->Additional Include Directories and add the location of the *"include"* folder unzipped before.
-	- 
+	- Similarly go to Linker ->Add Additional Library Directories and add the location of "library" folder unzipped before.
+  - As you might have noticed  the only library dependency is a boost library. In fact that library is required for memory-mapped file support. If  boost is already configured for your project then there is no need to add this folder to your additional library directories
+
+To test if everything works correctly write the following code and check whether it compiles or not.
+
+    int main(){
+    
+    fits::primary_header<fits::fits_standard_spec> prime_header;
+    prime_header.readData("..\\test_files\\FITS_FULL.txt");
+
+    auto value = prime_header.get< double>("MEANC100");
+    if (value) {
+    
+        std::cout << *value; // value comes out to be 0.3916293
+    }
+
+
+    std::cin.get();
+	}
+
+
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ2NTI5NTQxOCwxMDU3ODYzNjgyLDExND
+eyJoaXN0b3J5IjpbMjExNzkwNDQ2NywxMDU3ODYzNjgyLDExND
 E3MTA3MDQsMzA4Mzg0Mzg5LDIxMTk5NDAxNjcsMTgxMzUwOTQ2
 NiwxMTE0MTE5NzEwXX0=
 -->
