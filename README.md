@@ -62,11 +62,15 @@ The FITS Reader API is divided into two classes and one policy of which any clas
 ![enter image description here](https://lh3.googleusercontent.com/8tIWdIGxiYJPyYwhMngnhAFVHDe8Yj2Al1aqracH-01uD55Qfe99hzQMpZm4uo2mhx3TQHCefzkFC1ZTk-M2zru3jvUIB_wi8m5BYD_AMHR5Dm-evIRW9Y7CH8orugjObaUV5btm=w800)
 
 ## Primary Header
-Primary Header class provides an external interface to the user 
+Primary Header class provides an external interface to the programmer for manipulation of primary HDU of  fits file.
 
+This class provides the following abilities to the user
+
+ - Reading Files
+ - 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA0MzA0ODIxOSwxMDc0NDMwNDMxLDExOT
+eyJoaXN0b3J5IjpbLTU5Njc4NTc5MywxMDc0NDMwNDMxLDExOT
 c0NjI2MjMsLTE2OTYwNzg5MDcsLTYxNTQwMTQyNSwtMTk0MDIw
 ODIyNywtMTc3NjIzNDE5NiwtNzAwOTg4ODk1LDI4NzU2ODk4My
 wxMzM3ODY1MDY5LDk3OTIwMzUxOSwyMTE3OTA0NDY3LDEwNTc4
