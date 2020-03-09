@@ -67,10 +67,13 @@ Primary Header class provides an external interface to the programmer for manipu
 This class provides the following abilities to the user
 
  - Reading Files
+ - Query the value for the keywords parsed by the reader from a FITS  file
+ - Insert or Update cards as per the needs of the programmer
+ - Update the FITS file with new data
  - 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU5Njc4NTc5MywxMDc0NDMwNDMxLDExOT
+eyJoaXN0b3J5IjpbMTgyMTYyNTUxMiwxMDc0NDMwNDMxLDExOT
 c0NjI2MjMsLTE2OTYwNzg5MDcsLTYxNTQwMTQyNSwtMTk0MDIw
 ODIyNywtMTc3NjIzNDE5NiwtNzAwOTg4ODk1LDI4NzU2ODk4My
 wxMzM3ODY1MDY5LDk3OTIwMzUxOSwyMTE3OTA0NDY3LDEwNTc4
