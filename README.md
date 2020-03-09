@@ -22,10 +22,12 @@ FITS Reader API has been designed keeping in mind the above principles (Please r
 
  - A policy-based design allowing users to write and control most of the parts of Reader ( Things like adding custom rules, changing the way of parsing a value, adding support for parsing new types of values and so on. (This really comes handy when the FILE has been custom designed according to the needs of a User ).
  - No extra hassle to setup before reading fits files ( Just set a filename, reading mode ) and done that's it!.
+ - Easy to use functions for manipulating and writing data back to the file
 - Very few dependencies ( For memory-mapped files - boost )
 - Conformance to the FITS standard
 - Ability to handle both the fixed and variable format based data
-Good performance ( Mostly uses the standard library and boost instead of handwritten implementation for optimal performance )
+- Good performance ( Mostly uses the standard library and boost instead of handwritten implementation for optimal performance )
+
 
 
 
@@ -36,6 +38,6 @@ Good performance ( Mostly uses the standard library and boost instead of handwri
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzcxODU5MDIzLDMwODM4NDM4OSwyMTE5OT
-QwMTY3LDE4MTM1MDk0NjYsMTExNDExOTcxMF19
+eyJoaXN0b3J5IjpbMTE0MTcxMDcwNCwzMDgzODQzODksMjExOT
+k0MDE2NywxODEzNTA5NDY2LDExMTQxMTk3MTBdfQ==
 -->
