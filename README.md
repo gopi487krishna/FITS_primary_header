@@ -52,10 +52,6 @@ int main(){
     
         std::cout << *value<<std::endl; // value comes out to be 0.3916293
     }
-
-    prime_header.insert("KEANUSAN", (double)487.0,"John Wick", 5);
-    prime_header.writeToFile("MASTER.txt");
-
     std::cin.get();
 }
 ```
@@ -63,8 +59,8 @@ int main(){
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU1OTY3OTQ1MSwxMzM3ODY1MDY5LDk3OT
-IwMzUxOSwyMTE3OTA0NDY3LDEwNTc4NjM2ODIsMTE0MTcxMDcw
-NCwzMDgzODQzODksMjExOTk0MDE2NywxODEzNTA5NDY2LDExMT
-QxMTk3MTBdfQ==
+eyJoaXN0b3J5IjpbMjg3NTY4OTgzLDEzMzc4NjUwNjksOTc5Mj
+AzNTE5LDIxMTc5MDQ0NjcsMTA1Nzg2MzY4MiwxMTQxNzEwNzA0
+LDMwODM4NDM4OSwyMTE5OTQwMTY3LDE4MTM1MDk0NjYsMTExND
+ExOTcxMF19
 -->
