@@ -43,7 +43,7 @@ To test if everything works correctly write the following code and check whether
 ```cpp
 int main(){
     
-    fits::primary_header<fits::fits_standard_spec> prime_header;
+using namespace    fits::primary_header<fits::fits_standard_spec> prime_header;
     prime_header.readData("FITS_FULL.txt"); // Present in test files folder
 
     auto value = prime_header.get< double>("MEANC100");
@@ -61,7 +61,8 @@ int main(){
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMzNzg2NTA2OSw5NzkyMDM1MTksMjExNz
-kwNDQ2NywxMDU3ODYzNjgyLDExNDE3MTA3MDQsMzA4Mzg0Mzg5
-LDIxMTk5NDAxNjcsMTgxMzUwOTQ2NiwxMTE0MTE5NzEwXX0=
+eyJoaXN0b3J5IjpbNTgwMzkzMzQsMTMzNzg2NTA2OSw5NzkyMD
+M1MTksMjExNzkwNDQ2NywxMDU3ODYzNjgyLDExNDE3MTA3MDQs
+MzA4Mzg0Mzg5LDIxMTk5NDAxNjcsMTgxMzUwOTQ2NiwxMTE0MT
+E5NzEwXX0=
 -->
