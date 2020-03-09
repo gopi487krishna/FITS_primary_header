@@ -76,13 +76,19 @@ Most of the functions in this class are a wrapper over the fits parser class. Th
 > This class ensures that the users only see that part of API that they need and nothing more unless they really want to
 
 **Member Functions :**
-*readData()* : This function takes a filename and reading mode as argument and selects the appropriate function that parses the data and makes it available for 
+
+*readData()* : This function takes a filename and reading mode as argument and selects the appropriate function that parses the data and makes it available for querying.
+**reading_mode** : reading_mode is an enumeration that allows programmers to specify how the data should be read.
+As of now reading_mode supports 3 modes namely
+
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzU0OTk3OTM4LC0zODg2NzA0MjYsMTA3ND
-QzMDQzMSwxMTk3NDYyNjIzLC0xNjk2MDc4OTA3LC02MTU0MDE0
-MjUsLTE5NDAyMDgyMjcsLTE3NzYyMzQxOTYsLTcwMDk4ODg5NS
-wyODc1Njg5ODMsMTMzNzg2NTA2OSw5NzkyMDM1MTksMjExNzkw
-NDQ2NywxMDU3ODYzNjgyLDExNDE3MTA3MDQsMzA4Mzg0Mzg5LD
-IxMTk5NDAxNjcsMTgxMzUwOTQ2NiwxMTE0MTE5NzEwXX0=
+eyJoaXN0b3J5IjpbLTE5ODMwNjg2NDEsLTM4ODY3MDQyNiwxMD
+c0NDMwNDMxLDExOTc0NjI2MjMsLTE2OTYwNzg5MDcsLTYxNTQw
+MTQyNSwtMTk0MDIwODIyNywtMTc3NjIzNDE5NiwtNzAwOTg4OD
+k1LDI4NzU2ODk4MywxMzM3ODY1MDY5LDk3OTIwMzUxOSwyMTE3
+OTA0NDY3LDEwNTc4NjM2ODIsMTE0MTcxMDcwNCwzMDgzODQzOD
+ksMjExOTk0MDE2NywxODEzNTA5NDY2LDExMTQxMTk3MTBdfQ==
+
 -->
