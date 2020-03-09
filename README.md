@@ -79,12 +79,15 @@ Most of the functions in this class are a wrapper over the fits parser class. Th
 
 *readData()* : This function takes a filename and reading mode as argument and selects the appropriate function that parses the data and makes it available for querying.
 **reading_mode** : reading_mode is an enumeration that allows programmers to specify how the data should be read.
-As of now reading_mode supports 3 modes namely
+As of now reading_mode supports **3** modes namely
+
+
+
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5ODMwNjg2NDEsLTM4ODY3MDQyNiwxMD
+eyJoaXN0b3J5IjpbLTE1MjkzNDU0OTUsLTM4ODY3MDQyNiwxMD
 c0NDMwNDMxLDExOTc0NjI2MjMsLTE2OTYwNzg5MDcsLTYxNTQw
 MTQyNSwtMTk0MDIwODIyNywtMTc3NjIzNDE5NiwtNzAwOTg4OD
 k1LDI4NzU2ODk4MywxMzM3ODY1MDY5LDk3OTIwMzUxOSwyMTE3
