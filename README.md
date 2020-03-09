@@ -40,27 +40,13 @@ FITS Reader API has been designed keeping in mind the above principles (Please r
 
 To test if everything works correctly write the following code and check whether it compiles or not.
 
-    int main(){
-    
-    fits::primary_header<fits::fits_standard_spec> prime_header;
-    prime_header.readData("..\\test_files\\FITS_FULL.txt");
 
-    auto value = prime_header.get< double>("MEANC100");
-    if (value) {
-    
-        std::cout << *value; // value comes out to be 0.3916293
-    }
-
-
-    std::cin.get();
-	}
-
-
+  
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjExNzkwNDQ2NywxMDU3ODYzNjgyLDExND
-E3MTA3MDQsMzA4Mzg0Mzg5LDIxMTk5NDAxNjcsMTgxMzUwOTQ2
-NiwxMTE0MTE5NzEwXX0=
+eyJoaXN0b3J5IjpbMTk4MTgyNzcyMCwyMTE3OTA0NDY3LDEwNT
+c4NjM2ODIsMTE0MTcxMDcwNCwzMDgzODQzODksMjExOTk0MDE2
+NywxODEzNTA5NDY2LDExMTQxMTk3MTBdfQ==
 -->
