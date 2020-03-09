@@ -81,17 +81,17 @@ Most of the functions in this class are a wrapper over the fits parser class. Th
 **reading_mode** : reading_mode is an enumeration that allows programmers to specify how the data should be read.
 As of now reading_mode supports **3** modes namely
 
-![enter image description here](https://lh3.googleusercontent.com/p7gL-phThGf3HGzfoM53F_1-d7nAe6XTnFyEXjcAmP2fAccbtMEdOkwGlMzBwkvfkAfOx9pAs4c1UxMZb43QLRQJ9aqdZJk37VZawTujoW4AQUnJJd0XFHuT8yuXeURltp3btTO3=w7s00)
+![enter image description here](https://lh3.googleusercontent.com/p7gL-phThGf3HGzfoM53F_1-d7nAe6XTnFyEXjcAmP2fAccbtMEdOkwGlMzBwkvfkAfOx9pAs4c1UxMZb43QLRQJ9aqdZJk37VZawTujoW4AQUnJJd0XFHuT8yuXeURltp3btTO3=w700)
 
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI2MjExOTgxLC0xNTI5MzQ1NDk1LC0zOD
-g2NzA0MjYsMTA3NDQzMDQzMSwxMTk3NDYyNjIzLC0xNjk2MDc4
-OTA3LC02MTU0MDE0MjUsLTE5NDAyMDgyMjcsLTE3NzYyMzQxOT
-YsLTcwMDk4ODg5NSwyODc1Njg5ODMsMTMzNzg2NTA2OSw5Nzky
-MDM1MTksMjExNzkwNDQ2NywxMDU3ODYzNjgyLDExNDE3MTA3MD
-QsMzA4Mzg0Mzg5LDIxMTk5NDAxNjcsMTgxMzUwOTQ2NiwxMTE0
-MTE5NzEwXX0=
+eyJoaXN0b3J5IjpbLTg2MzM4NDM5MiwtMTUyOTM0NTQ5NSwtMz
+g4NjcwNDI2LDEwNzQ0MzA0MzEsMTE5NzQ2MjYyMywtMTY5NjA3
+ODkwNywtNjE1NDAxNDI1LC0xOTQwMjA4MjI3LC0xNzc2MjM0MT
+k2LC03MDA5ODg4OTUsMjg3NTY4OTgzLDEzMzc4NjUwNjksOTc5
+MjAzNTE5LDIxMTc5MDQ0NjcsMTA1Nzg2MzY4MiwxMTQxNzEwNz
+A0LDMwODM4NDM4OSwyMTE5OTQwMTY3LDE4MTM1MDk0NjYsMTEx
+NDExOTcxMF19
 -->
