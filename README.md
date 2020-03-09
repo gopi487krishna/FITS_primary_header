@@ -1,6 +1,6 @@
-# FITS_Parser ( Primary Header )
-A small library for parsing the primary header of fits 
+# FITS PH Reader
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MjEwMTc2MzRdfQ==
+eyJoaXN0b3J5IjpbMTExNDExOTcxMF19
 -->
