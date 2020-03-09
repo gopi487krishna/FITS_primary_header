@@ -28,17 +28,12 @@ FITS Reader API has been designed keeping in mind the above principles (Please r
 - Ability to handle both the fixed and variable format based data
 - Good performance ( Mostly uses the standard library and boost instead of handwritten implementation for optimal performance )
 
-## Heading
+## How to use this library ?
 
-
-
-
-
-
-
+ - Download the latest release
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjM2ODE2MTQyLDExNDE3MTA3MDQsMzA4Mz
+eyJoaXN0b3J5IjpbODcxNDQ5MTU0LDExNDE3MTA3MDQsMzA4Mz
 g0Mzg5LDIxMTk5NDAxNjcsMTgxMzUwOTQ2NiwxMTE0MTE5NzEw
 XX0=
 -->
