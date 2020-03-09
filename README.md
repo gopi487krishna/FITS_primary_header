@@ -40,7 +40,7 @@ FITS Reader API has been designed keeping in mind the above principles (Please r
 
 To test if everything works correctly write the following code and check whether it compiles or not.
 
-```
+```c_cpp
 int main(){
     
     fits::primary_header<fits::fits_standard_spec> prime_header;
@@ -61,7 +61,7 @@ int main(){
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMzE2Mjg3NTMsMjExNzkwNDQ2NywxMD
-U3ODYzNjgyLDExNDE3MTA3MDQsMzA4Mzg0Mzg5LDIxMTk5NDAx
-NjcsMTgxMzUwOTQ2NiwxMTE0MTE5NzEwXX0=
+eyJoaXN0b3J5IjpbMTc4MDY1ODA2OCwyMTE3OTA0NDY3LDEwNT
+c4NjM2ODIsMTE0MTcxMDcwNCwzMDgzODQzODksMjExOTk0MDE2
+NywxODEzNTA5NDY2LDExMTQxMTk3MTBdfQ==
 -->
