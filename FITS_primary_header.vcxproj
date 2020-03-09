@@ -166,10 +166,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="FITS_primary_header.cpp" />
+    <ClCompile Include="DemoFile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fits.h" />
+    <ClInclude Include="fits_parser.h" />
     <ClInclude Include="fits_standard_spec.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
