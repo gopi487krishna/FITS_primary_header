@@ -70,13 +70,14 @@ This class provides the following abilities to the user
  - Query the value for the keywords parsed by the reader from a FITS  file
  - Insert or Update cards as per the needs of the programmer
  - Update the FITS file with new data
- - 
+
+Most of the functions in this class are a wrapper over the fits parser class. This kind of division has been done in order to improve the reada
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgyMTYyNTUxMiwxMDc0NDMwNDMxLDExOT
-c0NjI2MjMsLTE2OTYwNzg5MDcsLTYxNTQwMTQyNSwtMTk0MDIw
-ODIyNywtMTc3NjIzNDE5NiwtNzAwOTg4ODk1LDI4NzU2ODk4My
-wxMzM3ODY1MDY5LDk3OTIwMzUxOSwyMTE3OTA0NDY3LDEwNTc4
-NjM2ODIsMTE0MTcxMDcwNCwzMDgzODQzODksMjExOTk0MDE2Ny
-wxODEzNTA5NDY2LDExMTQxMTk3MTBdfQ==
+eyJoaXN0b3J5IjpbLTIwNjI2MzE4MzIsMTA3NDQzMDQzMSwxMT
+k3NDYyNjIzLC0xNjk2MDc4OTA3LC02MTU0MDE0MjUsLTE5NDAy
+MDgyMjcsLTE3NzYyMzQxOTYsLTcwMDk4ODg5NSwyODc1Njg5OD
+MsMTMzNzg2NTA2OSw5NzkyMDM1MTksMjExNzkwNDQ2NywxMDU3
+ODYzNjgyLDExNDE3MTA3MDQsMzA4Mzg0Mzg5LDIxMTk5NDAxNj
+csMTgxMzUwOTQ2NiwxMTE0MTE5NzEwXX0=
 -->
