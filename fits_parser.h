@@ -14,12 +14,13 @@
 namespace fits {
 	template<class parsing_policy>
 	class fits_parser : parsing_policy {
+		int end_offset = -1;
+		std::string input_filename{""};
+		std::vector<std::pair<int, std::string>> scheduled_for_write;
+		
 		std::unordered_multimap<std::string, typename parsing_policy::value_type> header_data;
-
 		// This is a dirty performance hack
 		std::unordered_map<std::string, int> offset_map;
-		std::vector<std::pair<int, std::string>> scheduled_for_write;
-		int end_offset = -1;
 
 	public:
 		bool parseOnStringBuffer(const std::string& filename);
@@ -30,7 +31,7 @@ namespace fits {
 		std::optional<conversion_type> get(const std::string& keyword);
 
 		template<typename Type>
-		bool insert(const std::string& keyword, const Type& value, int position, const std::string& comment);
+		bool insert(const std::string& keyword, const Type& value, const std::string& comment, int position);
 		bool insert(const std::string& keyword, const std::string& comment, int position);
 		bool writeToFile(const std::string& filename);
 	};
@@ -67,7 +68,7 @@ namespace fits {
 
 	template<class parsing_policy>
 	template<typename Type>
-	bool fits_parser<parsing_policy>::insert(const std::string& keyword, const Type& value, int position, const std::string& comment) {
+	bool fits_parser<parsing_policy>::insert(const std::string& keyword, const Type& value, const std::string& comment, int position) {
 
 		if (keyword.length() <= 8) {
 			std::string result_string;
@@ -146,7 +147,7 @@ namespace fits {
 			using boost::iostreams::mapped_file_source;
 			using boost::iostreams::stream;
 
-			mapped_file_source input_file("FITS_SATELLITE.txt");
+			mapped_file_source input_file(input_filename);
 			std::ofstream output_file(filename);
 
 			auto current_ipfile_pos = input_file.begin();
@@ -255,6 +256,8 @@ namespace fits {
 
 	template<class parsing_policy>
 	bool fits_parser<parsing_policy>::parseOnStringBuffer(const std::string& filename) {
+		
+		input_filename = filename;
 		// Fetch raw card is a lambda that fetches a raw_card from the iterator
 		auto fetch_raw_card = [](std::string::iterator& iter) {
 			// This can be further optimized by using string_view	
@@ -264,10 +267,10 @@ namespace fits {
 		};
 
 		// Open file for reading
-		std::ifstream input_file_stream(filename);
+		std::ifstream input_file_stream(input_filename);
 		if (input_file_stream.is_open()) {
 			// Get the file size in bytes
-			auto file_size = std::filesystem::file_size(filename);
+			auto file_size = std::filesystem::file_size(input_filename);
 			std::string string_buffer;
 			string_buffer.reserve(file_size);
 			string_buffer.assign((std::istreambuf_iterator<char>(input_file_stream)), (std::istreambuf_iterator<char>()));
@@ -360,6 +363,7 @@ namespace fits {
 	template<class parsing_policy>
 	bool fits_parser<parsing_policy>::parseOnMappedFile(const std::string& filename) {
 
+		input_filename = filename;
 		// Fetch raw card is a lambda that fetches a raw_card from the iterator
 		auto fetch_raw_card = [](auto& iter) {
 
@@ -372,10 +376,10 @@ namespace fits {
 		using boost::iostreams::mapped_file_source;
 		using boost::iostreams::stream;
 
-		mapped_file_source memmap(filename);
+		mapped_file_source memmap(input_filename);
 		if (memmap.is_open()) {
 			// Get the file size in bytes
-			auto file_size = std::filesystem::file_size(filename);
+			auto file_size = std::filesystem::file_size(input_filename);
 			auto  cur_buf = memmap.begin(); // Iterators for traversing the entire stream
 			auto  buf_end = memmap.end();
 
@@ -404,7 +408,7 @@ namespace fits {
 	template<class parsing_policy>
 	bool fits_parser<parsing_policy>::parseOnStream(const std::string& filename) {
 
-
+		input_filename = filename;
 		// Fetch raw card is a lambda that fetches a raw_card from the iterator
 		auto fetch_raw_card = [](std::istreambuf_iterator<char>& iter) {
 			std::string raw_card;   //Raw card containing keyword value and comments
@@ -413,13 +417,13 @@ namespace fits {
 			return std::move(raw_card);
 		};
 		// Open file for reading
-		std::ifstream input_file_stream(filename);
+		std::ifstream input_file_stream(input_filename);
 		if (input_file_stream.is_open()) {
 			std::istreambuf_iterator<char> inp_iter(input_file_stream); // Iterators for traversing the entire stream
 			std::istreambuf_iterator<char> end_of_file;
 
 			// Checks if atleast three cards are present as three required keywords should be present ( so 3 cards )
-			if (auto total_cards = std::filesystem::file_size(filename) / 80; total_cards >= 2)
+			if (auto total_cards = std::filesystem::file_size(input_filename) / 80; total_cards >= 2)
 			{
 
 				auto header_size_hint = total_cards > 999 ? (total_cards * 30) / 100 : total_cards;
