@@ -35,11 +35,12 @@ FITS Reader API has been designed keeping in mind the above principles (Please r
  - Inside the FITS Reader folder you will find a folder named **include** . It contains all the header files that will be required for use this API in your project and should be included in the include directory of your project settings
  - To include the folder in your Visual Studio based project
 	- Go to Project -> Project Properties->C/C++ ->Additional Include Directories and add the location of the *"include"* folder unzipped before.
+	- 
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgwOTIzMTI3MywxMDU3ODYzNjgyLDExND
+eyJoaXN0b3J5IjpbMTQ2NTI5NTQxOCwxMDU3ODYzNjgyLDExND
 E3MTA3MDQsMzA4Mzg0Mzg5LDIxMTk5NDAxNjcsMTgxMzUwOTQ2
 NiwxMTE0MTE5NzEwXX0=
 -->
