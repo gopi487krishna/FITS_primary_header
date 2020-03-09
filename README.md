@@ -30,10 +30,11 @@ FITS Reader API has been designed keeping in mind the above principles (Please r
 
 ## How to use this library ?
 
- - Download the latest release
+ - Download the latest [release](https://github.com/gopi487krishna/FITS_primary_header/releases) of FITS Reader library from the Releases Section of the Repository
+ - Now unzip the file  that you just downloaded and 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODcxNDQ5MTU0LDExNDE3MTA3MDQsMzA4Mz
-g0Mzg5LDIxMTk5NDAxNjcsMTgxMzUwOTQ2NiwxMTE0MTE5NzEw
-XX0=
+eyJoaXN0b3J5IjpbLTM2OTUxMDc2NSwxMTQxNzEwNzA0LDMwOD
+M4NDM4OSwyMTE5OTQwMTY3LDE4MTM1MDk0NjYsMTExNDExOTcx
+MF19
 -->
