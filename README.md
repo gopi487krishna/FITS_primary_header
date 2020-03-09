@@ -32,10 +32,11 @@ FITS Reader API has been designed keeping in mind the above principles (Please r
 
  - Download the latest [release](https://github.com/gopi487krishna/FITS_primary_header/releases) of FITS Reader library from the Releases Section of the Repository
  - Now unzip the file  that you just downloaded and place it in your projects directory
- - Inside the FITS Reader folder you will find a folder named **include**
+ - Inside the FITS Reader folder you will find a folder named **include** . It contains all the header files that will be required for use this API in your project and should be included in the include directory of your project settings
+ - To add thi
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMzAwNjUyMTcsMTE0MTcxMDcwNCwzMD
-gzODQzODksMjExOTk0MDE2NywxODEzNTA5NDY2LDExMTQxMTk3
-MTBdfQ==
+eyJoaXN0b3J5IjpbMTg5NjAyMzgyMSwxMTQxNzEwNzA0LDMwOD
+M4NDM4OSwyMTE5OTQwMTY3LDE4MTM1MDk0NjYsMTExNDExOTcx
+MF19
 -->
