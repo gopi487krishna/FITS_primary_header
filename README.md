@@ -44,7 +44,7 @@ To test if everything works correctly write the following code and check whether
 int main(){
     
     fits::primary_header<fits::fits_standard_spec> prime_header;
-    prime_header.readData("FITS_FULL.txt");// Present in test files folder
+    prime_header.readData("FITS_FULL.txt"); // Present in test files folder
 
     auto value = prime_header.get< double>("MEANC100");
     if (value) {
@@ -61,7 +61,7 @@ int main(){
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIzNjM1MzQ1NSwyMTE3OTA0NDY3LDEwNT
-c4NjM2ODIsMTE0MTcxMDcwNCwzMDgzODQzODksMjExOTk0MDE2
-NywxODEzNTA5NDY2LDExMTQxMTk3MTBdfQ==
+eyJoaXN0b3J5IjpbOTc5MjAzNTE5LDIxMTc5MDQ0NjcsMTA1Nz
+g2MzY4MiwxMTQxNzEwNzA0LDMwODM4NDM4OSwyMTE5OTQwMTY3
+LDE4MTM1MDk0NjYsMTExNDExOTcxMF19
 -->
