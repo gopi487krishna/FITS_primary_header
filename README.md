@@ -85,12 +85,13 @@ As of now reading_mode supports **3** modes namely
 
 **string_buffer** (buffered_mode) : The complete data from the FITS file is loaded onto a buffer from where the parser does the parsing.
 Although efficient for files that are a few *kilobytes* in size ( RAM is a lot  faster than secondary storage), loading large files into the memory hurts performance as well as RAM space ( Exhaustion of memory can occur in case of loading very large files ).
-**memory_map** : This is the best option when it comes to both large and small files. Memory mapping 
+**memory_map** : This is the best option when it comes to both large and small files. Memory mapping working by mapping file into a portion of process address space. The programmers can perform operations on files as if it were held in raw memory.
+The kernel takes the small
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI4Mjk1ODY5MywtMTUyOTM0NTQ5NSwtMz
+eyJoaXN0b3J5IjpbLTc1MjQ2NDAzNiwtMTUyOTM0NTQ5NSwtMz
 g4NjcwNDI2LDEwNzQ0MzA0MzEsMTE5NzQ2MjYyMywtMTY5NjA3
 ODkwNywtNjE1NDAxNDI1LC0xOTQwMjA4MjI3LC0xNzc2MjM0MT
 k2LC03MDA5ODg4OTUsMjg3NTY4OTgzLDEzMzc4NjUwNjksOTc5
