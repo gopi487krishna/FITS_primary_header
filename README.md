@@ -59,11 +59,9 @@ int main(){
 
 The FITS Reader API is divided into two classes and one policy of which any class that follows the contract of policy is accepted ( Policy is enforced at compile time not runtime ).
 
-![enter image description here](https://www.dropbox.com/s/sfog9v707y10wfz/Basic%20Structure%20of%20Fits%20Reader.png?)
-
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NjI0NDYxMjcsLTE3NzYyMzQxOTYsLT
+eyJoaXN0b3J5IjpbLTE2OTYwNzg5MDcsLTE3NzYyMzQxOTYsLT
 cwMDk4ODg5NSwyODc1Njg5ODMsMTMzNzg2NTA2OSw5NzkyMDM1
 MTksMjExNzkwNDQ2NywxMDU3ODYzNjgyLDExNDE3MTA3MDQsMz
 A4Mzg0Mzg5LDIxMTk5NDAxNjcsMTgxMzUwOTQ2NiwxMTE0MTE5
