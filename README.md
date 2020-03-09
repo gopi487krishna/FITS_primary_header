@@ -71,10 +71,14 @@ This class provides the following abilities to the user
  - Insert or Update cards as per the needs of the programmer
  - Update the FITS file with new data
 
-Most of the functions in this class are a wrapper over the fits parser class. This kind of division has been done in order to improve the readability of code
+Most of the functions in this class are a wrapper over the fits parser class. This kind of division has been done in order to improve the readability of code.
+
+> This class ensures that the users only see that part of API that they need and nothing more unless they really want to
+
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc0NzIwNzAzMSwxMDc0NDMwNDMxLDExOT
+eyJoaXN0b3J5IjpbLTM4ODY3MDQyNiwxMDc0NDMwNDMxLDExOT
 c0NjI2MjMsLTE2OTYwNzg5MDcsLTYxNTQwMTQyNSwtMTk0MDIw
 ODIyNywtMTc3NjIzNDE5NiwtNzAwOTg4ODk1LDI4NzU2ODk4My
 wxMzM3ODY1MDY5LDk3OTIwMzUxOSwyMTE3OTA0NDY3LDEwNTc4
