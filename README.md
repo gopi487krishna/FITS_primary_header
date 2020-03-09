@@ -83,15 +83,16 @@ As of now reading_mode supports **3** modes namely
 
 ![enter image description here](https://lh3.googleusercontent.com/p7gL-phThGf3HGzfoM53F_1-d7nAe6XTnFyEXjcAmP2fAccbtMEdOkwGlMzBwkvfkAfOx9pAs4c1UxMZb43QLRQJ9aqdZJk37VZawTujoW4AQUnJJd0XFHuT8yuXeURltp3btTO3=w700)
 
-
+*string_buffer* (buffered_mode) : The complete data from the FITS file is loaded onto a buffer from where the parser does the parsing.
+Alo
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg2MzM4NDM5MiwtMTUyOTM0NTQ5NSwtMz
-g4NjcwNDI2LDEwNzQ0MzA0MzEsMTE5NzQ2MjYyMywtMTY5NjA3
-ODkwNywtNjE1NDAxNDI1LC0xOTQwMjA4MjI3LC0xNzc2MjM0MT
-k2LC03MDA5ODg4OTUsMjg3NTY4OTgzLDEzMzc4NjUwNjksOTc5
-MjAzNTE5LDIxMTc5MDQ0NjcsMTA1Nzg2MzY4MiwxMTQxNzEwNz
-A0LDMwODM4NDM4OSwyMTE5OTQwMTY3LDE4MTM1MDk0NjYsMTEx
-NDExOTcxMF19
+eyJoaXN0b3J5IjpbLTE1Nzg0ODU3MzYsLTE1MjkzNDU0OTUsLT
+M4ODY3MDQyNiwxMDc0NDMwNDMxLDExOTc0NjI2MjMsLTE2OTYw
+Nzg5MDcsLTYxNTQwMTQyNSwtMTk0MDIwODIyNywtMTc3NjIzND
+E5NiwtNzAwOTg4ODk1LDI4NzU2ODk4MywxMzM3ODY1MDY5LDk3
+OTIwMzUxOSwyMTE3OTA0NDY3LDEwNTc4NjM2ODIsMTE0MTcxMD
+cwNCwzMDgzODQzODksMjExOTk0MDE2NywxODEzNTA5NDY2LDEx
+MTQxMTk3MTBdfQ==
 -->
