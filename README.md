@@ -14,7 +14,7 @@ Developing APIs or libraries is a piece of art in itself. The traditional rules 
  - *Easy to use*-  Programmer should not feel that he is using a third-party library, rather the API should seem like the  part of  the language's vocabulary itself. 
  - *Highly modular* - Low Coupling High Cohesion makes highly adaptable code.
  - *Adaptable to the needs of a User*  - "The aspects of design that have the potential to change in the future should be allowed to change and not fixed "
- - *Robust* - Should handle the errors and corner cases 
+ - *Robust* - Should handle the errors and corner cases in the best possible way without losing data 
  
  and the list goes on.....
 
@@ -61,7 +61,7 @@ int main(){
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTc5MjAzNTE5LDIxMTc5MDQ0NjcsMTA1Nz
-g2MzY4MiwxMTQxNzEwNzA0LDMwODM4NDM4OSwyMTE5OTQwMTY3
-LDE4MTM1MDk0NjYsMTExNDExOTcxMF19
+eyJoaXN0b3J5IjpbMTMzNzg2NTA2OSw5NzkyMDM1MTksMjExNz
+kwNDQ2NywxMDU3ODYzNjgyLDExNDE3MTA3MDQsMzA4Mzg0Mzg5
+LDIxMTk5NDAxNjcsMTgxMzUwOTQ2NiwxMTE0MTE5NzEwXX0=
 -->
