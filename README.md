@@ -84,15 +84,15 @@ As of now reading_mode supports **3** modes namely
 ![enter image description here](https://lh3.googleusercontent.com/p7gL-phThGf3HGzfoM53F_1-d7nAe6XTnFyEXjcAmP2fAccbtMEdOkwGlMzBwkvfkAfOx9pAs4c1UxMZb43QLRQJ9aqdZJk37VZawTujoW4AQUnJJd0XFHuT8yuXeURltp3btTO3=w700)
 
 *string_buffer* (buffered_mode) : The complete data from the FITS file is loaded onto a buffer from where the parser does the parsing.
-Alo
+Although efficient for files that are a few *kilobytes* in size ( RAM is a lot  faster than secondary storage), loading large files into the memory hurts performance as well as RAM space (   
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1Nzg0ODU3MzYsLTE1MjkzNDU0OTUsLT
-M4ODY3MDQyNiwxMDc0NDMwNDMxLDExOTc0NjI2MjMsLTE2OTYw
-Nzg5MDcsLTYxNTQwMTQyNSwtMTk0MDIwODIyNywtMTc3NjIzND
-E5NiwtNzAwOTg4ODk1LDI4NzU2ODk4MywxMzM3ODY1MDY5LDk3
-OTIwMzUxOSwyMTE3OTA0NDY3LDEwNTc4NjM2ODIsMTE0MTcxMD
-cwNCwzMDgzODQzODksMjExOTk0MDE2NywxODEzNTA5NDY2LDEx
-MTQxMTk3MTBdfQ==
+eyJoaXN0b3J5IjpbNTc3MTc3NDc3LC0xNTI5MzQ1NDk1LC0zOD
+g2NzA0MjYsMTA3NDQzMDQzMSwxMTk3NDYyNjIzLC0xNjk2MDc4
+OTA3LC02MTU0MDE0MjUsLTE5NDAyMDgyMjcsLTE3NzYyMzQxOT
+YsLTcwMDk4ODg5NSwyODc1Njg5ODMsMTMzNzg2NTA2OSw5Nzky
+MDM1MTksMjExNzkwNDQ2NywxMDU3ODYzNjgyLDExNDE3MTA3MD
+QsMzA4Mzg0Mzg5LDIxMTk5NDAxNjcsMTgxMzUwOTQ2NiwxMTE0
+MTE5NzEwXX0=
 -->
