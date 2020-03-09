@@ -43,26 +43,28 @@ To test if everything works correctly write the following code and check whether
 ```cpp
 int main(){
     
-using namespace    fits::primary_header<fits::fits_standard_spec> prime_header;
+    using namespace fits;
+    primary_header<fits_standard_spec> prime_header;
     prime_header.readData("FITS_FULL.txt"); // Present in test files folder
 
     auto value = prime_header.get< double>("MEANC100");
     if (value) {
     
-        std::cout << *value; // value comes out to be 0.3916293
+        std::cout << *value<<std::endl; // value comes out to be 0.3916293
     }
 
+    prime_header.insert("KEANUSAN", (double)487.0,"John Wick", 5);
+    prime_header.writeToFile("MASTER.txt");
 
     std::cin.get();
 }
-
 ```
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTgwMzkzMzQsMTMzNzg2NTA2OSw5NzkyMD
-M1MTksMjExNzkwNDQ2NywxMDU3ODYzNjgyLDExNDE3MTA3MDQs
-MzA4Mzg0Mzg5LDIxMTk5NDAxNjcsMTgxMzUwOTQ2NiwxMTE0MT
-E5NzEwXX0=
+eyJoaXN0b3J5IjpbMTU1OTY3OTQ1MSwxMzM3ODY1MDY5LDk3OT
+IwMzUxOSwyMTE3OTA0NDY3LDEwNTc4NjM2ODIsMTE0MTcxMDcw
+NCwzMDgzODQzODksMjExOTk0MDE2NywxODEzNTA5NDY2LDExMT
+QxMTk3MTBdfQ==
 -->
