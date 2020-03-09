@@ -6,11 +6,17 @@ It provides the users with a *clean* and *easy to use* API with support for *rea
 
 **Note :** This API is developed as a part of GSOC Programming Competency Test for Boost.org under the Astronomy Section.
 
-**Why should you choose this API ?**
+## Why should you choose this API ?
 
-Developing APIs or libraries is a piece of art in itself. The traditional rules of writing applications do not work in the realm of API. An API should be written in such a way that it is:
-Easy to use ( Programmer should not feel that he is using a third-party library, rather the API should seem like the  part of  the language's vocabulary itself )
-Highly modular ( Low Coupling High Cohesion makes highly adaptable code)
+Developing APIs or libraries is a piece of art in itself. The traditional rules of writing applications do not work in the realm of API. 
+**An API should be written in such a way that it is:**
+
+ - Easy to use ( Programmer should not feel that he is using a third-party library, rather the API should seem like the  part of  the language's vocabulary itself )
+ - Highly modular ( Low Coupling High Cohesion makes highly adaptable code)
+ - 
+
+
+
 Adaptable to the needs of a User ( "The aspects of design that have the potential to change in the future should be allowed to change and not fixed ")
 Robust ( Should handle the errors and corner cases )
 
@@ -29,6 +35,6 @@ Good performance ( Mostly uses the standard library and boost instead of handwri
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NjU3ODM0MSwzMDgzODQzODksMjExOT
-k0MDE2NywxODEzNTA5NDY2LDExMTQxMTk3MTBdfQ==
+eyJoaXN0b3J5IjpbLTE5MDkzNTY0NjgsMzA4Mzg0Mzg5LDIxMT
+k5NDAxNjcsMTgxMzUwOTQ2NiwxMTE0MTE5NzEwXX0=
 -->
