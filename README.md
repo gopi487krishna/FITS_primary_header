@@ -59,11 +59,11 @@ int main(){
 
 The FITS Reader API is divided into two classes and one policy of which any class that follows the contract of policy is accepted ( Policy is enforced at compile time not runtime ).
 
-<a href='https://photos.google.com/share/AF1QipNckOBR_cD_YKxWG1M7NQHsdyXvsiGgDM-27t7TL8c7M7VQvgoGyvdryMpHqvR1eA?key=TmZsSzYwRW1PRWxHTzFqbXpGeGgxTHlaOEtoUjJn&source=ctrlq.org'><img src='https://lh3.googleusercontent.com/8tIWdIGxiYJPyYwhMngnhAFVHDe8Yj2Al1aqracH-01uD55Qfe99hzQMpZm4uo2mhx3TQHCefzkFC1ZTk-M2zru3jvUIB_wi8m5BYD_AMHR5Dm-evIRW9Y7CH8orugjObaUV5btm=w2400' /></a>
+<a href='https://photos.google.com/share/AF1QipNckOBR_cD_YKxWG1M7NQHsdyXvsiGgDM-27t7TL8c7M7VQvgoGyvdryMpHqvR1eA?key=TmZsSzYwRW1PRWxHTzFqbXpGeGgxTHlaOEtoUjJn&source=ctrlq.org'><img src='https://lh3.googleusercontent.com/8tIWdIGxiYJPyYwhMngnhAFVHDe8Yj2Al1aqracH-01uD55Qfe99hzQMpZm4uo2mhx3TQHCefzkFC1ZTk-M2zru3jvUIB_wi8m5BYD_AMHR5Dm-evIRW9Y7CH8orugjObaUV5btm=w400' /></a>
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4MTE0ODI2MywxMTk3NDYyNjIzLC0xNj
+eyJoaXN0b3J5IjpbMTA3NDQzMDQzMSwxMTk3NDYyNjIzLC0xNj
 k2MDc4OTA3LC02MTU0MDE0MjUsLTE5NDAyMDgyMjcsLTE3NzYy
 MzQxOTYsLTcwMDk4ODg5NSwyODc1Njg5ODMsMTMzNzg2NTA2OS
 w5NzkyMDM1MTksMjExNzkwNDQ2NywxMDU3ODYzNjgyLDExNDE3
