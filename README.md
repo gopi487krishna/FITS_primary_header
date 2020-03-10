@@ -99,7 +99,7 @@ The *kernel* treats the small chunks of files as pages and uses the same paging 
 // By default stream mode is selected
 prime_header.readData(filename,fits::reading_mode::stream);
 ```
-get
+**get&lt;Type&gt;()**
 
 
 
@@ -137,11 +137,11 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU2NzIzMzAxMiwxMDc2Mzg3MjgyLC0xND
-gzODMzMDU1LDIwMTA4MTU1NjYsLTE1MjkzNDU0OTUsLTM4ODY3
-MDQyNiwxMDc0NDMwNDMxLDExOTc0NjI2MjMsLTE2OTYwNzg5MD
-csLTYxNTQwMTQyNSwtMTk0MDIwODIyNywtMTc3NjIzNDE5Niwt
-NzAwOTg4ODk1LDI4NzU2ODk4MywxMzM3ODY1MDY5LDk3OTIwMz
-UxOSwyMTE3OTA0NDY3LDEwNTc4NjM2ODIsMTE0MTcxMDcwNCwz
-MDgzODQzODldfQ==
+eyJoaXN0b3J5IjpbLTE3NDgxODA2MTIsMTA3NjM4NzI4MiwtMT
+Q4MzgzMzA1NSwyMDEwODE1NTY2LC0xNTI5MzQ1NDk1LC0zODg2
+NzA0MjYsMTA3NDQzMDQzMSwxMTk3NDYyNjIzLC0xNjk2MDc4OT
+A3LC02MTU0MDE0MjUsLTE5NDAyMDgyMjcsLTE3NzYyMzQxOTYs
+LTcwMDk4ODg5NSwyODc1Njg5ODMsMTMzNzg2NTA2OSw5NzkyMD
+M1MTksMjExNzkwNDQ2NywxMDU3ODYzNjgyLDExNDE3MTA3MDQs
+MzA4Mzg0Mzg5XX0=
 -->
