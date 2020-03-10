@@ -117,11 +117,10 @@ The functions mentioned below are a wrapper over fits_parser functions that are 
 // or
  prime_header.insert(4, "NO_VAL");   
 // or
- prime_header.insert(4, "NO_VAL");   
-
+ prime_header.insert(4, "VAL_NO_C",32.0);   
 ```
 
-**writeToFile()** : 
+**writeToFile()** :  
 
 
 
@@ -156,11 +155,11 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NTAwMDA1NTgsNDkzMjUyOTgyLDEwNz
-YzODcyODIsLTE0ODM4MzMwNTUsMjAxMDgxNTU2NiwtMTUyOTM0
-NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0MzA0MzEsMTE5NzQ2MjYyMy
-wtMTY5NjA3ODkwNywtNjE1NDAxNDI1LC0xOTQwMjA4MjI3LC0x
-Nzc2MjM0MTk2LC03MDA5ODg4OTUsMjg3NTY4OTgzLDEzMzc4Nj
-UwNjksOTc5MjAzNTE5LDIxMTc5MDQ0NjcsMTA1Nzg2MzY4Miwx
-MTQxNzEwNzA0XX0=
+eyJoaXN0b3J5IjpbMTc0NDg3ODk2Myw0OTMyNTI5ODIsMTA3Nj
+M4NzI4MiwtMTQ4MzgzMzA1NSwyMDEwODE1NTY2LC0xNTI5MzQ1
+NDk1LC0zODg2NzA0MjYsMTA3NDQzMDQzMSwxMTk3NDYyNjIzLC
+0xNjk2MDc4OTA3LC02MTU0MDE0MjUsLTE5NDAyMDgyMjcsLTE3
+NzYyMzQxOTYsLTcwMDk4ODg5NSwyODc1Njg5ODMsMTMzNzg2NT
+A2OSw5NzkyMDM1MTksMjExNzkwNDQ2NywxMDU3ODYzNjgyLDEx
+NDE3MTA3MDRdfQ==
 -->
