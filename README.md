@@ -201,9 +201,9 @@ Tips on Writing a custom parsing policy class :
 
 	1.  The first thing that comes to mind when thinking about the concept of value_type is type-safe unions or std::variant. Although highly efficient at run-time they consume a significant amount of memory depending upon the largest type for each value
 	2.  Another technique is to use std::any that can perform type erasure on the value and store it. Its memory efficient but suffers from a performance bottleneck.
-4. Using the default **fits_standard_spec** parsing policy is enough at most times since it is conformant to the FITS Standards. But if your organization has 
+4. Using the default **fits_standard_spec** parsing policy is enough at most times since it is conformant to the FITS Standards. But if your organization has some specific needs or the **fits_standard_spec** has got outdated then only create your own policy class. And make sure to make it a static library. It significantly reduces the compile time and in some cases provides some more optimization as well.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxNDA2Mjk3MjIsMjA1NzczMzUzMSwxND
+eyJoaXN0b3J5IjpbLTExNjAxNDUxODcsMjA1NzczMzUzMSwxND
 A1MDI4NjQ4LDE4NzkxNDIxMDksMTM0NDQwMjg2MSwtMTA2ODcx
 MTQyMywxNjIwNTQ3MTEsMTI2MzYzOTcwNiw0OTMyNTI5ODIsMT
 A3NjM4NzI4MiwtMTQ4MzgzMzA1NSwyMDEwODE1NTY2LC0xNTI5
