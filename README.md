@@ -128,11 +128,13 @@ The functions mentioned below are a wrapper over fits_parser functions that are 
 > The details of this class are meant for people who wish to develop
 > custom parsing policies for the Fits Reader API.
 
-Fits Parser provides a collection of functions for parsing the primary header of a FITS file. It is used by the primary_header class  that provides an external interface to the users for working with FITS files. One good feature of the FITS reader API is its ability to take custom parsing policy as a parameter allowing the programmers to redefine the way of how the files can be parsed. 
+Fits Parser provides a collection of functions for reading as well as writing the primary header of a FITS file. It is used by the primary_header class  that provides an external interface to the users for working with FITS files. One good feature of the FITS reader API is its ability to take custom parsing policy as a parameter allowing the programmers to redefine the way of how the files can be parsed. 
 This results in high flexibility as with custom parsing policy you can set your own rules for parsing keywords, create specialized keywords or introduce a new type ( Best example is that of custom date type). Also with custom parsing policy, you can change the way a type is parsed ( like setting precision for floating-point numbers ). 
 Due to its custom parsing policy FITS reader becomes future proof to a very large extent as newer changes in the standard can easily be accommodated.
 Also as the parsing policy is enforced at Compile Time rather than Runtime there is 0 performance overhead. But there is a small compile-time overhead which is a smaller price to pay for as compared to flexiblity.
 To get further details about how the custom parsing policy should be implemented please visit the Parsing Policy Section
+
+
 
 **get&lt;Type&gt;()** : This function takes the keyword as its argument and based on the value type provided as the template parameter returns the value back to the user in the respective type wrapped around a **std::optional**
 The value type needs to be passed as a template parameter to the function because internally the value data is stored inside a variant from which the value needs to be casted out.
@@ -167,7 +169,7 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5ODQwNjg4LDEzNDQ0MDI4NjEsLTEwNj
+eyJoaXN0b3J5IjpbNjkzNTU4Mjc4LDEzNDQ0MDI4NjEsLTEwNj
 g3MTE0MjMsMTYyMDU0NzExLDEyNjM2Mzk3MDYsNDkzMjUyOTgy
 LDEwNzYzODcyODIsLTE0ODM4MzMwNTUsMjAxMDgxNTU2NiwtMT
 UyOTM0NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0MzA0MzEsMTE5NzQ2
