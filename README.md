@@ -225,9 +225,10 @@ class custom_parsing_policy{
 **isRequiredKeywordInOrder()** : Using the index determines whether the given keyword is in order or not. The interface for this function may change after sometime.
  **isMultivalued()** : Returns true if a keyword is multivalued ( As of now only HISTORY and COMMENT keywords are multivalued in nature )
  **parseValue()** : Parses the value from raw card based on keyword and keyword class and returns the value or a std::monostate ( Limitation with the variant will be removed in subsequent versions )
- **cnvToString()** : cnvToString() basically converts a value of specific type to string. You need to provide either overloads
+ **cnvToString()** : cnvToString() basically converts a value of specific type to string. You need to provide either overloads or template it for all the types that are supported by your parsing policy class.
 
-Tips on Writing a custom parsing policy class :
+
+**Tips on Writing a custom parsing policy class :**
 
 1.  Value parsing: In the case of user-defined keywords the type of value is not known beforehand and hence, we need to try parsing the value with each type until it gets successful ( Things change if you are going for lazy evaluation mode ) On the other hand Reserved keywords have their value's type known before and therefore should be parsed directly into that specific type instead of hit and trial method. This certainly improves performance. Hence try having two different parsing functions for both these classes of keywords.
 2.  Parsing value is not simple at all. If your policy supports fixed and variable parsing formats then there are several corner cases that need to be handled appropriately. Handling these cases does consume some cycles but some cycles can be compensated by using high-performance libraries for parsing the values. Using a library like **boost::spirit::qi** or other third party libraries can significantly improve performance.
@@ -239,11 +240,11 @@ Tips on Writing a custom parsing policy class :
 5. If you are writing your own policy class then make sure to use the standard library for in your code. Do not try to reinvent the wheel again and again as the standard library makes your code much clearer and efficient.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMxNDIyMDE5LDE0NTc1ODQ4MzUsMjA1Nz
-czMzUzMSwxNDA1MDI4NjQ4LDE4NzkxNDIxMDksMTM0NDQwMjg2
-MSwtMTA2ODcxMTQyMywxNjIwNTQ3MTEsMTI2MzYzOTcwNiw0OT
-MyNTI5ODIsMTA3NjM4NzI4MiwtMTQ4MzgzMzA1NSwyMDEwODE1
-NTY2LC0xNTI5MzQ1NDk1LC0zODg2NzA0MjYsMTA3NDQzMDQzMS
-wxMTk3NDYyNjIzLC0xNjk2MDc4OTA3LC02MTU0MDE0MjUsLTE5
-NDAyMDgyMjddfQ==
+eyJoaXN0b3J5IjpbLTE0MzAwMjI5MTgsMTQ1NzU4NDgzNSwyMD
+U3NzMzNTMxLDE0MDUwMjg2NDgsMTg3OTE0MjEwOSwxMzQ0NDAy
+ODYxLC0xMDY4NzExNDIzLDE2MjA1NDcxMSwxMjYzNjM5NzA2LD
+Q5MzI1Mjk4MiwxMDc2Mzg3MjgyLC0xNDgzODMzMDU1LDIwMTA4
+MTU1NjYsLTE1MjkzNDU0OTUsLTM4ODY3MDQyNiwxMDc0NDMwND
+MxLDExOTc0NjI2MjMsLTE2OTYwNzg5MDcsLTYxNTQwMTQyNSwt
+MTk0MDIwODIyN119
 -->
