@@ -99,7 +99,7 @@ Although efficient for files that are a few *kilobytes* in size ( RAM is a lot  
 **memory_map** : This is the best option when it comes to both large and small files. Memory mapping works by mapping file into a portion of process address space. The programmers can perform operations on files as if it were held in raw memory.
 The *kernel* treats the small chunks of files as pages and uses the same paging and efficient caching algorithms which results in better performance even in case of very large files.
 
-*FITS Reader uses boost::iostreams::memory_mapped library ( One of the most popular and fastest in town ) which provides a thin wrapper around the underlying memmap calls making the source code compatible across a variety of platforms*
+*FITS Reader uses boost::iostreams::memory_mapped library ( One of the most popular and fastest in town ) which provides a thin wrapper around the underlying memmap calls, making the source code compatible across a variety of platforms*
 
 **stream** :  This mode uses the old school fstream IO library for reading the file. It is average in terms of performance and memory consumption but as the reads are sequential gives a significant advantage. memory_mapped mode should be used if the file size is very large whereas use stream_based mode if the file size is a few megabytes in size.
 
@@ -255,11 +255,11 @@ class custom_parsing_policy{
 > Refer to **fits_standard_spec** class code for a detailed implementation of Parsing Policy class. ( Also there is still a lot to optimize :) so please bear with me )
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2OTk3NjYyOTUsMTA5MDIxOTE4LDIxND
-Q3NTU4NzIsNDEzNTA3NjgsMTQ1NzU4NDgzNSwyMDU3NzMzNTMx
-LDE0MDUwMjg2NDgsMTg3OTE0MjEwOSwxMzQ0NDAyODYxLC0xMD
-Y4NzExNDIzLDE2MjA1NDcxMSwxMjYzNjM5NzA2LDQ5MzI1Mjk4
-MiwxMDc2Mzg3MjgyLC0xNDgzODMzMDU1LDIwMTA4MTU1NjYsLT
-E1MjkzNDU0OTUsLTM4ODY3MDQyNiwxMDc0NDMwNDMxLDExOTc0
-NjI2MjNdfQ==
+eyJoaXN0b3J5IjpbMTgxODk1MDk0MywtMTY5OTc2NjI5NSwxMD
+kwMjE5MTgsMjE0NDc1NTg3Miw0MTM1MDc2OCwxNDU3NTg0ODM1
+LDIwNTc3MzM1MzEsMTQwNTAyODY0OCwxODc5MTQyMTA5LDEzND
+Q0MDI4NjEsLTEwNjg3MTE0MjMsMTYyMDU0NzExLDEyNjM2Mzk3
+MDYsNDkzMjUyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMwNTUsMj
+AxMDgxNTU2NiwtMTUyOTM0NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0
+MzA0MzFdfQ==
 -->
