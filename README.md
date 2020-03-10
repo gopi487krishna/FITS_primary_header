@@ -55,12 +55,75 @@ int main(){
     std::cin.get();
 }
 ```
+## Basic Structure of FITS Reader
 
+The FITS Reader API is divided into two classes and one policy of which any class that follows the contract of policy is accepted ( Policy is enforced at compile time not runtime ).
 
+![enter image description here](https://lh3.googleusercontent.com/8tIWdIGxiYJPyYwhMngnhAFVHDe8Yj2Al1aqracH-01uD55Qfe99hzQMpZm4uo2mhx3TQHCefzkFC1ZTk-M2zru3jvUIB_wi8m5BYD_AMHR5Dm-evIRW9Y7CH8orugjObaUV5btm=w800)
+
+## Primary Header
+Primary Header class provides an external interface to the programmer for manipulation of primary HDU of  fits file.
+
+This class provides the following abilities to the user
+
+ - Reading Files
+ - Query the value for the keywords parsed by the reader from a FITS  file
+ - Insert or Update cards as per the needs of the programmer
+ - Update the FITS file with new data
+
+Most of the functions in this class are a wrapper over the fits parser class. This kind of division has been done in order to improve the readability of code.
+
+> This class ensures that the users only see that part of API that they need and nothing more unless they really want to
+
+**Member Functions :**
+
+**readData()** : This function takes a filename and reading mode as argument and selects the appropriate function that parses the data and makes the data available for querying.
+
+*reading_mode* : reading_mode is an enumeration that allows programmers to specify how the data should be read.
+As of now reading_mode supports **3** modes namely
+
+![enter image description here](https://lh3.googleusercontent.com/p7gL-phThGf3HGzfoM53F_1-d7nAe6XTnFyEXjcAmP2fAccbtMEdOkwGlMzBwkvfkAfOx9pAs4c1UxMZb43QLRQJ9aqdZJk37VZawTujoW4AQUnJJd0XFHuT8yuXeURltp3btTO3=w700)
+
+**string_buffer** (buffered_mode) : The complete data from the FITS file is loaded onto a buffer from where the parser does the parsing.
+Although efficient for files that are a few *kilobytes* in size ( RAM is a lot  faster than secondary storage), loading large files into the memory hurts performance as well as RAM space ( Exhaustion of memory can occur in case of loading very large files ).
+
+**memory_map** : This is the best option when it comes to both large and small files. Memory mapping working by mapping file into a portion of process address space. The programmers can perform operations on files as if it were held in raw memory.
+The *kernel* treats the small chunks of files as pages and uses the same paging and efficient caching algorithms that it uses which results in better performance even in case of very large files.
+
+*FITS Reader uses boost::iostreams::memory_mapped library ( Which is one of the most popular and fastest in town ) which provides a thin wrapper around the underlying memmap calls making the source code compatible across a variety of platforms*
+
+**stream** :  This mode uses the old school fstream IO library for reading the file. It is average in terms of performance and memory consumption but as the reads are sequential gives a significant advantage. memory_mapped mode should be used if the file size is very large whereas use stream_based mode if the file size is a few megabytes in size.
+
+**Return Value** : A Boolean value indicating whether the file could be successfully read or not.
+```cpp
+// By default stream mode is selected
+prime_header.readData(filename,fits::reading_mode::stream);
+```
+**get&lt;Type&gt;():** : This function takes the keyword as its argument and based on the value type provided as the template parameter returns the value back to the user in the respective type wrapped around a **std::optional**
+The value type needs to be passed as a template parameter to the function because internally the value data is stored inside a variant from which the value needs to be casted out.
+*Note: Just to make things clear this does not have any significant runtime performance overhead.*
+
+```cpp
+// After reading the file
+auto value=prime_header.get<double>("MEANC100");
+if(value){std::cout<<*value<<"\n";}
+```
+**Return Value** : a *std::optional &lt;Type&gt;* that contains the value for the keyword. If the value was not found or the value could not be parsed to the provided type a *std::nullopt* is returned. Hence make sure to check before dereferencing.
+
+**Note:**  For keywords that are multivalued in nature you can fetch the value by providing a *std::vector&lt;Type&gt;* as template parameter. ( See code below for example )
+```cpp
+auto values=prime_header.get<std::vector<std::string>>("HISTORY");
+if( values.has_value()){
+for(auto& value:values){ std::cout<< value<<"\n";}
+}
+```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjg3NTY4OTgzLDEzMzc4NjUwNjksOTc5Mj
-AzNTE5LDIxMTc5MDQ0NjcsMTA1Nzg2MzY4MiwxMTQxNzEwNzA0
-LDMwODM4NDM4OSwyMTE5OTQwMTY3LDE4MTM1MDk0NjYsMTExND
-ExOTcxMF19
+eyJoaXN0b3J5IjpbMTA3NjM4NzI4MiwtMTQ4MzgzMzA1NSwyMD
+EwODE1NTY2LC0xNTI5MzQ1NDk1LC0zODg2NzA0MjYsMTA3NDQz
+MDQzMSwxMTk3NDYyNjIzLC0xNjk2MDc4OTA3LC02MTU0MDE0Mj
+UsLTE5NDAyMDgyMjcsLTE3NzYyMzQxOTYsLTcwMDk4ODg5NSwy
+ODc1Njg5ODMsMTMzNzg2NTA2OSw5NzkyMDM1MTksMjExNzkwND
+Q2NywxMDU3ODYzNjgyLDExNDE3MTA3MDQsMzA4Mzg0Mzg5LDIx
+MTk5NDAxNjddfQ==
 -->
