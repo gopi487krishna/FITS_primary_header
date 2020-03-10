@@ -193,9 +193,12 @@ The parsing policy at its essence specifies how the card needs to be parsed and 
 3.  To provide functionality for checking the keyword's nature
 4.  To provide support for serializing a type back to string
 
-Basic Structure of a Parsing Policy class
+Basic Structure of a Parsing Policy class must be 
 ```cpp
-class 
+class custom_parsing_policy{
+  
+
+} 
 ```
 
 
@@ -211,7 +214,7 @@ Tips on Writing a custom parsing policy class :
 5. If you are writing your own policy class then make sure to use the standard library for in your code. Do not try to reinvent the wheel again and again as the standard library makes your code much clearer and efficient.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc2ODU5NjA4MSwxNDU3NTg0ODM1LDIwNT
+eyJoaXN0b3J5IjpbMjA0NjgzODI2OCwxNDU3NTg0ODM1LDIwNT
 c3MzM1MzEsMTQwNTAyODY0OCwxODc5MTQyMTA5LDEzNDQ0MDI4
 NjEsLTEwNjg3MTE0MjMsMTYyMDU0NzExLDEyNjM2Mzk3MDYsND
 kzMjUyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMwNTUsMjAxMDgx
