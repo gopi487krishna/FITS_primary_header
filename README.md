@@ -186,10 +186,10 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 **Basic Steps of How Parsing Takes Place :**
 
  -  Parse the required keywords and check if they are written in a particular order in fits file .  ( As you guessed the order of these required keywords can be controlled by using custom_parsing policy ).
- - 
+ - If everyth
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDQxNDE0MDksMTg3OTE0MjEwOSwxMzQ0ND
+eyJoaXN0b3J5IjpbNDMwMDQ4NTMsMTg3OTE0MjEwOSwxMzQ0ND
 AyODYxLC0xMDY4NzExNDIzLDE2MjA1NDcxMSwxMjYzNjM5NzA2
 LDQ5MzI1Mjk4MiwxMDc2Mzg3MjgyLC0xNDgzODMzMDU1LDIwMT
 A4MTU1NjYsLTE1MjkzNDU0OTUsLTM4ODY3MDQyNiwxMDc0NDMw
