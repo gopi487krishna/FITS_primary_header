@@ -161,7 +161,8 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 
 > This member function only schedules the card to be written but does not actually write data back to the file. To write the data please refer writeToFile function.
 
-**writeToFile()** : It takes a filename as argument and writes the updated data to the file . This type of design has been used in order to prevent writing again and again on each insert call. Not  
+**writeToFile()** : It takes a filename as argument and writes the updated data into the file . This type of design has been used in order to prevent frequent writes that cause a performance lag. It writes the original 
+
 
 
 
@@ -175,11 +176,11 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE1MjM0MjI3MiwxMzQ0NDAyODYxLC0xMD
-Y4NzExNDIzLDE2MjA1NDcxMSwxMjYzNjM5NzA2LDQ5MzI1Mjk4
-MiwxMDc2Mzg3MjgyLC0xNDgzODMzMDU1LDIwMTA4MTU1NjYsLT
-E1MjkzNDU0OTUsLTM4ODY3MDQyNiwxMDc0NDMwNDMxLDExOTc0
-NjI2MjMsLTE2OTYwNzg5MDcsLTYxNTQwMTQyNSwtMTk0MDIwOD
-IyNywtMTc3NjIzNDE5NiwtNzAwOTg4ODk1LDI4NzU2ODk4Mywx
-MzM3ODY1MDY5XX0=
+eyJoaXN0b3J5IjpbLTE5MTUwMjg2OTgsMTM0NDQwMjg2MSwtMT
+A2ODcxMTQyMywxNjIwNTQ3MTEsMTI2MzYzOTcwNiw0OTMyNTI5
+ODIsMTA3NjM4NzI4MiwtMTQ4MzgzMzA1NSwyMDEwODE1NTY2LC
+0xNTI5MzQ1NDk1LC0zODg2NzA0MjYsMTA3NDQzMDQzMSwxMTk3
+NDYyNjIzLC0xNjk2MDc4OTA3LC02MTU0MDE0MjUsLTE5NDAyMD
+gyMjcsLTE3NzYyMzQxOTYsLTcwMDk4ODg5NSwyODc1Njg5ODMs
+MTMzNzg2NTA2OV19
 -->
