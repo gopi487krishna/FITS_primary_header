@@ -99,8 +99,9 @@ The *kernel* treats the small chunks of files as pages and uses the same paging 
 readData(filename,fits::reading_mode::stream);
 ```
 **get&lt;Type&gt;():** : This function takes the keyword as its argument and based on the value type provided as the template parameter returns the value back to the user in the respective type wrapped around a **std::optional**
+The value type needs to be passed as a template parameter to the function because of how the values are stored inside.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3ODY5MjIyMDMsMjAxMDgxNTU2NiwtMT
+eyJoaXN0b3J5IjpbLTEzMTI3Njc3MjcsMjAxMDgxNTU2NiwtMT
 UyOTM0NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0MzA0MzEsMTE5NzQ2
 MjYyMywtMTY5NjA3ODkwNywtNjE1NDAxNDI1LC0xOTQwMjA4Mj
 I3LC0xNzc2MjM0MTk2LC03MDA5ODg4OTUsMjg3NTY4OTgzLDEz
