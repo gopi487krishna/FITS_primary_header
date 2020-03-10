@@ -96,7 +96,7 @@ As of now reading_mode supports **3** modes namely
 **string_buffer** (buffered_mode) : The complete data from the FITS file is loaded onto a buffer from where the parser does the parsing.
 Although efficient for files that are a few *kilobytes* in size ( RAM is a lot  faster than secondary storage), loading large files into the memory hurts performance as well as RAM space ( Exhaustion of memory can occur in case of loading very large files ).
 
-**memory_map** : This is the best option when it comes to both large and small files. Memory mapping working by mapping file into a portion of process address space. The programmers can perform operations on files as if it were held in raw memory.
+**memory_map** : This is the best option when it comes to both large and small files. Memory mapping works by mapping file into a portion of process address space. The programmers can perform operations on files as if it were held in raw memory.
 The *kernel* treats the small chunks of files as pages and uses the same paging and efficient caching algorithms that it uses which results in better performance even in case of very large files.
 
 *FITS Reader uses boost::iostreams::memory_mapped library ( Which is one of the most popular and fastest in town ) which provides a thin wrapper around the underlying memmap calls making the source code compatible across a variety of platforms*
@@ -255,11 +255,11 @@ class custom_parsing_policy{
 > Refer to **fits_standard_spec** class code for a detailed implementation of Parsing Policy class. ( Also there is still a lot to optimize :) so please bear with me )
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkyNTM3MDU3NSwyMTQ0NzU1ODcyLDQxMz
-UwNzY4LDE0NTc1ODQ4MzUsMjA1NzczMzUzMSwxNDA1MDI4NjQ4
-LDE4NzkxNDIxMDksMTM0NDQwMjg2MSwtMTA2ODcxMTQyMywxNj
-IwNTQ3MTEsMTI2MzYzOTcwNiw0OTMyNTI5ODIsMTA3NjM4NzI4
-MiwtMTQ4MzgzMzA1NSwyMDEwODE1NTY2LC0xNTI5MzQ1NDk1LC
-0zODg2NzA0MjYsMTA3NDQzMDQzMSwxMTk3NDYyNjIzLC0xNjk2
-MDc4OTA3XX0=
+eyJoaXN0b3J5IjpbMTA5MDIxOTE4LDIxNDQ3NTU4NzIsNDEzNT
+A3NjgsMTQ1NzU4NDgzNSwyMDU3NzMzNTMxLDE0MDUwMjg2NDgs
+MTg3OTE0MjEwOSwxMzQ0NDAyODYxLC0xMDY4NzExNDIzLDE2Mj
+A1NDcxMSwxMjYzNjM5NzA2LDQ5MzI1Mjk4MiwxMDc2Mzg3Mjgy
+LC0xNDgzODMzMDU1LDIwMTA4MTU1NjYsLTE1MjkzNDU0OTUsLT
+M4ODY3MDQyNiwxMDc0NDMwNDMxLDExOTc0NjI2MjMsLTE2OTYw
+Nzg5MDddfQ==
 -->
