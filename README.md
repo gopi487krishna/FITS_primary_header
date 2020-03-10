@@ -77,9 +77,9 @@ Most of the functions in this class are a wrapper over the fits parser class. Th
 
 **Member Functions :**
 
-*readData()* : This function takes a filename and reading mode as argument and selects the appropriate function that parses the data and makes the data available for querying.
+**readData()** : This function takes a filename and reading mode as argument and selects the appropriate function that parses the data and makes the data available for querying.
 
-**reading_mode** : reading_mode is an enumeration that allows programmers to specify how the data should be read.
+*reading_mode* : reading_mode is an enumeration that allows programmers to specify how the data should be read.
 As of now reading_mode supports **3** modes namely
 
 ![enter image description here](https://lh3.googleusercontent.com/p7gL-phThGf3HGzfoM53F_1-d7nAe6XTnFyEXjcAmP2fAccbtMEdOkwGlMzBwkvfkAfOx9pAs4c1UxMZb43QLRQJ9aqdZJk37VZawTujoW4AQUnJJd0XFHuT8yuXeURltp3btTO3=w700)
@@ -96,11 +96,11 @@ The *kernel* treats the small chunks of files as pages and uses the same paging 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY3NzE1Mzc3NSwyMDEwODE1NTY2LC0xNT
-I5MzQ1NDk1LC0zODg2NzA0MjYsMTA3NDQzMDQzMSwxMTk3NDYy
-NjIzLC0xNjk2MDc4OTA3LC02MTU0MDE0MjUsLTE5NDAyMDgyMj
-csLTE3NzYyMzQxOTYsLTcwMDk4ODg5NSwyODc1Njg5ODMsMTMz
-Nzg2NTA2OSw5NzkyMDM1MTksMjExNzkwNDQ2NywxMDU3ODYzNj
-gyLDExNDE3MTA3MDQsMzA4Mzg0Mzg5LDIxMTk5NDAxNjcsMTgx
-MzUwOTQ2Nl19
+eyJoaXN0b3J5IjpbNDM1MTE3MDI1LDIwMTA4MTU1NjYsLTE1Mj
+kzNDU0OTUsLTM4ODY3MDQyNiwxMDc0NDMwNDMxLDExOTc0NjI2
+MjMsLTE2OTYwNzg5MDcsLTYxNTQwMTQyNSwtMTk0MDIwODIyNy
+wtMTc3NjIzNDE5NiwtNzAwOTg4ODk1LDI4NzU2ODk4MywxMzM3
+ODY1MDY5LDk3OTIwMzUxOSwyMTE3OTA0NDY3LDEwNTc4NjM2OD
+IsMTE0MTcxMDcwNCwzMDgzODQzODksMjExOTk0MDE2NywxODEz
+NTA5NDY2XX0=
 -->
