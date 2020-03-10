@@ -109,7 +109,9 @@ The functions mentioned below are a wrapper over fits_parser functions that are 
 
 **insert()** : This function takes a position ( where to insert ) , keyword, value (optional), comment( optional ) as argument and is used to insert/ update a card in FITS Reader. 
 
-> Warning : This function does
+>  This function does not write data back to the file but rather schedules it for writing . Actual writing is solely done by writeToFile() method
+
+c
 
 
 
@@ -145,7 +147,7 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzQ0ODMwNDQwLDEwNzYzODcyODIsLTE0OD
+eyJoaXN0b3J5IjpbNDkzMjUyOTgyLDEwNzYzODcyODIsLTE0OD
 M4MzMwNTUsMjAxMDgxNTU2NiwtMTUyOTM0NTQ5NSwtMzg4Njcw
 NDI2LDEwNzQ0MzA0MzEsMTE5NzQ2MjYyMywtMTY5NjA3ODkwNy
 wtNjE1NDAxNDI1LC0xOTQwMjA4MjI3LC0xNzc2MjM0MTk2LC03
