@@ -1,6 +1,6 @@
 # FITS Reader
 
-**FITS Reader** is a small C++ API that allows manipulation of **Primary HDU** in FITS files.
+**FITS Reader** is a small C++ API that allows manipulation of **Primary header** in FITS files.
 
 It provides the users with a *clean* and *easy to use* API with support for *reading*, *writing* and *accessing* header data of FITS file.
 
@@ -204,7 +204,7 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI3MjMyMDM3MCwxODc5MTQyMTA5LDEzND
+eyJoaXN0b3J5IjpbMTQwNTAyODY0OCwxODc5MTQyMTA5LDEzND
 Q0MDI4NjEsLTEwNjg3MTE0MjMsMTYyMDU0NzExLDEyNjM2Mzk3
 MDYsNDkzMjUyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMwNTUsMj
 AxMDgxNTU2NiwtMTUyOTM0NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0
