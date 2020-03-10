@@ -41,19 +41,28 @@ FITS Reader API has been designed keeping in mind the above principles (Please r
 To test if everything works correctly write the following code and check whether it compiles or not.
 
 ```cpp
+#include "fits.h"
+#include "fits_standard_spec.h"
+
+
 int main(){
     
     using namespace fits;
     primary_header<fits_standard_spec> prime_header;
-    prime_header.readData("FITS_FULL.txt"); // Present in test files folder
+    prime_header.readData("FITS_SATELLITE.txt"); // Should be present in current directory
 
     auto value = prime_header.get< double>("MEANC100");
     if (value) {
     
         std::cout << *value<<std::endl; // value comes out to be 0.3916293
     }
+
+    prime_header.insert(4, "BSCALE", 32.0,"Something");
+    prime_header.writeToFile("MASTER.txt");
+
     std::cin.get();
 }
+
 ```
 ## Basic Structure of FITS Reader
 
@@ -246,11 +255,11 @@ class custom_parsing_policy{
 > Refer to **fits_standard_spec** class code for a detailed implementation of Parsing Policy class. ( Also there is still a lot to optimize :) so please bear with me )
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDEzNTA3NjgsMTQ1NzU4NDgzNSwyMDU3Nz
-MzNTMxLDE0MDUwMjg2NDgsMTg3OTE0MjEwOSwxMzQ0NDAyODYx
-LC0xMDY4NzExNDIzLDE2MjA1NDcxMSwxMjYzNjM5NzA2LDQ5Mz
-I1Mjk4MiwxMDc2Mzg3MjgyLC0xNDgzODMzMDU1LDIwMTA4MTU1
-NjYsLTE1MjkzNDU0OTUsLTM4ODY3MDQyNiwxMDc0NDMwNDMxLD
-ExOTc0NjI2MjMsLTE2OTYwNzg5MDcsLTYxNTQwMTQyNSwtMTk0
-MDIwODIyN119
+eyJoaXN0b3J5IjpbMTg1MDg2NzkxMyw0MTM1MDc2OCwxNDU3NT
+g0ODM1LDIwNTc3MzM1MzEsMTQwNTAyODY0OCwxODc5MTQyMTA5
+LDEzNDQ0MDI4NjEsLTEwNjg3MTE0MjMsMTYyMDU0NzExLDEyNj
+M2Mzk3MDYsNDkzMjUyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMw
+NTUsMjAxMDgxNTU2NiwtMTUyOTM0NTQ5NSwtMzg4NjcwNDI2LD
+EwNzQ0MzA0MzEsMTE5NzQ2MjYyMywtMTY5NjA3ODkwNywtNjE1
+NDAxNDI1XX0=
 -->
