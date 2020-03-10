@@ -98,13 +98,13 @@ The *kernel* treats the small chunks of files as pages and uses the same paging 
 // By default stream mode is selected
 readData(filename,fits::reading_mode::stream);
 ```
-
+**get&lt;Type&gt;():** : This function takes the keyword as its argum
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTk1MDU3NzY1LDIwMTA4MTU1NjYsLTE1Mj
-kzNDU0OTUsLTM4ODY3MDQyNiwxMDc0NDMwNDMxLDExOTc0NjI2
-MjMsLTE2OTYwNzg5MDcsLTYxNTQwMTQyNSwtMTk0MDIwODIyNy
-wtMTc3NjIzNDE5NiwtNzAwOTg4ODk1LDI4NzU2ODk4MywxMzM3
-ODY1MDY5LDk3OTIwMzUxOSwyMTE3OTA0NDY3LDEwNTc4NjM2OD
-IsMTE0MTcxMDcwNCwzMDgzODQzODksMjExOTk0MDE2NywxODEz
-NTA5NDY2XX0=
+eyJoaXN0b3J5IjpbMTAwNTM0OTcxNywyMDEwODE1NTY2LC0xNT
+I5MzQ1NDk1LC0zODg2NzA0MjYsMTA3NDQzMDQzMSwxMTk3NDYy
+NjIzLC0xNjk2MDc4OTA3LC02MTU0MDE0MjUsLTE5NDAyMDgyMj
+csLTE3NzYyMzQxOTYsLTcwMDk4ODg5NSwyODc1Njg5ODMsMTMz
+Nzg2NTA2OSw5NzkyMDM1MTksMjExNzkwNDQ2NywxMDU3ODYzNj
+gyLDExNDE3MTA3MDQsMzA4Mzg0Mzg5LDIxMTk5NDAxNjcsMTgx
+MzUwOTQ2Nl19
 -->
