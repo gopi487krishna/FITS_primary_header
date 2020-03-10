@@ -221,8 +221,9 @@ class custom_parsing_policy{
    std::string cnvToString(/*Make overloads for all types*/);
   } 
 ```
-**getKeyword()** Returns the keyword from the raw card along with its class and mulitvalued status
-
+**getKeyword()** : Returns the keyword from the raw card along with its class and mulitvalued status
+**isRequiredKeywordInOrder** : Using the index determines whether the given keyword is in order or not. The interface for this function may change after sometime.
+ **isMultivalued** : Returns 
 
 Tips on Writing a custom parsing policy class :
 
@@ -236,7 +237,7 @@ Tips on Writing a custom parsing policy class :
 5. If you are writing your own policy class then make sure to use the standard library for in your code. Do not try to reinvent the wheel again and again as the standard library makes your code much clearer and efficient.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM5NDQxNDExOSwxNDU3NTg0ODM1LDIwNT
+eyJoaXN0b3J5IjpbMjA2OTc4MTcwOCwxNDU3NTg0ODM1LDIwNT
 c3MzM1MzEsMTQwNTAyODY0OCwxODc5MTQyMTA5LDEzNDQ0MDI4
 NjEsLTEwNjg3MTE0MjMsMTYyMDU0NzExLDEyNjM2Mzk3MDYsND
 kzMjUyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMwNTUsMjAxMDgx
