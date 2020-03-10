@@ -108,14 +108,15 @@ The value type needs to be passed as a template parameter to the function becaus
 auto value=prime_header.get<double>("MEANC100");
 if(value){std::cout<<*value<<"\n";}
 ```
-**Return Value** : a *std::optional &lt;Type&gt;* that contains the value for the keyword. If the value was not found or the value could not be pars
+**Return Value** : a *std::optional &lt;Type&gt;* that contains the value for the keyword. If the value was not found or the value could not be parsed to the provided type a *std::nullopt* is returned. Hence make sure to check before dereferencing.
 
+Not
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUzNjIwNzQyMywtMTQ4MzgzMzA1NSwyMD
-EwODE1NTY2LC0xNTI5MzQ1NDk1LC0zODg2NzA0MjYsMTA3NDQz
-MDQzMSwxMTk3NDYyNjIzLC0xNjk2MDc4OTA3LC02MTU0MDE0Mj
-UsLTE5NDAyMDgyMjcsLTE3NzYyMzQxOTYsLTcwMDk4ODg5NSwy
-ODc1Njg5ODMsMTMzNzg2NTA2OSw5NzkyMDM1MTksMjExNzkwND
-Q2NywxMDU3ODYzNjgyLDExNDE3MTA3MDQsMzA4Mzg0Mzg5LDIx
-MTk5NDAxNjddfQ==
+eyJoaXN0b3J5IjpbNDI2NjQ5MTAwLC0xNDgzODMzMDU1LDIwMT
+A4MTU1NjYsLTE1MjkzNDU0OTUsLTM4ODY3MDQyNiwxMDc0NDMw
+NDMxLDExOTc0NjI2MjMsLTE2OTYwNzg5MDcsLTYxNTQwMTQyNS
+wtMTk0MDIwODIyNywtMTc3NjIzNDE5NiwtNzAwOTg4ODk1LDI4
+NzU2ODk4MywxMzM3ODY1MDY5LDk3OTIwMzUxOSwyMTE3OTA0ND
+Y3LDEwNTc4NjM2ODIsMTE0MTcxMDcwNCwzMDgzODQzODksMjEx
+OTk0MDE2N119
 -->
