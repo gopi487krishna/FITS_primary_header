@@ -185,10 +185,11 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 
 **Basic Steps of How Parsing Takes Place :**
 
- - Parse the required keywords and check if they are present in required order. After parsing each card add the keyword and value into the 
+ - Parse the required keywords and check if they are present in required order. After parsing each card add the keyword and value into the header_data ( An unordered multimap ) for storage.
+ - After the required cards have been parsed and ensured that they confirm to the standard parse all the other card
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEzNTg4NDk0NywxODc5MTQyMTA5LDEzND
+eyJoaXN0b3J5IjpbLTM1NzQxMzAyMSwxODc5MTQyMTA5LDEzND
 Q0MDI4NjEsLTEwNjg3MTE0MjMsMTYyMDU0NzExLDEyNjM2Mzk3
 MDYsNDkzMjUyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMwNTUsMj
 AxMDgxNTU2NiwtMTUyOTM0NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0
