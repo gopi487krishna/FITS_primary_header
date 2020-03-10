@@ -134,9 +134,9 @@ Fits Parser provides a collection of functions for reading as well as writing th
 This results in high flexibility as with custom parsing policy you can set your own rules for parsing keywords, create specialized keywords or introduce a new type ( Best example is that of custom date type). Also with custom parsing policy, you can change the way a type is parsed ( like setting precision for floating-point numbers ). 
 Due to its custom parsing policy FITS reader becomes future proof to a very large extent as newer changes in the standard can easily be accommodated.
 Also as the parsing policy is enforced at Compile Time rather than Runtime there is 0 performance overhead. But there is a small compile-time overhead which is a smaller price to pay for as compared to flexiblity.
-To get further details about how the custom parsing policy should be implemented please visit the Parsing Policy Section
+To get further details about how the custom parsing policy can  be implemented kindly visit the Parsing Policy Section
 
-**Member Functions** :
+**Member Functions** : ( Primary Header has a wrapper around some of these functions exposing to  the User )
 
 **get&lt;Type&gt;()** : This function takes the keyword as its argument and based on the value type provided as the template parameter returns the value back to the user in the respective type wrapped around a **std::optional**
 The value type needs to be passed as a template parameter to the function because internally the value data is stored inside a variant from which the value needs to be casted out.
@@ -171,11 +171,11 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExOTY4MTI4MDcsMTM0NDQwMjg2MSwtMT
-A2ODcxMTQyMywxNjIwNTQ3MTEsMTI2MzYzOTcwNiw0OTMyNTI5
-ODIsMTA3NjM4NzI4MiwtMTQ4MzgzMzA1NSwyMDEwODE1NTY2LC
-0xNTI5MzQ1NDk1LC0zODg2NzA0MjYsMTA3NDQzMDQzMSwxMTk3
-NDYyNjIzLC0xNjk2MDc4OTA3LC02MTU0MDE0MjUsLTE5NDAyMD
-gyMjcsLTE3NzYyMzQxOTYsLTcwMDk4ODg5NSwyODc1Njg5ODMs
-MTMzNzg2NTA2OV19
+eyJoaXN0b3J5IjpbLTQ3MDk1NTc1NywxMzQ0NDAyODYxLC0xMD
+Y4NzExNDIzLDE2MjA1NDcxMSwxMjYzNjM5NzA2LDQ5MzI1Mjk4
+MiwxMDc2Mzg3MjgyLC0xNDgzODMzMDU1LDIwMTA4MTU1NjYsLT
+E1MjkzNDU0OTUsLTM4ODY3MDQyNiwxMDc0NDMwNDMxLDExOTc0
+NjI2MjMsLTE2OTYwNzg5MDcsLTYxNTQwMTQyNSwtMTk0MDIwOD
+IyNywtMTc3NjIzNDE5NiwtNzAwOTg4ODk1LDI4NzU2ODk4Mywx
+MzM3ODY1MDY5XX0=
 -->
