@@ -243,14 +243,14 @@ class custom_parsing_policy{
 4. Using the default **fits_standard_spec** parsing policy is enough at most times since it is conformant to the FITS Standards. But if your organization has some specific needs or the **fits_standard_spec** has got outdated then only create your own policy class. And make sure to make it a static library. It significantly reduces the compile time and in some cases provides some more optimization as well.
 5. If you are writing your own policy class then make sure to use the standard library for in your code. Do not try to reinvent the wheel again and again as the standard library makes your code much clearer and efficient.
 
-> Refer to **fits_standard_spec** class  for a detailed
+> Refer to **fits_standard_spec** class code for a detailed implementation of Parsing Policy class. ( Also there is still a lot to optimize :) so please bear with me )
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM2Mjc5MDkyOSwxNDU3NTg0ODM1LDIwNT
-c3MzM1MzEsMTQwNTAyODY0OCwxODc5MTQyMTA5LDEzNDQ0MDI4
-NjEsLTEwNjg3MTE0MjMsMTYyMDU0NzExLDEyNjM2Mzk3MDYsND
-kzMjUyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMwNTUsMjAxMDgx
-NTU2NiwtMTUyOTM0NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0MzA0Mz
-EsMTE5NzQ2MjYyMywtMTY5NjA3ODkwNywtNjE1NDAxNDI1LC0x
-OTQwMjA4MjI3XX0=
+eyJoaXN0b3J5IjpbNDEzNTA3NjgsMTQ1NzU4NDgzNSwyMDU3Nz
+MzNTMxLDE0MDUwMjg2NDgsMTg3OTE0MjEwOSwxMzQ0NDAyODYx
+LC0xMDY4NzExNDIzLDE2MjA1NDcxMSwxMjYzNjM5NzA2LDQ5Mz
+I1Mjk4MiwxMDc2Mzg3MjgyLC0xNDgzODMzMDU1LDIwMTA4MTU1
+NjYsLTE1MjkzNDU0OTUsLTM4ODY3MDQyNiwxMDc0NDMwNDMxLD
+ExOTc0NjI2MjMsLTE2OTYwNzg5MDcsLTYxNTQwMTQyNSwtMTk0
+MDIwODIyN119
 -->
