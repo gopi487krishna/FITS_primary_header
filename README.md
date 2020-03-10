@@ -177,29 +177,22 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 
  - **Return Value:** A boolean that indicates if all the keywords and values could be successfully parsed.
 
-**parseOnStringBuffer()** as the file can be accessed like raw_memory for accessing data.
+**parseOnStringBuffer()** as the file can be accessed like raw memory for accessing data.
 
  - **Return Value:** A boolean that indicates if all the keywords and values could be successfully parsed.
 
-**parseCard()** : parseCard takes a raw_card of 80 bytes as its agrument and splits the card into keyword and value ( The keyword and values are parsed using the functions present in parsing_policy ) 
+**parseCard()** : parseCard takes a raw_card of 80 bytes as its argument and splits the card into keyword and value ( The keyword and values are parsed according to the  parsing policy ) .
 
+**Basic Steps of How Parsing Takes Place :**
 
-
-
-
-
-
-
-
-
-
+ - Pa
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI5MTI2MzA0NiwxODc5MTQyMTA5LDEzND
-Q0MDI4NjEsLTEwNjg3MTE0MjMsMTYyMDU0NzExLDEyNjM2Mzk3
-MDYsNDkzMjUyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMwNTUsMj
-AxMDgxNTU2NiwtMTUyOTM0NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0
-MzA0MzEsMTE5NzQ2MjYyMywtMTY5NjA3ODkwNywtNjE1NDAxND
-I1LC0xOTQwMjA4MjI3LC0xNzc2MjM0MTk2LC03MDA5ODg4OTUs
-Mjg3NTY4OTgzXX0=
+eyJoaXN0b3J5IjpbNjUzNDIwNjUzLDE4NzkxNDIxMDksMTM0ND
+QwMjg2MSwtMTA2ODcxMTQyMywxNjIwNTQ3MTEsMTI2MzYzOTcw
+Niw0OTMyNTI5ODIsMTA3NjM4NzI4MiwtMTQ4MzgzMzA1NSwyMD
+EwODE1NTY2LC0xNTI5MzQ1NDk1LC0zODg2NzA0MjYsMTA3NDQz
+MDQzMSwxMTk3NDYyNjIzLC0xNjk2MDc4OTA3LC02MTU0MDE0Mj
+UsLTE5NDAyMDgyMjcsLTE3NzYyMzQxOTYsLTcwMDk4ODg5NSwy
+ODc1Njg5ODNdfQ==
 -->
