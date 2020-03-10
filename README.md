@@ -113,13 +113,13 @@ if(value){std::cout<<*value<<"\n";}
 **Note:**  For keywords that are multivalued in nature you can fetch the value by providing a *std::vector&lt;Type&gt;* as template parameter. ( See code below for example )
 ```cpp
 auto values=prime_header.get<std::vector<std::string>>("HISTORY");
-if( values){
+if( values.has_value()){
 for(auto& value:values){ std::cout<< value<<"\n";}
 }
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIyODIzOTU2NSwtMTQ4MzgzMzA1NSwyMD
+eyJoaXN0b3J5IjpbMTA3NjM4NzI4MiwtMTQ4MzgzMzA1NSwyMD
 EwODE1NTY2LC0xNTI5MzQ1NDk1LC0zODg2NzA0MjYsMTA3NDQz
 MDQzMSwxMTk3NDYyNjIzLC0xNjk2MDc4OTA3LC02MTU0MDE0Mj
 UsLTE5NDAyMDgyMjcsLTE3NzYyMzQxOTYsLTcwMDk4ODg5NSwy
