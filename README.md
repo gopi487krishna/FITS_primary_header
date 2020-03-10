@@ -99,6 +99,24 @@ The *kernel* treats the small chunks of files as pages and uses the same paging 
 // By default stream mode is selected
 prime_header.readData(filename,fits::reading_mode::stream);
 ```
+get
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **get&lt;Type&gt;():** : This function takes the keyword as its argument and based on the value type provided as the template parameter returns the value back to the user in the respective type wrapped around a **std::optional**
 The value type needs to be passed as a template parameter to the function because internally the value data is stored inside a variant from which the value needs to be casted out.
 *Note: Just to make things clear this does not have any significant runtime performance overhead.*
@@ -119,11 +137,11 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA3NjM4NzI4MiwtMTQ4MzgzMzA1NSwyMD
-EwODE1NTY2LC0xNTI5MzQ1NDk1LC0zODg2NzA0MjYsMTA3NDQz
-MDQzMSwxMTk3NDYyNjIzLC0xNjk2MDc4OTA3LC02MTU0MDE0Mj
-UsLTE5NDAyMDgyMjcsLTE3NzYyMzQxOTYsLTcwMDk4ODg5NSwy
-ODc1Njg5ODMsMTMzNzg2NTA2OSw5NzkyMDM1MTksMjExNzkwND
-Q2NywxMDU3ODYzNjgyLDExNDE3MTA3MDQsMzA4Mzg0Mzg5LDIx
-MTk5NDAxNjddfQ==
+eyJoaXN0b3J5IjpbLTU2NzIzMzAxMiwxMDc2Mzg3MjgyLC0xND
+gzODMzMDU1LDIwMTA4MTU1NjYsLTE1MjkzNDU0OTUsLTM4ODY3
+MDQyNiwxMDc0NDMwNDMxLDExOTc0NjI2MjMsLTE2OTYwNzg5MD
+csLTYxNTQwMTQyNSwtMTk0MDIwODIyNywtMTc3NjIzNDE5Niwt
+NzAwOTg4ODk1LDI4NzU2ODk4MywxMzM3ODY1MDY5LDk3OTIwMz
+UxOSwyMTE3OTA0NDY3LDEwNTc4NjM2ODIsMTE0MTcxMDcwNCwz
+MDgzODQzODldfQ==
 -->
