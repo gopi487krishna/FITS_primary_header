@@ -196,6 +196,8 @@ The parsing policy at its essence specifies how the card needs to be parsed and 
 Basic Structure of a Parsing Policy class must be 
 ```cpp
 class custom_parsing_policy{
+  public:
+  typedef ... value_type;
   
 
 } 
@@ -214,11 +216,11 @@ Tips on Writing a custom parsing policy class :
 5. If you are writing your own policy class then make sure to use the standard library for in your code. Do not try to reinvent the wheel again and again as the standard library makes your code much clearer and efficient.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA0NjgzODI2OCwxNDU3NTg0ODM1LDIwNT
-c3MzM1MzEsMTQwNTAyODY0OCwxODc5MTQyMTA5LDEzNDQ0MDI4
-NjEsLTEwNjg3MTE0MjMsMTYyMDU0NzExLDEyNjM2Mzk3MDYsND
-kzMjUyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMwNTUsMjAxMDgx
-NTU2NiwtMTUyOTM0NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0MzA0Mz
-EsMTE5NzQ2MjYyMywtMTY5NjA3ODkwNywtNjE1NDAxNDI1LC0x
-OTQwMjA4MjI3XX0=
+eyJoaXN0b3J5IjpbLTIxNDcxOTc5OTMsMTQ1NzU4NDgzNSwyMD
+U3NzMzNTMxLDE0MDUwMjg2NDgsMTg3OTE0MjEwOSwxMzQ0NDAy
+ODYxLC0xMDY4NzExNDIzLDE2MjA1NDcxMSwxMjYzNjM5NzA2LD
+Q5MzI1Mjk4MiwxMDc2Mzg3MjgyLC0xNDgzODMzMDU1LDIwMTA4
+MTU1NjYsLTE1MjkzNDU0OTUsLTM4ODY3MDQyNiwxMDc0NDMwND
+MxLDExOTc0NjI2MjMsLTE2OTYwNzg5MDcsLTYxNTQwMTQyNSwt
+MTk0MDIwODIyN119
 -->
