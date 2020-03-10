@@ -125,7 +125,8 @@ The functions mentioned below are a wrapper over fits_parser functions that are 
 
 ## Fits Parser
 The details of this class are of importance only if you intend to develop custom parsing policies for the FITS Reader API.
-*Note : Although the dependencies are kept to a minimum *
+*Note : Although the dependencies are kept to a minimum, kindly refrain yourself from using this class directly.*
+**fits_parser** class as the name itself suggests, is responsible for parsing the con
 
 
 
@@ -157,11 +158,11 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NjAwNjY2ODIsMTYyMDU0NzExLDEyNj
-M2Mzk3MDYsNDkzMjUyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMw
-NTUsMjAxMDgxNTU2NiwtMTUyOTM0NTQ5NSwtMzg4NjcwNDI2LD
-EwNzQ0MzA0MzEsMTE5NzQ2MjYyMywtMTY5NjA3ODkwNywtNjE1
-NDAxNDI1LC0xOTQwMjA4MjI3LC0xNzc2MjM0MTk2LC03MDA5OD
-g4OTUsMjg3NTY4OTgzLDEzMzc4NjUwNjksOTc5MjAzNTE5LDIx
-MTc5MDQ0NjddfQ==
+eyJoaXN0b3J5IjpbMzIyNzAyMSwxNjIwNTQ3MTEsMTI2MzYzOT
+cwNiw0OTMyNTI5ODIsMTA3NjM4NzI4MiwtMTQ4MzgzMzA1NSwy
+MDEwODE1NTY2LC0xNTI5MzQ1NDk1LC0zODg2NzA0MjYsMTA3ND
+QzMDQzMSwxMTk3NDYyNjIzLC0xNjk2MDc4OTA3LC02MTU0MDE0
+MjUsLTE5NDAyMDgyMjcsLTE3NzYyMzQxOTYsLTcwMDk4ODg5NS
+wyODc1Njg5ODMsMTMzNzg2NTA2OSw5NzkyMDM1MTksMjExNzkw
+NDQ2N119
 -->
