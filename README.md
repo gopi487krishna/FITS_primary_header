@@ -143,21 +143,9 @@ To get further details about how the custom parsing policy can  be implemented k
 The value type needs to be passed as a template parameter to the function because internally the value data is stored inside a variant from which the value needs to be casted out.
 *Note: Just to make things clear this does not have any significant runtime performance overhead.*
 
-```cpp
-// After reading the file
-auto value=prime_header.get<double>("MEANC100");
-if(value){std::cout<<*value<<"\n";}
-```
-
  - **Return Value** : a *std::optional &lt;Type&gt;* that contains the value for the keyword. If the value was not found or the value could not be parsed to the provided type a *std::nullopt* is returned. Hence make sure to check before dereferencing.
 
 **Note:**  For keywords that are multivalued in nature you can fetch the value by providing a *std::vector&lt;Type&gt;* as template parameter. ( See code below for example )
-```cpp
-auto values=prime_header.get<std::vector<std::string>>("HISTORY");
-if( values.has_value()){
-for(auto& value:values){ std::cout<< value<<"\n";}
-}
-```
 
 **insert()** : Insert member function is used to create a new card in FITS Reader. Calling the insert member function with appropriate arguments causes the reader to update its internal structure with new {keyword,value} and schedules the card to be written to file.
 
@@ -174,12 +162,8 @@ for(auto& value:values){ std::cout<< value<<"\n";}
  - **Return Value:** A boolean that indicates if all the keywords and values could be successfully parsed.
 
 **parseOnMappedFile(file)** : This is one of the most efficient methods of parsing a FITS file as it uses the boost::iostreams::mapped_file_source class for reading the data from the file. The internal logic is same as compared to 
-
- - **Return Value:** A boolean that indicates if all the keywords and values could be successfully parsed.
-
 **parseOnStringBuffer()** as the file can be accessed like raw memory for accessing data.
-
- - **Return Value:** A boolean that indicates if all the keywords and values could be successfully parsed.
+  - **Return Value:** A boolean that indicates if all the keywords and values could be successfully parsed.
 
 **parseCard()** : parseCard takes a raw_card of 80 bytes as its argument and splits the card into keyword and value ( The keyword and values are parsed according to the  parsing policy ) .
 
@@ -204,11 +188,11 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQwNTAyODY0OCwxODc5MTQyMTA5LDEzND
-Q0MDI4NjEsLTEwNjg3MTE0MjMsMTYyMDU0NzExLDEyNjM2Mzk3
-MDYsNDkzMjUyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMwNTUsMj
-AxMDgxNTU2NiwtMTUyOTM0NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0
-MzA0MzEsMTE5NzQ2MjYyMywtMTY5NjA3ODkwNywtNjE1NDAxND
-I1LC0xOTQwMjA4MjI3LC0xNzc2MjM0MTk2LC03MDA5ODg4OTUs
-Mjg3NTY4OTgzXX0=
+eyJoaXN0b3J5IjpbLTk5NDcxMDM2NCwxNDA1MDI4NjQ4LDE4Nz
+kxNDIxMDksMTM0NDQwMjg2MSwtMTA2ODcxMTQyMywxNjIwNTQ3
+MTEsMTI2MzYzOTcwNiw0OTMyNTI5ODIsMTA3NjM4NzI4MiwtMT
+Q4MzgzMzA1NSwyMDEwODE1NTY2LC0xNTI5MzQ1NDk1LC0zODg2
+NzA0MjYsMTA3NDQzMDQzMSwxMTk3NDYyNjIzLC0xNjk2MDc4OT
+A3LC02MTU0MDE0MjUsLTE5NDAyMDgyMjcsLTE3NzYyMzQxOTYs
+LTcwMDk4ODg5NV19
 -->
