@@ -163,8 +163,9 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 
 **writeToFile()** : It takes a filename as argument and writes the updated data into the file . This type of design has been used in order to prevent frequent writes that cause a performance lag. It writes the original file as it is but also accommodates the changes that you have made. This includes updating the value of a keyword, adding a new keyword-value ( card ) etc.
 
-**
-
+parseOnX() : { X={StringBuffer
+**parseOnStringBuffer()** : As the name itself suggests parseOnStringBuffer parses the primary header of a fits file by 
+ 
 
 
 
@@ -178,11 +179,11 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMDE5OTY1MTAsMTM0NDQwMjg2MSwtMT
-A2ODcxMTQyMywxNjIwNTQ3MTEsMTI2MzYzOTcwNiw0OTMyNTI5
-ODIsMTA3NjM4NzI4MiwtMTQ4MzgzMzA1NSwyMDEwODE1NTY2LC
-0xNTI5MzQ1NDk1LC0zODg2NzA0MjYsMTA3NDQzMDQzMSwxMTk3
-NDYyNjIzLC0xNjk2MDc4OTA3LC02MTU0MDE0MjUsLTE5NDAyMD
-gyMjcsLTE3NzYyMzQxOTYsLTcwMDk4ODg5NSwyODc1Njg5ODMs
-MTMzNzg2NTA2OV19
+eyJoaXN0b3J5IjpbMjU5MTAwNjk1LDEzNDQ0MDI4NjEsLTEwNj
+g3MTE0MjMsMTYyMDU0NzExLDEyNjM2Mzk3MDYsNDkzMjUyOTgy
+LDEwNzYzODcyODIsLTE0ODM4MzMwNTUsMjAxMDgxNTU2NiwtMT
+UyOTM0NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0MzA0MzEsMTE5NzQ2
+MjYyMywtMTY5NjA3ODkwNywtNjE1NDAxNDI1LC0xOTQwMjA4Mj
+I3LC0xNzc2MjM0MTk2LC03MDA5ODg4OTUsMjg3NTY4OTgzLDEz
+Mzc4NjUwNjldfQ==
 -->
