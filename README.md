@@ -159,9 +159,9 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 
 **insert()** : Insert member function is used to create a new card in FITS Reader. Calling the insert member function with appropriate arguments causes the reader to update its internal structure with new {keyword,value} and schedules the card to be written to file.
 
-> This member function only schedules the card to be written but does not actually write data back to the file. To write the data please refer Write 
+> This member function only schedules the card to be written but does not actually write data back to the file. To write the data please refer writeToFile function.
 
- 
+**writeToFile()** : It takes a filename as argument and writes the updated data back to the file. 
 
 
 
@@ -175,11 +175,11 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQyMzk5MDE0MCwxMzQ0NDAyODYxLC0xMD
-Y4NzExNDIzLDE2MjA1NDcxMSwxMjYzNjM5NzA2LDQ5MzI1Mjk4
-MiwxMDc2Mzg3MjgyLC0xNDgzODMzMDU1LDIwMTA4MTU1NjYsLT
-E1MjkzNDU0OTUsLTM4ODY3MDQyNiwxMDc0NDMwNDMxLDExOTc0
-NjI2MjMsLTE2OTYwNzg5MDcsLTYxNTQwMTQyNSwtMTk0MDIwOD
-IyNywtMTc3NjIzNDE5NiwtNzAwOTg4ODk1LDI4NzU2ODk4Mywx
-MzM3ODY1MDY5XX0=
+eyJoaXN0b3J5IjpbNzE0MzI4MDE4LDEzNDQ0MDI4NjEsLTEwNj
+g3MTE0MjMsMTYyMDU0NzExLDEyNjM2Mzk3MDYsNDkzMjUyOTgy
+LDEwNzYzODcyODIsLTE0ODM4MzMwNTUsMjAxMDgxNTU2NiwtMT
+UyOTM0NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0MzA0MzEsMTE5NzQ2
+MjYyMywtMTY5NjA3ODkwNywtNjE1NDAxNDI1LC0xOTQwMjA4Mj
+I3LC0xNzc2MjM0MTk2LC03MDA5ODg4OTUsMjg3NTY4OTgzLDEz
+Mzc4NjUwNjldfQ==
 -->
