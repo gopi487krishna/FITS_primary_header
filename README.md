@@ -184,16 +184,15 @@ The value type needs to be passed as a template parameter to the function becaus
 
 > All the steps shown above occur in the given order but how they should be performed can be controlled by defining a custom parsing policy
 
-## Parsing Policy 
-
+## Parsing Polic
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA1NzczMzUzMSwxNDA1MDI4NjQ4LDE4Nz
-kxNDIxMDksMTM0NDQwMjg2MSwtMTA2ODcxMTQyMywxNjIwNTQ3
-MTEsMTI2MzYzOTcwNiw0OTMyNTI5ODIsMTA3NjM4NzI4MiwtMT
-Q4MzgzMzA1NSwyMDEwODE1NTY2LC0xNTI5MzQ1NDk1LC0zODg2
-NzA0MjYsMTA3NDQzMDQzMSwxMTk3NDYyNjIzLC0xNjk2MDc4OT
-A3LC02MTU0MDE0MjUsLTE5NDAyMDgyMjcsLTE3NzYyMzQxOTYs
-LTcwMDk4ODg5NV19
+eyJoaXN0b3J5IjpbODM3MzA1MTA4LDIwNTc3MzM1MzEsMTQwNT
+AyODY0OCwxODc5MTQyMTA5LDEzNDQ0MDI4NjEsLTEwNjg3MTE0
+MjMsMTYyMDU0NzExLDEyNjM2Mzk3MDYsNDkzMjUyOTgyLDEwNz
+YzODcyODIsLTE0ODM4MzMwNTUsMjAxMDgxNTU2NiwtMTUyOTM0
+NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0MzA0MzEsMTE5NzQ2MjYyMy
+wtMTY5NjA3ODkwNywtNjE1NDAxNDI1LC0xOTQwMjA4MjI3LC0x
+Nzc2MjM0MTk2XX0=
 -->
