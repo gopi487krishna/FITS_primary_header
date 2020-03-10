@@ -185,7 +185,7 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 
 **Basic Steps of How Parsing Takes Place :**
 
- - Parse the required keywords and check if they are present in required order. After parsing each card add the keyword and value into the header_data ( An unordered multimap ) for storage.
+ - Parse the required keywords and check if they are present in required order. After parsing each card add the keyword and value into the **header_data** ( An unordered multimap ) for storage.
  - After the required cards have been parsed and ensured that they confirm to the standard parse all the other cards one by one . Parsing of keyword results in  
 	
 
@@ -194,14 +194,16 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 	 - Multivalued or not
 
  - Value parsing results in actual parsing of the values to the required type and returning it.
- - Based on the keyword class , its multivalued nature and type of value the keyword-value pair is inserted/ updated  into the  header_data. 
+ - Based on the keyword class , its multivalued nature and type of value the keyword-value pair is inserted/ updated  into the  **header_data**. and its offset/position is added into **offset map**
+ - After the parsing is complete, all the keywords along wit
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI0NzkyOTcxMCwxODc5MTQyMTA5LDEzND
-Q0MDI4NjEsLTEwNjg3MTE0MjMsMTYyMDU0NzExLDEyNjM2Mzk3
-MDYsNDkzMjUyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMwNTUsMj
-AxMDgxNTU2NiwtMTUyOTM0NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0
-MzA0MzEsMTE5NzQ2MjYyMywtMTY5NjA3ODkwNywtNjE1NDAxND
-I1LC0xOTQwMjA4MjI3LC0xNzc2MjM0MTk2LC03MDA5ODg4OTUs
-Mjg3NTY4OTgzXX0=
+eyJoaXN0b3J5IjpbLTE4MjgxOTU4MjMsMTg3OTE0MjEwOSwxMz
+Q0NDAyODYxLC0xMDY4NzExNDIzLDE2MjA1NDcxMSwxMjYzNjM5
+NzA2LDQ5MzI1Mjk4MiwxMDc2Mzg3MjgyLC0xNDgzODMzMDU1LD
+IwMTA4MTU1NjYsLTE1MjkzNDU0OTUsLTM4ODY3MDQyNiwxMDc0
+NDMwNDMxLDExOTc0NjI2MjMsLTE2OTYwNzg5MDcsLTYxNTQwMT
+QyNSwtMTk0MDIwODIyNywtMTc3NjIzNDE5NiwtNzAwOTg4ODk1
+LDI4NzU2ODk4M119
 -->
