@@ -20,7 +20,7 @@ Developing APIs or libraries is a piece of art in itself. The traditional rules 
 
 FITS Reader API has been designed keeping in mind the above principles (Please refer to the sections below for examples ) . It features 
 
- - A policy-based design allowing users to write and control most of the parts of Reader ( Things like adding custom rules, changing the way of parsing a value, adding support for parsing new types of values and so on. (This really comes handy when the FILE has been custom designed according to the needs of a User ).
+ - A policy-based design allowing users to write and control most of the parts of Reader ( Things like adding custom rules, changing the way of parsing a value, adding support for parsing new types of values and so on. (This really comes handy when the FITS File has been custom designed according to the needs of a organization).
  - No extra hassle to setup before reading fits files ( Just set a filename, reading mode ) and done that's it!.
  - Easy to use functions for manipulating and writing data back to the file
 - Very few dependencies ( For memory-mapped files - boost )
@@ -255,7 +255,7 @@ class custom_parsing_policy{
 > Refer to **fits_standard_spec** class code for a detailed implementation of Parsing Policy class. ( Also there is still a lot to optimize :) so please bear with me )
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU0MDAxOTE0Niw0MTM1MDc2OCwxNDU3NT
+eyJoaXN0b3J5IjpbMjE0NDc1NTg3Miw0MTM1MDc2OCwxNDU3NT
 g0ODM1LDIwNTc3MzM1MzEsMTQwNTAyODY0OCwxODc5MTQyMTA5
 LDEzNDQ0MDI4NjEsLTEwNjg3MTE0MjMsMTYyMDU0NzExLDEyNj
 M2Mzk3MDYsNDkzMjUyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMw
