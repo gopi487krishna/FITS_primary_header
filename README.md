@@ -103,8 +103,11 @@ The functions mentioned below are a wrapper over fits_parser functions that are 
  
 **get&lt;Type&gt;()** This function takes a keyword as argument and returns the value of that keyword back to the user ( if present ).
 **Return Value** : A *std::optional&lt;Type&gt;* value .
+```cpp
+ auto value = prime_header.get< double>("MEANC100");
+```
 
-
+**insert()** : 
 
 
 
@@ -141,7 +144,7 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUyNTMwNjA5OSwxMDc2Mzg3MjgyLC0xND
+eyJoaXN0b3J5IjpbLTQ1MzE4NDExNCwxMDc2Mzg3MjgyLC0xND
 gzODMzMDU1LDIwMTA4MTU1NjYsLTE1MjkzNDU0OTUsLTM4ODY3
 MDQyNiwxMDc0NDMwNDMxLDExOTc0NjI2MjMsLTE2OTYwNzg5MD
 csLTYxNTQwMTQyNSwtMTk0MDIwODIyNywtMTc3NjIzNDE5Niwt
