@@ -111,8 +111,12 @@ The functions mentioned below are a wrapper over fits_parser functions that are 
 
 >  This function does not write data back to the file but rather schedules it for writing . Actual writing is solely done by writeToFile() method
 
-c
+**Return Value** : A boolean indicating whether the changes could be made or not
+```cpp
 
+```
+
+**writeToFile()** : 
 
 
 
@@ -147,11 +151,11 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDkzMjUyOTgyLDEwNzYzODcyODIsLTE0OD
-M4MzMwNTUsMjAxMDgxNTU2NiwtMTUyOTM0NTQ5NSwtMzg4Njcw
-NDI2LDEwNzQ0MzA0MzEsMTE5NzQ2MjYyMywtMTY5NjA3ODkwNy
-wtNjE1NDAxNDI1LC0xOTQwMjA4MjI3LC0xNzc2MjM0MTk2LC03
-MDA5ODg4OTUsMjg3NTY4OTgzLDEzMzc4NjUwNjksOTc5MjAzNT
-E5LDIxMTc5MDQ0NjcsMTA1Nzg2MzY4MiwxMTQxNzEwNzA0LDMw
-ODM4NDM4OV19
+eyJoaXN0b3J5IjpbMTAyOTY2MzYwOSw0OTMyNTI5ODIsMTA3Nj
+M4NzI4MiwtMTQ4MzgzMzA1NSwyMDEwODE1NTY2LC0xNTI5MzQ1
+NDk1LC0zODg2NzA0MjYsMTA3NDQzMDQzMSwxMTk3NDYyNjIzLC
+0xNjk2MDc4OTA3LC02MTU0MDE0MjUsLTE5NDAyMDgyMjcsLTE3
+NzYyMzQxOTYsLTcwMDk4ODg5NSwyODc1Njg5ODMsMTMzNzg2NT
+A2OSw5NzkyMDM1MTksMjExNzkwNDQ2NywxMDU3ODYzNjgyLDEx
+NDE3MTA3MDRdfQ==
 -->
