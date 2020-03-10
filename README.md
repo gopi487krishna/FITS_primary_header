@@ -117,7 +117,7 @@ prime_header.readData(filename,fits::reading_mode::stream);
 
 
 
-**get&lt;Type&gt;():** : This function takes the keyword as its argument and based on the value type provided as the template parameter returns the value back to the user in the respective type wrapped around a **std::optional**
+**get&lt;Type&gt;()** : This function takes the keyword as its argument and based on the value type provided as the template parameter returns the value back to the user in the respective type wrapped around a **std::optional**
 The value type needs to be passed as a template parameter to the function because internally the value data is stored inside a variant from which the value needs to be casted out.
 *Note: Just to make things clear this does not have any significant runtime performance overhead.*
 
@@ -137,11 +137,11 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NDgxODA2MTIsMTA3NjM4NzI4MiwtMT
-Q4MzgzMzA1NSwyMDEwODE1NTY2LC0xNTI5MzQ1NDk1LC0zODg2
-NzA0MjYsMTA3NDQzMDQzMSwxMTk3NDYyNjIzLC0xNjk2MDc4OT
-A3LC02MTU0MDE0MjUsLTE5NDAyMDgyMjcsLTE3NzYyMzQxOTYs
-LTcwMDk4ODg5NSwyODc1Njg5ODMsMTMzNzg2NTA2OSw5NzkyMD
-M1MTksMjExNzkwNDQ2NywxMDU3ODYzNjgyLDExNDE3MTA3MDQs
-MzA4Mzg0Mzg5XX0=
+eyJoaXN0b3J5IjpbNzQyMTMzNTMwLDEwNzYzODcyODIsLTE0OD
+M4MzMwNTUsMjAxMDgxNTU2NiwtMTUyOTM0NTQ5NSwtMzg4Njcw
+NDI2LDEwNzQ0MzA0MzEsMTE5NzQ2MjYyMywtMTY5NjA3ODkwNy
+wtNjE1NDAxNDI1LC0xOTQwMjA4MjI3LC0xNzc2MjM0MTk2LC03
+MDA5ODg4OTUsMjg3NTY4OTgzLDEzMzc4NjUwNjksOTc5MjAzNT
+E5LDIxMTc5MDQ0NjcsMTA1Nzg2MzY4MiwxMTQxNzEwNzA0LDMw
+ODM4NDM4OV19
 -->
