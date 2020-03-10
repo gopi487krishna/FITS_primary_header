@@ -94,6 +94,7 @@ The *kernel* treats the small chunks of files as pages and uses the same paging 
 
 **stream** :  This mode uses the old school fstream IO library for reading the file. It is average in terms of performance and memory consumption but as the reads are sequential gives a significant advantage. memory_mapped mode should be used if the file size is very large whereas use stream_based mode if the file size is a few megabytes in size.
 
+**Return Value** : A Boolean value indicating whether the file could be successfully read or not.
 ```cpp
 // By default stream mode is selected
 prime_header.readData(filename,fits::reading_mode::stream);
@@ -110,11 +111,11 @@ if(value){std::cout<<*value<<"\n";}
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0ODM4MzMwNTUsMjAxMDgxNTU2NiwtMT
-UyOTM0NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0MzA0MzEsMTE5NzQ2
-MjYyMywtMTY5NjA3ODkwNywtNjE1NDAxNDI1LC0xOTQwMjA4Mj
-I3LC0xNzc2MjM0MTk2LC03MDA5ODg4OTUsMjg3NTY4OTgzLDEz
-Mzc4NjUwNjksOTc5MjAzNTE5LDIxMTc5MDQ0NjcsMTA1Nzg2Mz
-Y4MiwxMTQxNzEwNzA0LDMwODM4NDM4OSwyMTE5OTQwMTY3LDE4
-MTM1MDk0NjZdfQ==
+eyJoaXN0b3J5IjpbLTY2MjM0MzczOSwtMTQ4MzgzMzA1NSwyMD
+EwODE1NTY2LC0xNTI5MzQ1NDk1LC0zODg2NzA0MjYsMTA3NDQz
+MDQzMSwxMTk3NDYyNjIzLC0xNjk2MDc4OTA3LC02MTU0MDE0Mj
+UsLTE5NDAyMDgyMjcsLTE3NzYyMzQxOTYsLTcwMDk4ODg5NSwy
+ODc1Njg5ODMsMTMzNzg2NTA2OSw5NzkyMDM1MTksMjExNzkwND
+Q2NywxMDU3ODYzNjgyLDExNDE3MTA3MDQsMzA4Mzg0Mzg5LDIx
+MTk5NDAxNjddfQ==
 -->
