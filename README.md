@@ -224,7 +224,8 @@ class custom_parsing_policy{
 **getKeyword()** : Returns the keyword from the raw card along with its class and mulitvalued status
 **isRequiredKeywordInOrder()** : Using the index determines whether the given keyword is in order or not. The interface for this function may change after sometime.
  **isMultivalued()** : Returns true if a keyword is multivalued ( As of now only HISTORY and COMMENT keywords are multivalued in nature )
- **parseValue()** : Parses the value from raw card based on keyword and keyword class and re
+ **parseValue()** : Parses the value from raw card based on keyword and keyword class and returns the value or a std::monostate ( Limitation with the variant will be removed in subsequent versions )
+ **cnvToString()** : cnvToString() basically converts a value of specific type to string. You need to provide either overloads
 
 Tips on Writing a custom parsing policy class :
 
@@ -238,11 +239,11 @@ Tips on Writing a custom parsing policy class :
 5. If you are writing your own policy class then make sure to use the standard library for in your code. Do not try to reinvent the wheel again and again as the standard library makes your code much clearer and efficient.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA1MTUzNzgzMSwxNDU3NTg0ODM1LDIwNT
-c3MzM1MzEsMTQwNTAyODY0OCwxODc5MTQyMTA5LDEzNDQ0MDI4
-NjEsLTEwNjg3MTE0MjMsMTYyMDU0NzExLDEyNjM2Mzk3MDYsND
-kzMjUyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMwNTUsMjAxMDgx
-NTU2NiwtMTUyOTM0NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0MzA0Mz
-EsMTE5NzQ2MjYyMywtMTY5NjA3ODkwNywtNjE1NDAxNDI1LC0x
-OTQwMjA4MjI3XX0=
+eyJoaXN0b3J5IjpbLTMxNDIyMDE5LDE0NTc1ODQ4MzUsMjA1Nz
+czMzUzMSwxNDA1MDI4NjQ4LDE4NzkxNDIxMDksMTM0NDQwMjg2
+MSwtMTA2ODcxMTQyMywxNjIwNTQ3MTEsMTI2MzYzOTcwNiw0OT
+MyNTI5ODIsMTA3NjM4NzI4MiwtMTQ4MzgzMzA1NSwyMDEwODE1
+NTY2LC0xNTI5MzQ1NDk1LC0zODg2NzA0MjYsMTA3NDQzMDQzMS
+wxMTk3NDYyNjIzLC0xNjk2MDc4OTA3LC02MTU0MDE0MjUsLTE5
+NDAyMDgyMjddfQ==
 -->
