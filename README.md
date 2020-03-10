@@ -207,10 +207,18 @@ class custom_parsing_policy{
 			none
 
 		};
- 
-  
+ struct keyword_info { // Depends on whether you need it!
 
-} 
+			std::string name;
+			keyword_class key_class;
+			bool multivalued{ false };
+
+		};
+ keyword_info getKeyword(const std::string& raw_card); // Prefer a string view
+ 
+ 
+	
+  } 
 ```
 
 
@@ -226,7 +234,7 @@ Tips on Writing a custom parsing policy class :
 5. If you are writing your own policy class then make sure to use the standard library for in your code. Do not try to reinvent the wheel again and again as the standard library makes your code much clearer and efficient.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgwNzY0NTMzNywxNDU3NTg0ODM1LDIwNT
+eyJoaXN0b3J5IjpbLTMxNTEwODc5MCwxNDU3NTg0ODM1LDIwNT
 c3MzM1MzEsMTQwNTAyODY0OCwxODc5MTQyMTA5LDEzNDQ0MDI4
 NjEsLTEwNjg3MTE0MjMsMTYyMDU0NzExLDEyNjM2Mzk3MDYsND
 kzMjUyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMwNTUsMjAxMDgx
