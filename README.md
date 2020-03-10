@@ -125,12 +125,11 @@ The functions mentioned below are a wrapper over fits_parser functions that are 
 
 ## Fits Parser
 The details of this class are of importance only if you intend to develop custom parsing policies for the FITS Reader API.
-*
+> Although the dependencies are kept to a minimum, kindly refrain yourself from using this class directly.
 
-> Blockquote
-> Although the dependencies are kept to a minimum, kindly refrain yourself from using this class directly.*
 **fits_parser** class as the name itself suggests, is responsible for parsing the primary header content of a FITS file.
 It utilizes *custom parsing policy* which basically tells the parser that how should the content be parsed.
+One of the greatest benifits of
 
 **get&lt;Type&gt;()** : This function takes the keyword as its argument and based on the value type provided as the template parameter returns the value back to the user in the respective type wrapped around a **std::optional**
 The value type needs to be passed as a template parameter to the function because internally the value data is stored inside a variant from which the value needs to be casted out.
@@ -165,11 +164,11 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk0MDk2NzA4OCwxNjIwNTQ3MTEsMTI2Mz
-YzOTcwNiw0OTMyNTI5ODIsMTA3NjM4NzI4MiwtMTQ4MzgzMzA1
-NSwyMDEwODE1NTY2LC0xNTI5MzQ1NDk1LC0zODg2NzA0MjYsMT
-A3NDQzMDQzMSwxMTk3NDYyNjIzLC0xNjk2MDc4OTA3LC02MTU0
-MDE0MjUsLTE5NDAyMDgyMjcsLTE3NzYyMzQxOTYsLTcwMDk4OD
-g5NSwyODc1Njg5ODMsMTMzNzg2NTA2OSw5NzkyMDM1MTksMjEx
-NzkwNDQ2N119
+eyJoaXN0b3J5IjpbLTEwNjg3MTE0MjMsMTYyMDU0NzExLDEyNj
+M2Mzk3MDYsNDkzMjUyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMw
+NTUsMjAxMDgxNTU2NiwtMTUyOTM0NTQ5NSwtMzg4NjcwNDI2LD
+EwNzQ0MzA0MzEsMTE5NzQ2MjYyMywtMTY5NjA3ODkwNywtNjE1
+NDAxNDI1LC0xOTQwMjA4MjI3LC0xNzc2MjM0MTk2LC03MDA5OD
+g4OTUsMjg3NTY4OTgzLDEzMzc4NjUwNjksOTc5MjAzNTE5LDIx
+MTc5MDQ0NjddfQ==
 -->
