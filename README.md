@@ -161,7 +161,9 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 
 > This member function only schedules the card to be written but does not actually write data back to the file. To write the data please refer writeToFile function.
 
-**writeToFile()** : It takes a filename as argument and writes the updated data into the file . This type of design has been used in order to prevent frequent writes that cause a performance lag. It writes the original 
+**writeToFile()** : It takes a filename as argument and writes the updated data into the file . This type of design has been used in order to prevent frequent writes that cause a performance lag. It writes the original file as it is but also accommodates the changes that you have made. This includes updating the value of a keyword, adding a new keyword-value ( card ) etc.
+
+**
 
 
 
@@ -176,7 +178,7 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MTUwMjg2OTgsMTM0NDQwMjg2MSwtMT
+eyJoaXN0b3J5IjpbLTEzMDE5OTY1MTAsMTM0NDQwMjg2MSwtMT
 A2ODcxMTQyMywxNjIwNTQ3MTEsMTI2MzYzOTcwNiw0OTMyNTI5
 ODIsMTA3NjM4NzI4MiwtMTQ4MzgzMzA1NSwyMDEwODE1NTY2LC
 0xNTI5MzQ1NDk1LC0zODg2NzA0MjYsMTA3NDQzMDQzMSwxMTk3
