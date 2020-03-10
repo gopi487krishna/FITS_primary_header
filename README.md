@@ -111,7 +111,7 @@ prime_header.readData(filename,fits::reading_mode::stream);
 
 > The functions mentioned below are a wrapper over fits_parser functions
 > that are exposed to the user. Hence in order to get detailed
-> information about these functions kindly visit the fits_parser section
+> information about these functions kindly visit the [fits_parser](#fits_parser) section
 
  
 **get&lt;Type&gt;()** This function takes a keyword as argument and returns the value of that keyword back to the user ( if present ).
@@ -259,11 +259,11 @@ class custom_parsing_policy{
 > Refer to **fits_standard_spec** class code for a detailed implementation of Parsing Policy class. ( Also there is still a lot to optimize :) so please bear with me )
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU2OTE2NzcxLC0xNjk5NzY2Mjk1LDEwOT
-AyMTkxOCwyMTQ0NzU1ODcyLDQxMzUwNzY4LDE0NTc1ODQ4MzUs
-MjA1NzczMzUzMSwxNDA1MDI4NjQ4LDE4NzkxNDIxMDksMTM0ND
-QwMjg2MSwtMTA2ODcxMTQyMywxNjIwNTQ3MTEsMTI2MzYzOTcw
-Niw0OTMyNTI5ODIsMTA3NjM4NzI4MiwtMTQ4MzgzMzA1NSwyMD
-EwODE1NTY2LC0xNTI5MzQ1NDk1LC0zODg2NzA0MjYsMTA3NDQz
-MDQzMV19
+eyJoaXN0b3J5IjpbNTExNTMzNjM3LC01NjkxNjc3MSwtMTY5OT
+c2NjI5NSwxMDkwMjE5MTgsMjE0NDc1NTg3Miw0MTM1MDc2OCwx
+NDU3NTg0ODM1LDIwNTc3MzM1MzEsMTQwNTAyODY0OCwxODc5MT
+QyMTA5LDEzNDQ0MDI4NjEsLTEwNjg3MTE0MjMsMTYyMDU0NzEx
+LDEyNjM2Mzk3MDYsNDkzMjUyOTgyLDEwNzYzODcyODIsLTE0OD
+M4MzMwNTUsMjAxMDgxNTU2NiwtMTUyOTM0NTQ5NSwtMzg4Njcw
+NDI2XX0=
 -->
