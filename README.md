@@ -218,7 +218,7 @@ class custom_parsing_policy{
    bool isRequiredKeywordInOrder(const std::string& keyword, int index);// Index tells the current card position of keyword in file
    bool isMultivalued(const std::string& keyword);
    value_type parseValue(const std::string& raw_card, const std::string& keyword, keyword_class key_class);
-std::string cnvToString(/*Make overloads for all types*/);
+   std::string cnvToString(/*Make overloads for all types*/);
 		
 	
   } 
@@ -237,11 +237,11 @@ Tips on Writing a custom parsing policy class :
 5. If you are writing your own policy class then make sure to use the standard library for in your code. Do not try to reinvent the wheel again and again as the standard library makes your code much clearer and efficient.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM0NDIwNTk4NywxNDU3NTg0ODM1LDIwNT
-c3MzM1MzEsMTQwNTAyODY0OCwxODc5MTQyMTA5LDEzNDQ0MDI4
-NjEsLTEwNjg3MTE0MjMsMTYyMDU0NzExLDEyNjM2Mzk3MDYsND
-kzMjUyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMwNTUsMjAxMDgx
-NTU2NiwtMTUyOTM0NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0MzA0Mz
-EsMTE5NzQ2MjYyMywtMTY5NjA3ODkwNywtNjE1NDAxNDI1LC0x
-OTQwMjA4MjI3XX0=
+eyJoaXN0b3J5IjpbOTY1MjEyMDUsMTQ1NzU4NDgzNSwyMDU3Nz
+MzNTMxLDE0MDUwMjg2NDgsMTg3OTE0MjEwOSwxMzQ0NDAyODYx
+LC0xMDY4NzExNDIzLDE2MjA1NDcxMSwxMjYzNjM5NzA2LDQ5Mz
+I1Mjk4MiwxMDc2Mzg3MjgyLC0xNDgzODMzMDU1LDIwMTA4MTU1
+NjYsLTE1MjkzNDU0OTUsLTM4ODY3MDQyNiwxMDc0NDMwNDMxLD
+ExOTc0NjI2MjMsLTE2OTYwNzg5MDcsLTYxNTQwMTQyNSwtMTk0
+MDIwODIyN119
 -->
