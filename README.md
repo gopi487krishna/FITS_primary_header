@@ -124,7 +124,8 @@ The functions mentioned below are a wrapper over fits_parser functions that are 
 **Return Value** : A boolean indicating whether the write operation was successful or not
 
 ## Fits Parser
-The details of this class are  **not important** if you just use this API. 
+The details of this class are of importance only if you intend to develop custom parsing policies for the FITS Reader API.
+*Note : Although the dependencies are kept to a minimum *
 
 
 
@@ -156,11 +157,11 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYyMDU0NzExLDEyNjM2Mzk3MDYsNDkzMj
-UyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMwNTUsMjAxMDgxNTU2
-NiwtMTUyOTM0NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0MzA0MzEsMT
-E5NzQ2MjYyMywtMTY5NjA3ODkwNywtNjE1NDAxNDI1LC0xOTQw
-MjA4MjI3LC0xNzc2MjM0MTk2LC03MDA5ODg4OTUsMjg3NTY4OT
-gzLDEzMzc4NjUwNjksOTc5MjAzNTE5LDIxMTc5MDQ0NjcsMTA1
-Nzg2MzY4Ml19
+eyJoaXN0b3J5IjpbLTE1NjAwNjY2ODIsMTYyMDU0NzExLDEyNj
+M2Mzk3MDYsNDkzMjUyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMw
+NTUsMjAxMDgxNTU2NiwtMTUyOTM0NTQ5NSwtMzg4NjcwNDI2LD
+EwNzQ0MzA0MzEsMTE5NzQ2MjYyMywtMTY5NjA3ODkwNywtNjE1
+NDAxNDI1LC0xOTQwMjA4MjI3LC0xNzc2MjM0MTk2LC03MDA5OD
+g4OTUsMjg3NTY4OTgzLDEzMzc4NjUwNjksOTc5MjAzNTE5LDIx
+MTc5MDQ0NjddfQ==
 -->
