@@ -110,9 +110,18 @@ if(value){std::cout<<*value<<"\n";}
 ```
 **Return Value** : a *std::optional &lt;Type&gt;* that contains the value for the keyword. If the value was not found or the value could not be parsed to the provided type a *std::nullopt* is returned. Hence make sure to check before dereferencing.
 
-**Note:**  For keywords that are multivalued in nature you can fetch the value by providing a *std::vector&lt;Type&gt;* as template par
+**Note:**  For keywords that are multivalued in nature you can fetch the value by providing a *std::vector&lt;Type&gt;* as template parameter. ( See code below for example )
+```cpp
+auto value=prime_header.get<std::vector<std::string>>("HISTORY");
+if( value){
+
+for(auto& item:value
+
+
+}
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MTIyNDM1NzIsLTE0ODM4MzMwNTUsMj
+eyJoaXN0b3J5IjpbLTIxMzY4OTA4MTEsLTE0ODM4MzMwNTUsMj
 AxMDgxNTU2NiwtMTUyOTM0NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0
 MzA0MzEsMTE5NzQ2MjYyMywtMTY5NjA3ODkwNywtNjE1NDAxND
 I1LC0xOTQwMjA4MjI3LC0xNzc2MjM0MTk2LC03MDA5ODg4OTUs
