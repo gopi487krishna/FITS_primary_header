@@ -170,7 +170,8 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 
 **Return Value:** A boolean that indicates if all the keywords and values could be successfully parsed.
 
-**parseOnMappedFile(file)** : This is one of the most efficient methods of parsing a FITS file and uses the boost::iostreams::mapped_file_source class for reading the data from the file. The internal logic is same as compared to **parseOnStringBuffer()** as the 
+**parseOnMappedFile(file)** : This is one of the most efficient methods of parsing a FITS file and uses the boost::iostreams::mapped_file_source class for reading the data from the file. The internal logic is same as compared to **parseOnStringBuffer()** as the file can be accessed like raw_memory for accessing data.
+
  
 
 
@@ -185,7 +186,7 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI5ODcwMDAwNSwxMzQ0NDAyODYxLC0xMD
+eyJoaXN0b3J5IjpbMTIxMDg3MDExNywxMzQ0NDAyODYxLC0xMD
 Y4NzExNDIzLDE2MjA1NDcxMSwxMjYzNjM5NzA2LDQ5MzI1Mjk4
 MiwxMDc2Mzg3MjgyLC0xNDgzODMzMDU1LDIwMTA4MTU1NjYsLT
 E1MjkzNDU0OTUsLTM4ODY3MDQyNiwxMDc0NDMwNDMxLDExOTc0
