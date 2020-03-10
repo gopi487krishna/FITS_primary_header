@@ -108,10 +108,10 @@ The value type needs to be passed as a template parameter to the function becaus
 auto value=prime_header.get<double>("MEANC100");
 if(value){std::cout<<*value<<"\n";}
 ```
-
+**Return Value** : a *std::optional &lt;Type&gt;* that contains the value for the keyword. If the value was not found or the value could not be pars
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY2MjM0MzczOSwtMTQ4MzgzMzA1NSwyMD
+eyJoaXN0b3J5IjpbLTUzNjIwNzQyMywtMTQ4MzgzMzA1NSwyMD
 EwODE1NTY2LC0xNTI5MzQ1NDk1LC0zODg2NzA0MjYsMTA3NDQz
 MDQzMSwxMTk3NDYyNjIzLC0xNjk2MDc4OTA3LC02MTU0MDE0Mj
 UsLTE5NDAyMDgyMjcsLTE3NzYyMzQxOTYsLTcwMDk4ODg5NSwy
