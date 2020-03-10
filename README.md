@@ -89,15 +89,16 @@ Although efficient for files that are a few *kilobytes* in size ( RAM is a lot  
 **memory_map** : This is the best option when it comes to both large and small files. Memory mapping working by mapping file into a portion of process address space. The programmers can perform operations on files as if it were held in raw memory.
 The *kernel* treats the small chunks of files as pages and uses the same paging and efficient caching algorithms that it uses which results in better performance even in case of very large files.
 
+*FITS Reader uses boost::iostreams::memory_mapped library ( Which is one of the most popular and fastest in town ) which provides a thin w
 
 **stream_based** :  
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMDIwOTU2NjgsMjAxMDgxNTU2NiwtMT
-UyOTM0NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0MzA0MzEsMTE5NzQ2
-MjYyMywtMTY5NjA3ODkwNywtNjE1NDAxNDI1LC0xOTQwMjA4Mj
-I3LC0xNzc2MjM0MTk2LC03MDA5ODg4OTUsMjg3NTY4OTgzLDEz
-Mzc4NjUwNjksOTc5MjAzNTE5LDIxMTc5MDQ0NjcsMTA1Nzg2Mz
-Y4MiwxMTQxNzEwNzA0LDMwODM4NDM4OSwyMTE5OTQwMTY3LDE4
-MTM1MDk0NjZdfQ==
+eyJoaXN0b3J5IjpbMTQ3ODU2NTk1MywyMDEwODE1NTY2LC0xNT
+I5MzQ1NDk1LC0zODg2NzA0MjYsMTA3NDQzMDQzMSwxMTk3NDYy
+NjIzLC0xNjk2MDc4OTA3LC02MTU0MDE0MjUsLTE5NDAyMDgyMj
+csLTE3NzYyMzQxOTYsLTcwMDk4ODg5NSwyODc1Njg5ODMsMTMz
+Nzg2NTA2OSw5NzkyMDM1MTksMjExNzkwNDQ2NywxMDU3ODYzNj
+gyLDExNDE3MTA3MDQsMzA4Mzg0Mzg5LDIxMTk5NDAxNjcsMTgx
+MzUwOTQ2Nl19
 -->
