@@ -101,7 +101,7 @@ The *kernel* treats the small chunks of files as pages and uses the same paging 
 
 *FITS Reader uses boost::iostreams::memory_mapped library ( One of the most popular and fastest in town ) which provides a thin wrapper around the underlying memmap calls, making the source code compatible across a variety of platforms*
 
-**stream** :  This mode uses the old school fstream IO library for reading the file. It is average in terms of performance and memory consumption but as the reads are sequential gives a significant advantage. memory_mapped mode should be used if the file size is very large whereas use stream_based mode if the file size is a few megabytes in size.
+**stream** :  This mode uses the old school fstream IO library for reading the file. It is average in terms of performance and memory consumption but reads being sequential gives a significant advantage. memory_mapped mode should be used if the file size is very large whereas use stream_based mode if the file size is a few megabytes in size.
 
  - **Return Value** : A Boolean value indicating whether the file could be successfully read or not.
 ```cpp
@@ -255,7 +255,7 @@ class custom_parsing_policy{
 > Refer to **fits_standard_spec** class code for a detailed implementation of Parsing Policy class. ( Also there is still a lot to optimize :) so please bear with me )
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgxODk1MDk0MywtMTY5OTc2NjI5NSwxMD
+eyJoaXN0b3J5IjpbLTY3NTU5MTc1MSwtMTY5OTc2NjI5NSwxMD
 kwMjE5MTgsMjE0NDc1NTg3Miw0MTM1MDc2OCwxNDU3NTg0ODM1
 LDIwNTc3MzM1MzEsMTQwNTAyODY0OCwxODc5MTQyMTA5LDEzND
 Q0MDI4NjEsLTEwNjg3MTE0MjMsMTYyMDU0NzExLDEyNjM2Mzk3
