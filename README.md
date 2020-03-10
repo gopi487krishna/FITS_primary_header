@@ -120,7 +120,7 @@ The functions mentioned below are a wrapper over fits_parser functions that are 
  prime_header.insert(4, "VAL_NO_C",32.0);   
 ```
 
-**writeToFile()** :  Write to File function takes a file name as argument
+**writeToFile()** :  Write to File function takes a file name as argument and writes the complete updated FITS
 
 
 
@@ -155,7 +155,7 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MTI5NjM2NCw0OTMyNTI5ODIsMTA3Nj
+eyJoaXN0b3J5IjpbLTIzODU0NjU2NCw0OTMyNTI5ODIsMTA3Nj
 M4NzI4MiwtMTQ4MzgzMzA1NSwyMDEwODE1NTY2LC0xNTI5MzQ1
 NDk1LC0zODg2NzA0MjYsMTA3NDQzMDQzMSwxMTk3NDYyNjIzLC
 0xNjk2MDc4OTA3LC02MTU0MDE0MjUsLTE5NDAyMDgyMjcsLTE3
