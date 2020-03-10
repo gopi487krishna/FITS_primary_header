@@ -124,7 +124,7 @@ The functions mentioned below are a wrapper over fits_parser functions that are 
 **Return Value** : A boolean indicating whether the write operation was successful or not
 
 ## Fits Parser
-The details of this class is not important if you are only the User of this API. 
+The details of this class are  **not important** if you just use this API. 
 
 
 
@@ -156,7 +156,7 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTE0NDYxMzM1LDEyNjM2Mzk3MDYsNDkzMj
+eyJoaXN0b3J5IjpbMTYyMDU0NzExLDEyNjM2Mzk3MDYsNDkzMj
 UyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMwNTUsMjAxMDgxNTU2
 NiwtMTUyOTM0NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0MzA0MzEsMT
 E5NzQ2MjYyMywtMTY5NjA3ODkwNywtNjE1NDAxNDI1LC0xOTQw
