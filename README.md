@@ -123,7 +123,7 @@ The functions mentioned below are a wrapper over fits_parser functions that are 
 **writeToFile()** :  Write to File function takes a file name as argument and writes the complete updated FITS data ( this includes scheduled data from previous insert calls)  to the file. If file does not exists then a new file is created .
 **Return Value** : A boolean indicating whether the write operation was successful or not
 
-~~fits~~
+## Fits Parser
 
 
 
@@ -156,11 +156,11 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyOTUxNTUxMTIsMTI2MzYzOTcwNiw0OT
-MyNTI5ODIsMTA3NjM4NzI4MiwtMTQ4MzgzMzA1NSwyMDEwODE1
-NTY2LC0xNTI5MzQ1NDk1LC0zODg2NzA0MjYsMTA3NDQzMDQzMS
-wxMTk3NDYyNjIzLC0xNjk2MDc4OTA3LC02MTU0MDE0MjUsLTE5
-NDAyMDgyMjcsLTE3NzYyMzQxOTYsLTcwMDk4ODg5NSwyODc1Nj
-g5ODMsMTMzNzg2NTA2OSw5NzkyMDM1MTksMjExNzkwNDQ2Nywx
-MDU3ODYzNjgyXX0=
+eyJoaXN0b3J5IjpbMTk0Njc3NjMxNywxMjYzNjM5NzA2LDQ5Mz
+I1Mjk4MiwxMDc2Mzg3MjgyLC0xNDgzODMzMDU1LDIwMTA4MTU1
+NjYsLTE1MjkzNDU0OTUsLTM4ODY3MDQyNiwxMDc0NDMwNDMxLD
+ExOTc0NjI2MjMsLTE2OTYwNzg5MDcsLTYxNTQwMTQyNSwtMTk0
+MDIwODIyNywtMTc3NjIzNDE5NiwtNzAwOTg4ODk1LDI4NzU2OD
+k4MywxMzM3ODY1MDY5LDk3OTIwMzUxOSwyMTE3OTA0NDY3LDEw
+NTc4NjM2ODJdfQ==
 -->
