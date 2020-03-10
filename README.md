@@ -66,7 +66,7 @@ int main(){
 ```
 ## Basic Structure of FITS Reader
 
-The FITS Reader API is divided into two classes and one policy of which any class that follows the contract of policy is accepted ( Policy is enforced at compile time not runtime ).
+The FITS Reader API is divided into two classes and one policy of which any class that obeys the contract of parsing policy is accepted ( Policy is enforced at compile time not runtime ).
 
 ![enter image description here](https://lh3.googleusercontent.com/8tIWdIGxiYJPyYwhMngnhAFVHDe8Yj2Al1aqracH-01uD55Qfe99hzQMpZm4uo2mhx3TQHCefzkFC1ZTk-M2zru3jvUIB_wi8m5BYD_AMHR5Dm-evIRW9Y7CH8orugjObaUV5btm=w800)
 
@@ -255,11 +255,11 @@ class custom_parsing_policy{
 > Refer to **fits_standard_spec** class code for a detailed implementation of Parsing Policy class. ( Also there is still a lot to optimize :) so please bear with me )
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjE0NDc1NTg3Miw0MTM1MDc2OCwxNDU3NT
-g0ODM1LDIwNTc3MzM1MzEsMTQwNTAyODY0OCwxODc5MTQyMTA5
-LDEzNDQ0MDI4NjEsLTEwNjg3MTE0MjMsMTYyMDU0NzExLDEyNj
-M2Mzk3MDYsNDkzMjUyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMw
-NTUsMjAxMDgxNTU2NiwtMTUyOTM0NTQ5NSwtMzg4NjcwNDI2LD
-EwNzQ0MzA0MzEsMTE5NzQ2MjYyMywtMTY5NjA3ODkwNywtNjE1
-NDAxNDI1XX0=
+eyJoaXN0b3J5IjpbLTE1MDY5MDU1NzQsMjE0NDc1NTg3Miw0MT
+M1MDc2OCwxNDU3NTg0ODM1LDIwNTc3MzM1MzEsMTQwNTAyODY0
+OCwxODc5MTQyMTA5LDEzNDQ0MDI4NjEsLTEwNjg3MTE0MjMsMT
+YyMDU0NzExLDEyNjM2Mzk3MDYsNDkzMjUyOTgyLDEwNzYzODcy
+ODIsLTE0ODM4MzMwNTUsMjAxMDgxNTU2NiwtMTUyOTM0NTQ5NS
+wtMzg4NjcwNDI2LDEwNzQ0MzA0MzEsMTE5NzQ2MjYyMywtMTY5
+NjA3ODkwN119
 -->
