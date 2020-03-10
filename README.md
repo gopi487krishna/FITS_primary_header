@@ -172,7 +172,7 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 
 **parseOnMappedFile(file)** : This is one of the most efficient methods of parsing a FITS file as it uses the boost::iostreams::mapped_file_source class for reading the data from the file. The internal logic is same as compared to **parseOnStringBuffer()** as the file can be accessed like raw_memory for accessing data.
 
-**parseCard()** : parseCard takes a raw_card of 80 bytes as its agrument and splits the card into keyword and value ( 
+**parseCard()** : parseCard takes a raw_card of 80 bytes as its agrument and splits the card into keyword and value ( The keyword and values are parsed using the functions present in 
 
 
 
@@ -186,11 +186,11 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NzYwNDE4MTcsMTg3OTE0MjEwOSwxMz
-Q0NDAyODYxLC0xMDY4NzExNDIzLDE2MjA1NDcxMSwxMjYzNjM5
-NzA2LDQ5MzI1Mjk4MiwxMDc2Mzg3MjgyLC0xNDgzODMzMDU1LD
-IwMTA4MTU1NjYsLTE1MjkzNDU0OTUsLTM4ODY3MDQyNiwxMDc0
-NDMwNDMxLDExOTc0NjI2MjMsLTE2OTYwNzg5MDcsLTYxNTQwMT
-QyNSwtMTk0MDIwODIyNywtMTc3NjIzNDE5NiwtNzAwOTg4ODk1
-LDI4NzU2ODk4M119
+eyJoaXN0b3J5IjpbLTQ1MDEzNTI4NSwxODc5MTQyMTA5LDEzND
+Q0MDI4NjEsLTEwNjg3MTE0MjMsMTYyMDU0NzExLDEyNjM2Mzk3
+MDYsNDkzMjUyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMwNTUsMj
+AxMDgxNTU2NiwtMTUyOTM0NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0
+MzA0MzEsMTE5NzQ2MjYyMywtMTY5NjA3ODkwNywtNjE1NDAxND
+I1LC0xOTQwMjA4MjI3LC0xNzc2MjM0MTk2LC03MDA5ODg4OTUs
+Mjg3NTY4OTgzXX0=
 -->
