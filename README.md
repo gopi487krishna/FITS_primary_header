@@ -110,13 +110,13 @@ if(value){std::cout<<*value<<"\n";}
 ```
 **Return Value** : a *std::optional &lt;Type&gt;* that contains the value for the keyword. If the value was not found or the value could not be parsed to the provided type a *std::nullopt* is returned. Hence make sure to check before dereferencing.
 
-Not
+**Note:**  For keywords that are multivalued in nature you can fetch the value by providing a *std::vector&lt;Type&gt;* as template par
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDI2NjQ5MTAwLC0xNDgzODMzMDU1LDIwMT
-A4MTU1NjYsLTE1MjkzNDU0OTUsLTM4ODY3MDQyNiwxMDc0NDMw
-NDMxLDExOTc0NjI2MjMsLTE2OTYwNzg5MDcsLTYxNTQwMTQyNS
-wtMTk0MDIwODIyNywtMTc3NjIzNDE5NiwtNzAwOTg4ODk1LDI4
-NzU2ODk4MywxMzM3ODY1MDY5LDk3OTIwMzUxOSwyMTE3OTA0ND
-Y3LDEwNTc4NjM2ODIsMTE0MTcxMDcwNCwzMDgzODQzODksMjEx
-OTk0MDE2N119
+eyJoaXN0b3J5IjpbLTE2MTIyNDM1NzIsLTE0ODM4MzMwNTUsMj
+AxMDgxNTU2NiwtMTUyOTM0NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0
+MzA0MzEsMTE5NzQ2MjYyMywtMTY5NjA3ODkwNywtNjE1NDAxND
+I1LC0xOTQwMjA4MjI3LC0xNzc2MjM0MTk2LC03MDA5ODg4OTUs
+Mjg3NTY4OTgzLDEzMzc4NjUwNjksOTc5MjAzNTE5LDIxMTc5MD
+Q0NjcsMTA1Nzg2MzY4MiwxMTQxNzEwNzA0LDMwODM4NDM4OSwy
+MTE5OTQwMTY3XX0=
 -->
