@@ -91,14 +91,15 @@ The *kernel* treats the small chunks of files as pages and uses the same paging 
 
 *FITS Reader uses boost::iostreams::memory_mapped library ( Which is one of the most popular and fastest in town ) which provides a thin wrapper around the underlying memmap calls making the source code compatible across a variety of platforms*
 
-**stream_based** :  This mode uses the old school fstream IO library for reading the file. It is average in terms of performance and memory consumption but as the reads are sequential gives a significant advantage. Ch
+**stream_based** :  This mode uses the old school fstream IO library for reading the file. It is average in terms of performance and memory consumption but as the reads are sequential gives a significant advantage. memory_mapped mode should be used if the file size is very large whereas use stream_based mode if the file size is a few megabytes in size.
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjYzOTMwNzAzLDIwMTA4MTU1NjYsLTE1Mj
-kzNDU0OTUsLTM4ODY3MDQyNiwxMDc0NDMwNDMxLDExOTc0NjI2
-MjMsLTE2OTYwNzg5MDcsLTYxNTQwMTQyNSwtMTk0MDIwODIyNy
-wtMTc3NjIzNDE5NiwtNzAwOTg4ODk1LDI4NzU2ODk4MywxMzM3
-ODY1MDY5LDk3OTIwMzUxOSwyMTE3OTA0NDY3LDEwNTc4NjM2OD
-IsMTE0MTcxMDcwNCwzMDgzODQzODksMjExOTk0MDE2NywxODEz
-NTA5NDY2XX0=
+eyJoaXN0b3J5IjpbLTIyODY0NDI3MywyMDEwODE1NTY2LC0xNT
+I5MzQ1NDk1LC0zODg2NzA0MjYsMTA3NDQzMDQzMSwxMTk3NDYy
+NjIzLC0xNjk2MDc4OTA3LC02MTU0MDE0MjUsLTE5NDAyMDgyMj
+csLTE3NzYyMzQxOTYsLTcwMDk4ODg5NSwyODc1Njg5ODMsMTMz
+Nzg2NTA2OSw5NzkyMDM1MTksMjExNzkwNDQ2NywxMDU3ODYzNj
+gyLDExNDE3MTA3MDQsMzA4Mzg0Mzg5LDIxMTk5NDAxNjcsMTgx
+MzUwOTQ2Nl19
 -->
