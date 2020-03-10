@@ -102,7 +102,7 @@ prime_header.readData(filename,fits::reading_mode::stream);
 The functions mentioned below are a wrapper over fits_parser functions that are exposed to the user. Hence in order to get detailed information about these functions kindly visit the fits_parser section
  
 **get&lt;Type&gt;()** This function takes a keyword as argument and returns the value of that keyword back to the user ( if present ).
-**Return Value** : A *std::optional&lt;Type&gt;* value .
+ - **Return Value** : A *std::optional&lt;Type&gt;* value .
 ```cpp
  auto value = prime_header.get< double>("MEANC100");
 ```
@@ -192,11 +192,11 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ3MDkwNjE0LDE4NzkxNDIxMDksMTM0ND
-QwMjg2MSwtMTA2ODcxMTQyMywxNjIwNTQ3MTEsMTI2MzYzOTcw
-Niw0OTMyNTI5ODIsMTA3NjM4NzI4MiwtMTQ4MzgzMzA1NSwyMD
-EwODE1NTY2LC0xNTI5MzQ1NDk1LC0zODg2NzA0MjYsMTA3NDQz
-MDQzMSwxMTk3NDYyNjIzLC0xNjk2MDc4OTA3LC02MTU0MDE0Mj
-UsLTE5NDAyMDgyMjcsLTE3NzYyMzQxOTYsLTcwMDk4ODg5NSwy
-ODc1Njg5ODNdfQ==
+eyJoaXN0b3J5IjpbLTE4NTc3MTcxNjUsMTg3OTE0MjEwOSwxMz
+Q0NDAyODYxLC0xMDY4NzExNDIzLDE2MjA1NDcxMSwxMjYzNjM5
+NzA2LDQ5MzI1Mjk4MiwxMDc2Mzg3MjgyLC0xNDgzODMzMDU1LD
+IwMTA4MTU1NjYsLTE1MjkzNDU0OTUsLTM4ODY3MDQyNiwxMDc0
+NDMwNDMxLDExOTc0NjI2MjMsLTE2OTYwNzg5MDcsLTYxNTQwMT
+QyNSwtMTk0MDIwODIyNywtMTc3NjIzNDE5NiwtNzAwOTg4ODk1
+LDI4NzU2ODk4M119
 -->
