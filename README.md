@@ -169,6 +169,8 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 **parseOnStream(file)** : This function opens a stream for reading from the **file** and fetches the data in chunks of 80 bytes and provides it to the parse function that does the parsing. The 80 bytes are fetched until the parse reports the END keyword or the file reading is complete ( which means the header is corrupted ).
 
 **Return Value:** A boolean that indicates if all the keywords and values could be successfully parsed.
+
+**parseOnMappedFile(file)** : This is one of the most efficient methods of parsing a FITS file and uses the boost
  
 
 
@@ -183,7 +185,7 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc0NzE3OTU5NSwxMzQ0NDAyODYxLC0xMD
+eyJoaXN0b3J5IjpbMTQzOTI1Mzk3NCwxMzQ0NDAyODYxLC0xMD
 Y4NzExNDIzLDE2MjA1NDcxMSwxMjYzNjM5NzA2LDQ5MzI1Mjk4
 MiwxMDc2Mzg3MjgyLC0xNDgzODMzMDU1LDIwMTA4MTU1NjYsLT
 E1MjkzNDU0OTUsLTM4ODY3MDQyNiwxMDc0NDMwNDMxLDExOTc0
