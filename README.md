@@ -185,15 +185,14 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 
 **Basic Steps of How Parsing Takes Place :**
 
- -  Parse the required keywords and check if they are written in a particular order in fits file .  ( As you guessed the order of these required keywords can be controlled by using custom_parsing policy ).
- - If everyth
+ - Parse the required keywords and check if they are present in required order. After parsing each card add the keyword and value into the 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDMwMDQ4NTMsMTg3OTE0MjEwOSwxMzQ0ND
-AyODYxLC0xMDY4NzExNDIzLDE2MjA1NDcxMSwxMjYzNjM5NzA2
-LDQ5MzI1Mjk4MiwxMDc2Mzg3MjgyLC0xNDgzODMzMDU1LDIwMT
-A4MTU1NjYsLTE1MjkzNDU0OTUsLTM4ODY3MDQyNiwxMDc0NDMw
-NDMxLDExOTc0NjI2MjMsLTE2OTYwNzg5MDcsLTYxNTQwMTQyNS
-wtMTk0MDIwODIyNywtMTc3NjIzNDE5NiwtNzAwOTg4ODk1LDI4
-NzU2ODk4M119
+eyJoaXN0b3J5IjpbMjEzNTg4NDk0NywxODc5MTQyMTA5LDEzND
+Q0MDI4NjEsLTEwNjg3MTE0MjMsMTYyMDU0NzExLDEyNjM2Mzk3
+MDYsNDkzMjUyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMwNTUsMj
+AxMDgxNTU2NiwtMTUyOTM0NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0
+MzA0MzEsMTE5NzQ2MjYyMywtMTY5NjA3ODkwNywtNjE1NDAxND
+I1LC0xOTQwMjA4MjI3LC0xNzc2MjM0MTk2LC03MDA5ODg4OTUs
+Mjg3NTY4OTgzXX0=
 -->
