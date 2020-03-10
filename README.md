@@ -203,9 +203,9 @@ Tips on Writing a custom parsing policy class :
 	2.  Another technique is to use std::any that can perform type erasure on the value and store it. Its memory efficient but suffers from a performance bottleneck.
 4. Using the default **fits_standard_spec** parsing policy is enough at most times since it is conformant to the FITS Standards. But if your organization has some specific needs or the **fits_standard_spec** has got outdated then only create your own policy class. And make sure to make it a static library. It significantly reduces the compile time and in some cases provides some more optimization as well.
 5. If you are writing your own policy class then make sure to use the standard library for in your code. Do not try to reinvent the wheel again and again as the standard library makes your code much clearer and efficient.
-6. 
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAyNjc4ODU1MywyMDU3NzMzNTMxLDE0MD
+eyJoaXN0b3J5IjpbMTQ1NzU4NDgzNSwyMDU3NzMzNTMxLDE0MD
 UwMjg2NDgsMTg3OTE0MjEwOSwxMzQ0NDAyODYxLC0xMDY4NzEx
 NDIzLDE2MjA1NDcxMSwxMjYzNjM5NzA2LDQ5MzI1Mjk4MiwxMD
 c2Mzg3MjgyLC0xNDgzODMzMDU1LDIwMTA4MTU1NjYsLTE1Mjkz
