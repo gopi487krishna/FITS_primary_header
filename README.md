@@ -184,15 +184,28 @@ The value type needs to be passed as a template parameter to the function becaus
 
 > All the steps shown above occur in the given order but how they should be performed can be controlled by defining a custom parsing policy
 
-## Parsing Polic
+## Parsing Policy
 
+The parsing policy at its essence specifies how the card needs to be parsed and stored, Its basic features include
 
+1.  To provide functionality for parsing the keyword
+2.  To provide functionality for parsing the values.
+3.  To provide functionality for checking the keyword's nature
+4.  To provide support for serializing a type back to string
+Tips on Writing a custom parsing policy class :
+
+1.  Value parsing: In the case of user-defined keywords the type of value is not known beforehand and hence, we need to try parsing the value with each type until it gets successful ( Things change if you are going for lazy evaluation mode ) On the other hand Reserved keywords have their value's type known before and therefore should be parsed directly into that specific type instead of hit and trial method. This certainly improves performance. Hence try having two different parsing functions for both these classes of keywords.
+6.  Parsing value is not simple at all. If your policy supports fixed and variable parsing formats then there are several corner cases that need to be handled appropriately. Handling these cases does consume some cycles but some cycles can be compensated by using high-performance libraries for parsing
+7.  Value Type: A value_type should have the ability to store all the values for Types that have been defined by the programmer and can be parsed
+
+	1.  The first thing that comes to mind when thinking about the concept of value_type is type-safe unions or std::variant. Although highly efficient at run-time they consume a significant amount of memory depending upon the largest type for each value
+	2.  Another technique is to use std::any that can perform type erasure on the value and store it. Its memory efficient but suffers from a performance bottleneck.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODM3MzA1MTA4LDIwNTc3MzM1MzEsMTQwNT
-AyODY0OCwxODc5MTQyMTA5LDEzNDQ0MDI4NjEsLTEwNjg3MTE0
-MjMsMTYyMDU0NzExLDEyNjM2Mzk3MDYsNDkzMjUyOTgyLDEwNz
-YzODcyODIsLTE0ODM4MzMwNTUsMjAxMDgxNTU2NiwtMTUyOTM0
-NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0MzA0MzEsMTE5NzQ2MjYyMy
-wtMTY5NjA3ODkwNywtNjE1NDAxNDI1LC0xOTQwMjA4MjI3LC0x
-Nzc2MjM0MTk2XX0=
+eyJoaXN0b3J5IjpbNDIyNDUwMTUsMjA1NzczMzUzMSwxNDA1MD
+I4NjQ4LDE4NzkxNDIxMDksMTM0NDQwMjg2MSwtMTA2ODcxMTQy
+MywxNjIwNTQ3MTEsMTI2MzYzOTcwNiw0OTMyNTI5ODIsMTA3Nj
+M4NzI4MiwtMTQ4MzgzMzA1NSwyMDEwODE1NTY2LC0xNTI5MzQ1
+NDk1LC0zODg2NzA0MjYsMTA3NDQzMDQzMSwxMTk3NDYyNjIzLC
+0xNjk2MDc4OTA3LC02MTU0MDE0MjUsLTE5NDAyMDgyMjcsLTE3
+NzYyMzQxOTZdfQ==
 -->
