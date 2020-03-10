@@ -193,6 +193,12 @@ The parsing policy at its essence specifies how the card needs to be parsed and 
 3.  To provide functionality for checking the keyword's nature
 4.  To provide support for serializing a type back to string
 
+Basic Structure of a Parsing Policy class
+```cpp
+class 
+```
+
+
 Tips on Writing a custom parsing policy class :
 
 1.  Value parsing: In the case of user-defined keywords the type of value is not known beforehand and hence, we need to try parsing the value with each type until it gets successful ( Things change if you are going for lazy evaluation mode ) On the other hand Reserved keywords have their value's type known before and therefore should be parsed directly into that specific type instead of hit and trial method. This certainly improves performance. Hence try having two different parsing functions for both these classes of keywords.
@@ -205,11 +211,11 @@ Tips on Writing a custom parsing policy class :
 5. If you are writing your own policy class then make sure to use the standard library for in your code. Do not try to reinvent the wheel again and again as the standard library makes your code much clearer and efficient.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ1NzU4NDgzNSwyMDU3NzMzNTMxLDE0MD
-UwMjg2NDgsMTg3OTE0MjEwOSwxMzQ0NDAyODYxLC0xMDY4NzEx
-NDIzLDE2MjA1NDcxMSwxMjYzNjM5NzA2LDQ5MzI1Mjk4MiwxMD
-c2Mzg3MjgyLC0xNDgzODMzMDU1LDIwMTA4MTU1NjYsLTE1Mjkz
-NDU0OTUsLTM4ODY3MDQyNiwxMDc0NDMwNDMxLDExOTc0NjI2Mj
-MsLTE2OTYwNzg5MDcsLTYxNTQwMTQyNSwtMTk0MDIwODIyNywt
-MTc3NjIzNDE5Nl19
+eyJoaXN0b3J5IjpbMTc2ODU5NjA4MSwxNDU3NTg0ODM1LDIwNT
+c3MzM1MzEsMTQwNTAyODY0OCwxODc5MTQyMTA5LDEzNDQ0MDI4
+NjEsLTEwNjg3MTE0MjMsMTYyMDU0NzExLDEyNjM2Mzk3MDYsND
+kzMjUyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMwNTUsMjAxMDgx
+NTU2NiwtMTUyOTM0NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0MzA0Mz
+EsMTE5NzQ2MjYyMywtMTY5NjA3ODkwNywtNjE1NDAxNDI1LC0x
+OTQwMjA4MjI3XX0=
 -->
