@@ -87,16 +87,17 @@ As of now reading_mode supports **3** modes namely
 Although efficient for files that are a few *kilobytes* in size ( RAM is a lot  faster than secondary storage), loading large files into the memory hurts performance as well as RAM space ( Exhaustion of memory can occur in case of loading very large files ).
 
 **memory_map** : This is the best option when it comes to both large and small files. Memory mapping working by mapping file into a portion of process address space. The programmers can perform operations on files as if it were held in raw memory.
-The *kernel* treats the small chunks of files as pages and uses the same paging and efficient caching algorithms that it uses which results in better performance even in case of very large files
+The *kernel* treats the small chunks of files as pages and uses the same paging and efficient caching algorithms that it uses which results in better performance even in case of very large files.
 
 
+**stream_based** :  
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAxMDgxNTU2NiwtMTUyOTM0NTQ5NSwtMz
-g4NjcwNDI2LDEwNzQ0MzA0MzEsMTE5NzQ2MjYyMywtMTY5NjA3
-ODkwNywtNjE1NDAxNDI1LC0xOTQwMjA4MjI3LC0xNzc2MjM0MT
-k2LC03MDA5ODg4OTUsMjg3NTY4OTgzLDEzMzc4NjUwNjksOTc5
-MjAzNTE5LDIxMTc5MDQ0NjcsMTA1Nzg2MzY4MiwxMTQxNzEwNz
-A0LDMwODM4NDM4OSwyMTE5OTQwMTY3LDE4MTM1MDk0NjYsMTEx
-NDExOTcxMF19
+eyJoaXN0b3J5IjpbLTEyMDIwOTU2NjgsMjAxMDgxNTU2NiwtMT
+UyOTM0NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0MzA0MzEsMTE5NzQ2
+MjYyMywtMTY5NjA3ODkwNywtNjE1NDAxNDI1LC0xOTQwMjA4Mj
+I3LC0xNzc2MjM0MTk2LC03MDA5ODg4OTUsMjg3NTY4OTgzLDEz
+Mzc4NjUwNjksOTc5MjAzNTE5LDIxMTc5MDQ0NjcsMTA1Nzg2Mz
+Y4MiwxMTQxNzEwNzA0LDMwODM4NDM4OSwyMTE5OTQwMTY3LDE4
+MTM1MDk0NjZdfQ==
 -->
