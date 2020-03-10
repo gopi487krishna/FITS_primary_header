@@ -165,7 +165,7 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 
 **parseOnStringBuffer(file)** : As the name itself suggests parseOnStringBuffer parses the primary header of a fits file by copying the entire FITS data into memory and then calling the **parse** function.  For smaller files this method is performance efficient but larger files can cause a lag and memory exhaustion.
 
-**parseOnStream(file)** : This function opens a stream for reading from the **file** and 
+**parseOnStream(file)** : This function opens a stream for reading from the **file** and fetches the data in chunks of 80 bytes and provides it to the parse function that does the parsing. The 80 bytes are fetched until the 
  
 
 
@@ -180,11 +180,11 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAzMDYwNDY5LDEzNDQ0MDI4NjEsLTEwNj
-g3MTE0MjMsMTYyMDU0NzExLDEyNjM2Mzk3MDYsNDkzMjUyOTgy
-LDEwNzYzODcyODIsLTE0ODM4MzMwNTUsMjAxMDgxNTU2NiwtMT
-UyOTM0NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0MzA0MzEsMTE5NzQ2
-MjYyMywtMTY5NjA3ODkwNywtNjE1NDAxNDI1LC0xOTQwMjA4Mj
-I3LC0xNzc2MjM0MTk2LC03MDA5ODg4OTUsMjg3NTY4OTgzLDEz
-Mzc4NjUwNjldfQ==
+eyJoaXN0b3J5IjpbMTk1MzIxNzY1NywxMzQ0NDAyODYxLC0xMD
+Y4NzExNDIzLDE2MjA1NDcxMSwxMjYzNjM5NzA2LDQ5MzI1Mjk4
+MiwxMDc2Mzg3MjgyLC0xNDgzODMzMDU1LDIwMTA4MTU1NjYsLT
+E1MjkzNDU0OTUsLTM4ODY3MDQyNiwxMDc0NDMwNDMxLDExOTc0
+NjI2MjMsLTE2OTYwNzg5MDcsLTYxNTQwMTQyNSwtMTk0MDIwOD
+IyNywtMTc3NjIzNDE5NiwtNzAwOTg4ODk1LDI4NzU2ODk4Mywx
+MzM3ODY1MDY5XX0=
 -->
