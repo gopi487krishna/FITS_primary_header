@@ -71,7 +71,7 @@ The FITS Reader API is divided into two classes and one policy of which any clas
 ![enter image description here](https://lh3.googleusercontent.com/8tIWdIGxiYJPyYwhMngnhAFVHDe8Yj2Al1aqracH-01uD55Qfe99hzQMpZm4uo2mhx3TQHCefzkFC1ZTk-M2zru3jvUIB_wi8m5BYD_AMHR5Dm-evIRW9Y7CH8orugjObaUV5btm=w800)
 
 ## Primary Header
-Primary Header class provides an external interface / exposes the public API to the programmer for manipulation of primary header of  fits file.
+Primary Header class provides an external interface / exposes the public API to the programmer for manipulation of primary header of a fits file.
 
 This class provides the following abilities to the user
 
@@ -255,11 +255,11 @@ class custom_parsing_policy{
 > Refer to **fits_standard_spec** class code for a detailed implementation of Parsing Policy class. ( Also there is still a lot to optimize :) so please bear with me )
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzkwNDA4MTcwLDIxNDQ3NTU4NzIsNDEzNT
-A3NjgsMTQ1NzU4NDgzNSwyMDU3NzMzNTMxLDE0MDUwMjg2NDgs
-MTg3OTE0MjEwOSwxMzQ0NDAyODYxLC0xMDY4NzExNDIzLDE2Mj
-A1NDcxMSwxMjYzNjM5NzA2LDQ5MzI1Mjk4MiwxMDc2Mzg3Mjgy
-LC0xNDgzODMzMDU1LDIwMTA4MTU1NjYsLTE1MjkzNDU0OTUsLT
-M4ODY3MDQyNiwxMDc0NDMwNDMxLDExOTc0NjI2MjMsLTE2OTYw
-Nzg5MDddfQ==
+eyJoaXN0b3J5IjpbMjA5MzYxMzQwOSwyMTQ0NzU1ODcyLDQxMz
+UwNzY4LDE0NTc1ODQ4MzUsMjA1NzczMzUzMSwxNDA1MDI4NjQ4
+LDE4NzkxNDIxMDksMTM0NDQwMjg2MSwtMTA2ODcxMTQyMywxNj
+IwNTQ3MTEsMTI2MzYzOTcwNiw0OTMyNTI5ODIsMTA3NjM4NzI4
+MiwtMTQ4MzgzMzA1NSwyMDEwODE1NTY2LC0xNTI5MzQ1NDk1LC
+0zODg2NzA0MjYsMTA3NDQzMDQzMSwxMTk3NDYyNjIzLC0xNjk2
+MDc4OTA3XX0=
 -->
