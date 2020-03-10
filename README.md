@@ -185,14 +185,15 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 
 **Basic Steps of How Parsing Takes Place :**
 
- - Pa
+ -  Parse the required keywords and check if they are written in a particular order in fits file .  ( As you guessed the order of these required keywords can be controlled by using custom_parsing policy ).
+ - 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjUzNDIwNjUzLDE4NzkxNDIxMDksMTM0ND
-QwMjg2MSwtMTA2ODcxMTQyMywxNjIwNTQ3MTEsMTI2MzYzOTcw
-Niw0OTMyNTI5ODIsMTA3NjM4NzI4MiwtMTQ4MzgzMzA1NSwyMD
-EwODE1NTY2LC0xNTI5MzQ1NDk1LC0zODg2NzA0MjYsMTA3NDQz
-MDQzMSwxMTk3NDYyNjIzLC0xNjk2MDc4OTA3LC02MTU0MDE0Mj
-UsLTE5NDAyMDgyMjcsLTE3NzYyMzQxOTYsLTcwMDk4ODg5NSwy
-ODc1Njg5ODNdfQ==
+eyJoaXN0b3J5IjpbNDQxNDE0MDksMTg3OTE0MjEwOSwxMzQ0ND
+AyODYxLC0xMDY4NzExNDIzLDE2MjA1NDcxMSwxMjYzNjM5NzA2
+LDQ5MzI1Mjk4MiwxMDc2Mzg3MjgyLC0xNDgzODMzMDU1LDIwMT
+A4MTU1NjYsLTE1MjkzNDU0OTUsLTM4ODY3MDQyNiwxMDc0NDMw
+NDMxLDExOTc0NjI2MjMsLTE2OTYwNzg5MDcsLTYxNTQwMTQyNS
+wtMTk0MDIwODIyNywtMTc3NjIzNDE5NiwtNzAwOTg4ODk1LDI4
+NzU2ODk4M119
 -->
