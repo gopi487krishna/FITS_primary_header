@@ -78,6 +78,7 @@ Most of the functions in this class are a wrapper over the fits parser class. Th
 **Member Functions :**
 
 *readData()* : This function takes a filename and reading mode as argument and selects the appropriate function that parses the data and makes the data available for querying.
+
 **reading_mode** : reading_mode is an enumeration that allows programmers to specify how the data should be read.
 As of now reading_mode supports **3** modes namely
 
@@ -95,7 +96,7 @@ The *kernel* treats the small chunks of files as pages and uses the same paging 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMxNzQ2MDEzMSwyMDEwODE1NTY2LC0xNT
+eyJoaXN0b3J5IjpbMTY3NzE1Mzc3NSwyMDEwODE1NTY2LC0xNT
 I5MzQ1NDk1LC0zODg2NzA0MjYsMTA3NDQzMDQzMSwxMTk3NDYy
 NjIzLC0xNjk2MDc4OTA3LC02MTU0MDE0MjUsLTE5NDAyMDgyMj
 csLTE3NzYyMzQxOTYsLTcwMDk4ODg5NSwyODc1Njg5ODMsMTMz
