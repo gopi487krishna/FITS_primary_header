@@ -2,7 +2,7 @@
 
 **FITS Reader** is a small C++ API that allows manipulation of **Primary header** in FITS files.
 
-It provides the users with a *clean* and *easy to use* API with support for *reading*, *writing* and *accessing* header data of FITS file.
+It provides the users with a *clean* and *easy to use* API with support for *reading*, *writing* and *accessing* header data of a FITS file.
 
 **Note :** This API is developed as a part of GSOC Programming Competency Test for Boost.org under the Astronomy Section.
 
@@ -255,7 +255,7 @@ class custom_parsing_policy{
 > Refer to **fits_standard_spec** class code for a detailed implementation of Parsing Policy class. ( Also there is still a lot to optimize :) so please bear with me )
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg1MDg2NzkxMyw0MTM1MDc2OCwxNDU3NT
+eyJoaXN0b3J5IjpbMTU0MDAxOTE0Niw0MTM1MDc2OCwxNDU3NT
 g0ODM1LDIwNTc3MzM1MzEsMTQwNTAyODY0OCwxODc5MTQyMTA5
 LDEzNDQ0MDI4NjEsLTEwNjg3MTE0MjMsMTYyMDU0NzExLDEyNj
 M2Mzk3MDYsNDkzMjUyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMw
