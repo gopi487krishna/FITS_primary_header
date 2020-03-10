@@ -182,13 +182,14 @@ The value type needs to be passed as a template parameter to the function becaus
  - After the parsing is complete, all the keywords along with their values are available for editing or querying.
  
 
-> All the steps shown above occur in the given order but how they should be performed can be controlled by the parsing policy
+> All the steps shown above occur in the given order but how they should be performed can be controlled by defining a custom parsing policy
 
+## Parsing Policy 
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk5NDcxMDM2NCwxNDA1MDI4NjQ4LDE4Nz
+eyJoaXN0b3J5IjpbMjA1NzczMzUzMSwxNDA1MDI4NjQ4LDE4Nz
 kxNDIxMDksMTM0NDQwMjg2MSwtMTA2ODcxMTQyMywxNjIwNTQ3
 MTEsMTI2MzYzOTcwNiw0OTMyNTI5ODIsMTA3NjM4NzI4MiwtMT
 Q4MzgzMzA1NSwyMDEwODE1NTY2LC0xNTI5MzQ1NDk1LC0zODg2
