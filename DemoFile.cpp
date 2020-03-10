@@ -11,7 +11,7 @@ int main(){
     
     using namespace fits;
     primary_header<fits_standard_spec> prime_header;
-    prime_header.readData("FITS_FULL.txt"); // Present in test files folder
+    prime_header.readData("FITS_SATELLITE.txt"); // Present in test files folder
 
     auto value = prime_header.get< double>("MEANC100");
     if (value) {
@@ -19,7 +19,7 @@ int main(){
         std::cout << *value<<std::endl; // value comes out to be 0.3916293
     }
 
-    prime_header.insert("KEANUSAN", (double)487.0,"John Wick", 5);
+    prime_header.insert(4, "BSCALE", (double)487.0, "John Wick");
     prime_header.writeToFile("MASTER.txt");
 
     std::cin.get();

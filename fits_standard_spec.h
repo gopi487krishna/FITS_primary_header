@@ -92,7 +92,7 @@ namespace fits {
 		template<typename Type>
 		std::pair<std::complex<Type>, bool> parse_Complex(const std::string& value_part);
 
-
+		std::string cnvToString(std::monostate);
 		std::string cnvToString(long long value);
 		std::string cnvToString(double value);
 		std::string cnvToString(std::complex<long long> value);
@@ -104,33 +104,36 @@ namespace fits {
 
 
 	bool fits_standard_spec::isMultivalued(const std::string& keyword) {
-		return std::any_of(reserved_keywords.begin(), reserved_keywords.end(), [](const std::pair<std::string, std::pair<char, bool>>& r_key) {return r_key.second.second; });	
+		return std::any_of(reserved_keywords.begin(), reserved_keywords.end(), [&keyword](const std::pair<std::string, std::pair<char, bool>>& r_key)
+			{return keyword == r_key.first && r_key.second.second; }
+		);
 	}
 
+	std::string fits_standard_spec::cnvToString(std::monostate) { return ""; }
 	std::string fits_standard_spec::cnvToString(long long value) {
-	
-		std::string value_string=std::to_string(value);;
+
+		std::string value_string = std::to_string(value);;
 
 		std::string result_string;
 
 		if (value_string.length() < 20) {
-		
-		
+
+
 			auto difference = 20 - value_string.length();
 			while (difference--) { result_string.push_back(' '); }
 			result_string += value_string;
 			return result_string;
-		
+
 		}
 
 		return value_string;
-	
+
 	}
-	
+
 	std::string fits_standard_spec::cnvToString(double value) {
 		std::ostringstream digit_stream;
 		std::string result_string;
-		
+
 		digit_stream << value;
 
 		if (digit_stream.str().length() < 20)
@@ -144,19 +147,19 @@ namespace fits {
 	}
 
 	std::string fits_standard_spec::cnvToString(std::complex<long long> value) {
-	
+
 		auto real_part = std::to_string(value.real());
 		auto imaginary_part = std::to_string(value.imag());
-	
+
 		return real_part + " " + imaginary_part;
 
-	
+
 	}
 
 	std::string fits_standard_spec::cnvToString(std::complex<double> value) {
 
 		std::ostringstream value_stream;
-		value_stream << value.real()<<" "<<value.imag();
+		value_stream << value.real() << " " << value.imag();
 		return value_stream.str();
 	}
 

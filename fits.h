@@ -26,32 +26,26 @@ namespace fits {
 		template<class return_type>
 		std::optional<return_type> get(const std::string& keyword);
 		template<typename Type>
-		bool insert(const std::string& keyword, const Type& value, const std::string& comment, int position);
-		bool insert(const std::string& keyword, const std::string& comment, int position);
+		bool insert(int position, const std::string& keyword, const Type& value, const std::string& comment);
 		bool writeToFile(const std::string& filename);
 	};
 
-	template<class parsing_policy>
-	template<typename Type>
-	bool primary_header<parsing_policy>::insert(const std::string& keyword, const Type& value, const std::string& comment, int position) {
-
-		return parser_instance.insert(keyword, value, comment, position);
-
-	}
 
 	// Implementations
 	//-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	template<class parsing_policy>
+	template<typename Type>
+	bool primary_header<parsing_policy>::insert(int position, const std::string& keyword, const Type& value, const std::string& comment) {
+		return parser_instance.insert(position, keyword, value, comment);
+		
+	}
+	
 	template<class parsing_policy>
 	bool primary_header<parsing_policy>::writeToFile(const std::string& filename) {
 		return parser_instance.writeToFile(filename);
 	}
 
-	template<class parsing_policy>
-	bool primary_header<parsing_policy>::insert(const std::string& keyword, const std::string& comment, int position) {
 
-		return parser_instance.insert(keyword, comment, position);
-
-	}
 
 	template<class parsing_policy>
 	template<class return_type>

@@ -15,9 +15,9 @@ namespace fits {
 	template<class parsing_policy>
 	class fits_parser : parsing_policy {
 		int end_offset = -1;
-		std::string input_filename{""};
-		std::vector<std::pair<int, std::string>> scheduled_for_write;
-		
+		std::string input_filename{ "" };
+		std::vector<std::pair<int, std::pair<std::string, bool>>> scheduled_for_write;
+
 		std::unordered_multimap<std::string, typename parsing_policy::value_type> header_data;
 		// This is a dirty performance hack
 		std::unordered_map<std::string, int> offset_map;
@@ -31,44 +31,17 @@ namespace fits {
 		std::optional<conversion_type> get(const std::string& keyword);
 
 		template<typename Type>
-		bool insert(const std::string& keyword, const Type& value, const std::string& comment, int position);
-		bool insert(const std::string& keyword, const std::string& comment, int position);
+		bool insert(int position, const std::string& keyword, const Type& value = std::monostate{}, const std::string& comment = "");
 		bool writeToFile(const std::string& filename);
+
 	};
 
 	//----Implementation-----------------------------------------------------------------------------------
 
-	template<class parsing_policy>
-	bool fits_parser<parsing_policy>::insert(const std::string& keyword, const std::string& comment, int position) {
-		if (keyword.length() <= 8) {
-			std::string result_string;
-			result_string.reserve(80);
-			result_string.append(keyword.begin(), keyword.end());
-			while (result_string.length() != 8) {
-				result_string.push_back(' ');
-			}
-			result_string.append(comment.begin(), comment.end());
-			while (result_string.length() != 80) { result_string.push_back(' '); }
-
-
-			if (!std::any_of(scheduled_for_write.begin(), scheduled_for_write.end(), [position](std::pair<int, std::string>sch_write) {return position == sch_write.first && position != -1; })) {
-				scheduled_for_write.push_back({ position,result_string });
-				if (parsing_policy::isMultivalued(keyword) || header_data.find(keyword) == header_data.end()) {
-
-					header_data.insert({ keyword,comment });
-
-				}
-
-				return true;
-			}
-			return false;
-		}
-		return false;
-	}
 
 	template<class parsing_policy>
 	template<typename Type>
-	bool fits_parser<parsing_policy>::insert(const std::string& keyword, const Type& value, const std::string& comment, int position) {
+	bool fits_parser<parsing_policy>::insert(int position, const std::string& keyword, const Type& value, const std::string& comment) {
 
 		if (keyword.length() <= 8) {
 			std::string result_string;
@@ -97,39 +70,41 @@ namespace fits {
 					return false; // value_exceeded card size
 				}
 			}
-
 			// Pad with spaces if not 80
 			while (result_string.length() != 80) {
 				result_string.push_back(' ');
 			}
 			// We have the card now
+
+			bool can_be_inserted;
 			if (position == -1) {
-				scheduled_for_write.push_back({ position,result_string });
+			
+				can_be_inserted = true;
+			}
+			else {
+			
+				can_be_inserted = ! std::any_of(scheduled_for_write.begin(), scheduled_for_write.end(), [position](const std::pair<int, std::pair<std::string, bool>>& sch_write) {return position == sch_write.first && position != -1; });
+			}
+
+			if (can_be_inserted) {
+
+
 				if (auto iter_pos = header_data.find(keyword); parsing_policy::isMultivalued(keyword) || iter_pos == header_data.end()) {
 
 					header_data.insert({ keyword,value });
+					scheduled_for_write.push_back({ position,{result_string,false} });
 				}
 				else {
+					//Updation of values ( Does not respect position )
 					iter_pos->second = value;
+					scheduled_for_write.push_back({ offset_map[keyword],{result_string,true} });
+
 				}
 
 				return true;
-			}
-			else {
-				if (!std::any_of(scheduled_for_write.begin(), scheduled_for_write.end(), [position](std::pair<int, std::string>sch_write) {return position == sch_write.first && position != -1; })) {
 
-					scheduled_for_write.push_back({ position,result_string });
-					if (auto iter_pos = header_data.find(keyword); parsing_policy::isMultivalued(keyword) || iter_pos == header_data.end()) {
-
-						header_data.insert({ keyword,value });
-					}
-					else {
-						iter_pos->second = value;
-					}
-					return true;
-				}
-				return false;
 			}
+			return false;
 		}
 		else {
 			return false; // Keyword length exceeded the standards limits
@@ -140,7 +115,7 @@ namespace fits {
 	bool fits_parser<parsing_policy>::writeToFile(const std::string& filename) {
 		if (end_offset != -1 && !scheduled_for_write.empty()) {
 			// Sort the vector
-			std::sort(scheduled_for_write.begin(), scheduled_for_write.end(), [](std::pair<int, std::string>& lhs, std::pair<int, std::string>& rhs) {return lhs.first < rhs.first; });
+			std::sort(scheduled_for_write.begin(), scheduled_for_write.end(), [](const std::pair<int, std::pair<std::string, bool>>& lhs, std::pair<int, std::pair<std::string,bool>>& rhs) {return lhs.first < rhs.first; });
 
 			auto current_offset = 1;
 
@@ -155,14 +130,15 @@ namespace fits {
 
 			while (current_offset != end_offset) {
 
-				auto card_pos = std::find_if(scheduled_for_write.begin(), scheduled_for_write.end(), [current_offset](std::pair<int, std::string>& sch_write) {
+				auto card_pos = std::find_if(scheduled_for_write.begin(), scheduled_for_write.end(), [current_offset](std::pair<int, std::pair<std::string, bool>>& sch_write) {
 					return current_offset == sch_write.first;
 					});
 
 				if (card_pos != scheduled_for_write.end()) {
 
 
-					std::copy(card_pos->second.begin(), card_pos->second.end(), std::ostreambuf_iterator<char>(output_file));
+					std::copy(card_pos->second.first.begin(), card_pos->second.first.end(), std::ostreambuf_iterator<char>(output_file));
+					if (card_pos->second.second) { current_ipfile_pos += 80; }
 
 				}
 				else {
@@ -175,13 +151,13 @@ namespace fits {
 			}
 			// We are at endpos
 			// Copy all the items that were scheduled to be written at any position (-1)
-			auto pos_iter = std::find_if(scheduled_for_write.begin(), scheduled_for_write.end(), [](std::pair<int, std::string>sch_write) {return sch_write.first != -1; });
+			auto pos_iter = std::find_if(scheduled_for_write.begin(), scheduled_for_write.end(), [](std::pair<int, std::pair<std::string, bool>>sch_write) {return sch_write.first != -1; });
 			if (pos_iter != scheduled_for_write.begin()) {
 
 				auto starting_pos = scheduled_for_write.begin();
 				while (starting_pos != pos_iter) {
 
-					std::copy(starting_pos->second.begin(), starting_pos->second.end(), std::ostreambuf_iterator<char>(output_file));
+					std::copy(starting_pos->second.first.begin(), starting_pos->second.first.end(), std::ostreambuf_iterator<char>(output_file));
 					starting_pos++;
 				}
 
@@ -256,7 +232,7 @@ namespace fits {
 
 	template<class parsing_policy>
 	bool fits_parser<parsing_policy>::parseOnStringBuffer(const std::string& filename) {
-		
+
 		input_filename = filename;
 		// Fetch raw card is a lambda that fetches a raw_card from the iterator
 		auto fetch_raw_card = [](std::string::iterator& iter) {
