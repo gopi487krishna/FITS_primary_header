@@ -107,7 +107,9 @@ The functions mentioned below are a wrapper over fits_parser functions that are 
  auto value = prime_header.get< double>("MEANC100");
 ```
 
-**insert()** : This function takes a position ( where to insert ) , keyword, value (optional), comment( optional ) as argument 
+**insert()** : This function takes a position ( where to insert ) , keyword, value (optional), comment( optional ) as argument and is used to insert/ update a card in FITS Reader. 
+
+> Warning : This function does
 
 
 
@@ -143,11 +145,11 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MzQwOTIxMCwxMDc2Mzg3MjgyLC0xND
-gzODMzMDU1LDIwMTA4MTU1NjYsLTE1MjkzNDU0OTUsLTM4ODY3
-MDQyNiwxMDc0NDMwNDMxLDExOTc0NjI2MjMsLTE2OTYwNzg5MD
-csLTYxNTQwMTQyNSwtMTk0MDIwODIyNywtMTc3NjIzNDE5Niwt
-NzAwOTg4ODk1LDI4NzU2ODk4MywxMzM3ODY1MDY5LDk3OTIwMz
-UxOSwyMTE3OTA0NDY3LDEwNTc4NjM2ODIsMTE0MTcxMDcwNCwz
-MDgzODQzODldfQ==
+eyJoaXN0b3J5IjpbNzQ0ODMwNDQwLDEwNzYzODcyODIsLTE0OD
+M4MzMwNTUsMjAxMDgxNTU2NiwtMTUyOTM0NTQ5NSwtMzg4Njcw
+NDI2LDEwNzQ0MzA0MzEsMTE5NzQ2MjYyMywtMTY5NjA3ODkwNy
+wtNjE1NDAxNDI1LC0xOTQwMjA4MjI3LC0xNzc2MjM0MTk2LC03
+MDA5ODg4OTUsMjg3NTY4OTgzLDEzMzc4NjUwNjksOTc5MjAzNT
+E5LDIxMTc5MDQ0NjcsMTA1Nzg2MzY4MiwxMTQxNzEwNzA0LDMw
+ODM4NDM4OV19
 -->
