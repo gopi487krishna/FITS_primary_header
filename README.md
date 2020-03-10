@@ -111,7 +111,7 @@ The functions mentioned below are a wrapper over fits_parser functions that are 
 
 >  This function does not write data back to the file but rather schedules it for writing . Actual writing is solely done by writeToFile() method
 
-**Return Value** : A boolean indicating whether the changes could be made or not
+ - **Return Value** : A boolean indicating whether the changes could be made or not
 ```cpp
  prime_header.insert(4, "BSCALE", 32.0,"Something");
 // or
@@ -121,7 +121,8 @@ The functions mentioned below are a wrapper over fits_parser functions that are 
 ```
 
 **writeToFile()** :  Write to File function takes a file name as argument and writes the complete updated FITS data ( this includes scheduled data from previous insert calls)  to the file. If file does not exists then a new file is created .
-**Return Value** : A boolean indicating whether the write operation was successful or not
+
+ - **Return Value** : A boolean indicating whether the write operation was successful or not
 
 ## Fits Parser
 
@@ -192,11 +193,11 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTc3MTcxNjUsMTg3OTE0MjEwOSwxMz
-Q0NDAyODYxLC0xMDY4NzExNDIzLDE2MjA1NDcxMSwxMjYzNjM5
-NzA2LDQ5MzI1Mjk4MiwxMDc2Mzg3MjgyLC0xNDgzODMzMDU1LD
-IwMTA4MTU1NjYsLTE1MjkzNDU0OTUsLTM4ODY3MDQyNiwxMDc0
-NDMwNDMxLDExOTc0NjI2MjMsLTE2OTYwNzg5MDcsLTYxNTQwMT
-QyNSwtMTk0MDIwODIyNywtMTc3NjIzNDE5NiwtNzAwOTg4ODk1
-LDI4NzU2ODk4M119
+eyJoaXN0b3J5IjpbMTY3MzQ0MjE2NywxODc5MTQyMTA5LDEzND
+Q0MDI4NjEsLTEwNjg3MTE0MjMsMTYyMDU0NzExLDEyNjM2Mzk3
+MDYsNDkzMjUyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMwNTUsMj
+AxMDgxNTU2NiwtMTUyOTM0NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0
+MzA0MzEsMTE5NzQ2MjYyMywtMTY5NjA3ODkwNywtNjE1NDAxND
+I1LC0xOTQwMjA4MjI3LC0xNzc2MjM0MTk2LC03MDA5ODg4OTUs
+Mjg3NTY4OTgzXX0=
 -->
