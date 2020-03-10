@@ -148,7 +148,8 @@ The value type needs to be passed as a template parameter to the function becaus
 auto value=prime_header.get<double>("MEANC100");
 if(value){std::cout<<*value<<"\n";}
 ```
-**Return Value** : a *std::optional &lt;Type&gt;* that contains the value for the keyword. If the value was not found or the value could not be parsed to the provided type a *std::nullopt* is returned. Hence make sure to check before dereferencing.
+
+ - **Return Value** : a *std::optional &lt;Type&gt;* that contains the value for the keyword. If the value was not found or the value could not be parsed to the provided type a *std::nullopt* is returned. Hence make sure to check before dereferencing.
 
 **Note:**  For keywords that are multivalued in nature you can fetch the value by providing a *std::vector&lt;Type&gt;* as template parameter. ( See code below for example )
 ```cpp
@@ -165,19 +166,20 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 **writeToFile()** : It takes a filename as argument and writes the updated data into the file . This type of design has been used in order to prevent frequent writes that cause a performance lag. It writes the original file as it is but also accommodates the changes that you have made. This includes updating the value of a keyword, adding a new keyword-value ( card ) etc.
 
 **parseOnStringBuffer(file)** : As the name itself suggests parseOnStringBuffer parses the primary header of a fits file by copying the entire FITS data into memory and then calling the **parse** function.  For smaller files this method is performance efficient but larger files can cause a lag and memory exhaustion.
-**Return Value:** A boolean that indicates if all the keywords and values could be successfully parsed.
 
-**parseOnStream(file)** : This function opens a stream for reading from the **file** and fetches the data in chunks of 80 bytes and provides it to the parse function that does the parsing. The 80 bytes are fetched until the parse reports the END keyword or the file reading is complete ( which means the header is corrupted ).
+ - **Return Value:** A boolean that indicates if all the keywords and values could be successfully parsed.
 
-**Return Value:** A boolean that indicates if all the keywords and values could be successfully parsed.
+**parseOnStream(file)** : This function opens a stream for reading from the **file** and fetches the data in chunks of 80 bytes and provides it to the parse function that does the parsing. The 80 bytes are fetched until the parse reports the **END** keyword or the file reading is complete ( which means the header is corrupted ).
+
+ - **Return Value:** A boolean that indicates if all the keywords and values could be successfully parsed.
 
 **parseOnMappedFile(file)** : This is one of the most efficient methods of parsing a FITS file as it uses the boost::iostreams::mapped_file_source class for reading the data from the file. The internal logic is same as compared to 
 
-**Return Value:** A boolean that indicates if all the keywords and values could be successfully parsed.
+ - **Return Value:** A boolean that indicates if all the keywords and values could be successfully parsed.
 
 **parseOnStringBuffer()** as the file can be accessed like raw_memory for accessing data.
 
-**Return Value:** A boolean that indicates if all the keywords and values could be successfully parsed.
+ - **Return Value:** A boolean that indicates if all the keywords and values could be successfully parsed.
 
 **parseCard()** : parseCard takes a raw_card of 80 bytes as its agrument and splits the card into keyword and value ( The keyword and values are parsed using the functions present in parsing_policy ) 
 
@@ -193,7 +195,7 @@ for(auto& value:values){ std::cout<< value<<"\n";}
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY3MzQ0MjE2NywxODc5MTQyMTA5LDEzND
+eyJoaXN0b3J5IjpbLTI5MTI2MzA0NiwxODc5MTQyMTA5LDEzND
 Q0MDI4NjEsLTEwNjg3MTE0MjMsMTYyMDU0NzExLDEyNjM2Mzk3
 MDYsNDkzMjUyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMwNTUsMj
 AxMDgxNTU2NiwtMTUyOTM0NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0
