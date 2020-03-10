@@ -207,17 +207,17 @@ class custom_parsing_policy{
 			none
 
 		};
- struct keyword_info { // Depends on whether you need it!
+   struct keyword_info { // Depends on whether you need it!
 
 			std::string name;
 			keyword_class key_class;
 			bool multivalued{ false };
 
 		};
- keyword_info getKeyword(const std::string& raw_card); // Prefer a string view
- bool isRequiredKeywordInOrder(const std::string& keyword, int index);// Index tells the current card position of keyword in file
-bool isMultivalued(const std::string& keyword);
-value_type parseValue(const std::string& raw_card, const std::string& keyword, keyword_class key_class);
+   keyword_info getKeyword(const std::string& raw_card); // Prefer a string view
+   bool isRequiredKeywordInOrder(const std::string& keyword, int index);// Index tells the current card position of keyword in file
+   bool isMultivalued(const std::string& keyword);
+   value_type parseValue(const std::string& raw_card, const std::string& keyword, keyword_class key_class);
 
 	
   } 
@@ -236,11 +236,11 @@ Tips on Writing a custom parsing policy class :
 5. If you are writing your own policy class then make sure to use the standard library for in your code. Do not try to reinvent the wheel again and again as the standard library makes your code much clearer and efficient.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzk4MTcwOTA0LDE0NTc1ODQ4MzUsMjA1Nz
-czMzUzMSwxNDA1MDI4NjQ4LDE4NzkxNDIxMDksMTM0NDQwMjg2
-MSwtMTA2ODcxMTQyMywxNjIwNTQ3MTEsMTI2MzYzOTcwNiw0OT
-MyNTI5ODIsMTA3NjM4NzI4MiwtMTQ4MzgzMzA1NSwyMDEwODE1
-NTY2LC0xNTI5MzQ1NDk1LC0zODg2NzA0MjYsMTA3NDQzMDQzMS
-wxMTk3NDYyNjIzLC0xNjk2MDc4OTA3LC02MTU0MDE0MjUsLTE5
-NDAyMDgyMjddfQ==
+eyJoaXN0b3J5IjpbMjAwODY0MTE5MiwxNDU3NTg0ODM1LDIwNT
+c3MzM1MzEsMTQwNTAyODY0OCwxODc5MTQyMTA5LDEzNDQ0MDI4
+NjEsLTEwNjg3MTE0MjMsMTYyMDU0NzExLDEyNjM2Mzk3MDYsND
+kzMjUyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMwNTUsMjAxMDgx
+NTU2NiwtMTUyOTM0NTQ5NSwtMzg4NjcwNDI2LDEwNzQ0MzA0Mz
+EsMTE5NzQ2MjYyMywtMTY5NjA3ODkwNywtNjE1NDAxNDI1LC0x
+OTQwMjA4MjI3XX0=
 -->
