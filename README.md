@@ -35,7 +35,7 @@ FITS Reader API has been designed keeping in mind the above principles (Please r
  - Inside the FITS Reader folder you will find two folders named **include**, **Demo** . It contains all the header files that will be required to use this API in your project and should be included in the include directory of your project settings
  - To include the folders in your Visual Studio based project
 	- Go to Project -> Project Properties->C/C++ ->Additional Include Directories and add the location of the *"include"* folder unzipped before.
-  - As you might have noticed  the only library dependency is a boost library. In fact that library is required for memory-mapped file support. If  boost is already configured for your project then there is no need to add this folder to your additional library directories
+  - As you might have noticed  the only library dependency is a boost library. In fact that library is required for memory-mapped file support. Make sure to have boost already configured for your project
 
 To test if everything works correctly write the following code and check whether it compiles or not.
 
@@ -258,7 +258,7 @@ class custom_parsing_policy{
 > Refer to **fits_standard_spec** class code for a detailed implementation of Parsing Policy class. ( Also there is still a lot to optimize :) so please bear with me )
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDg5ODk4NDQ5LC0yMTI3MjA4MjY1LC01Nj
+eyJoaXN0b3J5IjpbODI5Mjg3MjM3LC0yMTI3MjA4MjY1LC01Nj
 kxNjc3MSwtMTY5OTc2NjI5NSwxMDkwMjE5MTgsMjE0NDc1NTg3
 Miw0MTM1MDc2OCwxNDU3NTg0ODM1LDIwNTc3MzM1MzEsMTQwNT
 AyODY0OCwxODc5MTQyMTA5LDEzNDQ0MDI4NjEsLTEwNjg3MTE0
