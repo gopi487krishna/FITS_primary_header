@@ -32,10 +32,9 @@ FITS Reader API has been designed keeping in mind the above principles (Please r
 
  - Download the latest [release](https://github.com/gopi487krishna/FITS_primary_header/releases) of FITS Reader library from the Releases Section of the Repository
  - Now unzip the file  that you just downloaded and place it in your projects directory
- - Inside the FITS Reader folder you will find two folders named **include**, **library** . It contains all the header files that will be required to use this API in your project and should be included in the include directory of your project settings
+ - Inside the FITS Reader folder you will find two folders named **include**, **Demo** . It contains all the header files that will be required to use this API in your project and should be included in the include directory of your project settings
  - To include the folders in your Visual Studio based project
 	- Go to Project -> Project Properties->C/C++ ->Additional Include Directories and add the location of the *"include"* folder unzipped before.
-	- Similarly go to Linker ->Add Additional Library Directories and add the location of "library" folder unzipped before.
   - As you might have noticed  the only library dependency is a boost library. In fact that library is required for memory-mapped file support. If  boost is already configured for your project then there is no need to add this folder to your additional library directories
 
 To test if everything works correctly write the following code and check whether it compiles or not.
@@ -259,11 +258,11 @@ class custom_parsing_policy{
 > Refer to **fits_standard_spec** class code for a detailed implementation of Parsing Policy class. ( Also there is still a lot to optimize :) so please bear with me )
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMjcyMDgyNjUsLTU2OTE2NzcxLC0xNj
-k5NzY2Mjk1LDEwOTAyMTkxOCwyMTQ0NzU1ODcyLDQxMzUwNzY4
-LDE0NTc1ODQ4MzUsMjA1NzczMzUzMSwxNDA1MDI4NjQ4LDE4Nz
-kxNDIxMDksMTM0NDQwMjg2MSwtMTA2ODcxMTQyMywxNjIwNTQ3
-MTEsMTI2MzYzOTcwNiw0OTMyNTI5ODIsMTA3NjM4NzI4MiwtMT
-Q4MzgzMzA1NSwyMDEwODE1NTY2LC0xNTI5MzQ1NDk1LC0zODg2
-NzA0MjZdfQ==
+eyJoaXN0b3J5IjpbNDg5ODk4NDQ5LC0yMTI3MjA4MjY1LC01Nj
+kxNjc3MSwtMTY5OTc2NjI5NSwxMDkwMjE5MTgsMjE0NDc1NTg3
+Miw0MTM1MDc2OCwxNDU3NTg0ODM1LDIwNTc3MzM1MzEsMTQwNT
+AyODY0OCwxODc5MTQyMTA5LDEzNDQ0MDI4NjEsLTEwNjg3MTE0
+MjMsMTYyMDU0NzExLDEyNjM2Mzk3MDYsNDkzMjUyOTgyLDEwNz
+YzODcyODIsLTE0ODM4MzMwNTUsMjAxMDgxNTU2NiwtMTUyOTM0
+NTQ5NV19
 -->
