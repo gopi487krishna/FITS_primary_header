@@ -119,6 +119,9 @@ prime_header.readData(filename,fits::reading_mode::stream);
 
 **insert()** : This function takes a  keyword, value (optional), comment( optional ) as argument and is used to insert/ update a card in FITS Reader. 
 
+If the keyword was already present in the FITS file and is not multivalued ( COMMENT or HISTORY) then the keywords value is updated otherwise a nw
+
+
 >  This function does not write data back to the file but rather schedules it for writing . Actual writing is solely done by writeToFile() method
 
  - **Return Value** : A boolean indicating whether the changes could be made or not
@@ -256,7 +259,7 @@ class custom_parsing_policy{
 > Refer to **fits_standard_spec** class code for a detailed implementation of Parsing Policy class. ( Also there is still a lot to optimize :) so please bear with me )
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEzODcyMDQyNCw4MjkyODcyMzcsLTIxMj
+eyJoaXN0b3J5IjpbLTkxMTU2NzAwMCw4MjkyODcyMzcsLTIxMj
 cyMDgyNjUsLTU2OTE2NzcxLC0xNjk5NzY2Mjk1LDEwOTAyMTkx
 OCwyMTQ0NzU1ODcyLDQxMzUwNzY4LDE0NTc1ODQ4MzUsMjA1Nz
 czMzUzMSwxNDA1MDI4NjQ4LDE4NzkxNDIxMDksMTM0NDQwMjg2
