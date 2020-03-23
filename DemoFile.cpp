@@ -58,5 +58,10 @@ int main(){
         // Write the scheduled changes back to File
         prime_header.writeToFile("MASTER.txt");    
     }
+    else {
+    
+        std::cout << "Unable to open file";
+    
+    }
     std::cin.get();
 }
