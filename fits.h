@@ -50,7 +50,7 @@ namespace fits {
 	template<class parsing_policy>
 	template<class return_type>
 	std::optional<return_type> primary_header<parsing_policy>::get(const std::string& keyword) {
-		return parser_instance.get<return_type>(keyword);
+		return parser_instance. template get<return_type>(keyword);
 	}
 
 	template<class parsing_policy>
