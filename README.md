@@ -43,25 +43,23 @@ To test if everything works correctly write the following code and check whether
 #include "fits.h"
 #include "fits_standard_spec.h"
 
+int main() {
 
-int main(){
-    
     using namespace fits;
     primary_header<fits_standard_spec> prime_header;
-    prime_header.readData("FITS_SATELLITE.txt"); // Should be present in current directory
+    prime_header.readData("FITS_FULL.txt"); // Should be present in current directory
 
     auto value = prime_header.get< double>("MEANC100");
     if (value) {
-    
-        std::cout << *value<<std::endl; // value comes out to be 0.3916293
+
+        std::cout << *value << std::endl; // value comes out to be 0.3916293
     }
 
-    prime_header.insert(4, "BSCALE", 32.0,"Something");
+    prime_header.insert("BSCALE", 32.0, "Something");
     prime_header.writeToFile("MASTER.txt");
 
     std::cin.get();
 }
-
 ```
 ## Basic Structure of FITS Reader
 
@@ -258,11 +256,11 @@ class custom_parsing_policy{
 > Refer to **fits_standard_spec** class code for a detailed implementation of Parsing Policy class. ( Also there is still a lot to optimize :) so please bear with me )
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODI5Mjg3MjM3LC0yMTI3MjA4MjY1LC01Nj
-kxNjc3MSwtMTY5OTc2NjI5NSwxMDkwMjE5MTgsMjE0NDc1NTg3
-Miw0MTM1MDc2OCwxNDU3NTg0ODM1LDIwNTc3MzM1MzEsMTQwNT
-AyODY0OCwxODc5MTQyMTA5LDEzNDQ0MDI4NjEsLTEwNjg3MTE0
-MjMsMTYyMDU0NzExLDEyNjM2Mzk3MDYsNDkzMjUyOTgyLDEwNz
-YzODcyODIsLTE0ODM4MzMwNTUsMjAxMDgxNTU2NiwtMTUyOTM0
-NTQ5NV19
+eyJoaXN0b3J5IjpbLTE1MTY1MDQ2NjMsODI5Mjg3MjM3LC0yMT
+I3MjA4MjY1LC01NjkxNjc3MSwtMTY5OTc2NjI5NSwxMDkwMjE5
+MTgsMjE0NDc1NTg3Miw0MTM1MDc2OCwxNDU3NTg0ODM1LDIwNT
+c3MzM1MzEsMTQwNTAyODY0OCwxODc5MTQyMTA5LDEzNDQ0MDI4
+NjEsLTEwNjg3MTE0MjMsMTYyMDU0NzExLDEyNjM2Mzk3MDYsND
+kzMjUyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMwNTUsMjAxMDgx
+NTU2Nl19
 -->
