@@ -72,7 +72,7 @@ namespace fits {
 		keyword_info getKeyword(const std::string& raw_card);
 		bool isReservedKeyword(const std::string& keyword);
 		bool isRequiredKeyword(const std::string& keyword);
-		bool isRequiredKeywordInOrder(const std::string& keyword, int index);
+		bool isRequiredKeywordInOrder(const std::string& keyword, size_t index);
 		bool isMultivalued(const std::string& keyword);
 
 		// Value Related Helpers
@@ -177,7 +177,7 @@ namespace fits {
 	// Is it really required here ? . I have to research
 
 	template<typename T>
-	struct get_spirit_type { typedef typename  T value_type; };
+	struct get_spirit_type { typedef  T value_type; };
 
 	template<>
 	struct get_spirit_type<long long> { static inline auto value_type = boost::spirit::qi::long_long; };
@@ -384,7 +384,7 @@ namespace fits {
 	fits_standard_spec::value_type fits_standard_spec::parseValueForReserved(const std::string& raw_card, const std::string& keyword) {
 
 		// Need to optimize this code further
-		if (keyword == "COMMENT" | keyword == "HISTORY") {
+		if (keyword == "COMMENT" || keyword == "HISTORY") {
 
 			std::string::const_iterator starting_pos = raw_card.begin();
 
@@ -469,7 +469,7 @@ namespace fits {
 
 		return std::monostate{};
 	}
-	bool fits_standard_spec::isRequiredKeywordInOrder(const std::string& keyword, int index) {
+	bool fits_standard_spec::isRequiredKeywordInOrder(const std::string& keyword, size_t index) {
 
 		// This function is basically a hack for getting performance and will work with fits parser only.
 
@@ -509,7 +509,7 @@ namespace fits {
 				});
 
 			// If the keyword satisfies all criteria's then the length will be same
-			auto distance = std::distance(keyword_start_pos, keyword_end_pos);
+			size_t distance = static_cast<size_t>(std::distance(keyword_start_pos, keyword_end_pos));
 			if (distance == keyword.length() - 1)
 			{
 

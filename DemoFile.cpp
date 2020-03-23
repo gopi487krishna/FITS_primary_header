@@ -41,10 +41,18 @@ int main(){
         prime_header.insert(4, "BSCALE", 32.0, "Something");
 
         // 3 will get ignored ( as SIMPLE is already present at 1 )
-        prime_header.insert(3, "SIMPLE", 'F', "Does not confirm to fits standard");
+        prime_header.insert(3, "SIMPLE", 'F', "Does not conform to fits standard");
 
-        // The card will be inserted at 5th position because there is no keyword named GSOC in the file
-        prime_header.insert(5, "GSOC", "BOOST", "This fits reader and writer is for boost");
+        // The card will be inserted at the end before END keyword
+        prime_header.insert(-1, "GSOC", "BOOST", "This fits reader and writer is for boost");
+
+
+        auto gsoc_value = prime_header.get<std::string>("GSOC");
+        if (gsoc_value.has_value()) {
+        
+            std::cout << *gsoc_value;
+        }
+        
         prime_header.writeToFile("MASTER.txt");    
     }
     std::cin.get();

@@ -21,7 +21,7 @@ namespace fits {
 		std::unordered_multimap<std::string, typename parsing_policy::value_type> header_data;
 		// This is a dirty performance hack
 		std::unordered_map<std::string, int> offset_map;
-
+		
 	public:
 		bool parseOnStringBuffer(const std::string& filename);
 		bool parseOnStream(const std::string& filename);
@@ -239,7 +239,7 @@ namespace fits {
 			// This can be further optimized by using string_view	
 			auto cur_pos = iter;
 			iter = iter + 80;
-			return std::move(std::string(cur_pos, iter));
+			return std::string(cur_pos, iter);
 		};
 
 		// Open file for reading
@@ -345,7 +345,7 @@ namespace fits {
 
 			auto cur_pos = iter;
 			iter = iter + 80;
-			return std::move(std::string(cur_pos, iter));
+			return std::string(cur_pos, iter);
 		};
 
 
@@ -390,7 +390,7 @@ namespace fits {
 			std::string raw_card;   //Raw card containing keyword value and comments
 			raw_card.reserve(80); // raw_card is always 80 hence reserve early to avoid reallocations
 			for (int count = 0; count < 80; count++) raw_card.push_back(*iter++);
-			return std::move(raw_card);
+			return raw_card;
 		};
 		// Open file for reading
 		std::ifstream input_file_stream(input_filename);
