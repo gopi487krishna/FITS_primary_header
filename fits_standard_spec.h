@@ -97,6 +97,8 @@ namespace fits {
 		std::string cnvToString(double value);
 		std::string cnvToString(std::complex<long long> value);
 		std::string cnvToString(std::complex<double>value);
+		std::string cnvToString(char value);
+		std::string cnvToString(const std::string& value);
 
 	};
 
@@ -109,7 +111,15 @@ namespace fits {
 		);
 	}
 
+
+
+	std::string fits_standard_spec::cnvToString(const std::string& value) { return value; }
 	std::string fits_standard_spec::cnvToString(std::monostate) { return ""; }
+	
+	std::string fits_standard_spec::cnvToString(char value) {
+	
+		return std::string(1, value);
+	}
 	std::string fits_standard_spec::cnvToString(long long value) {
 
 		std::string value_string = std::to_string(value);;

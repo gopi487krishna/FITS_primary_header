@@ -73,7 +73,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>F:\boost_1_72_0;$(IncludePath)</IncludePath>
-    <LibraryPath>F:\boost_1_72_0\lib64-msvc-14.2</LibraryPath>
+    <LibraryPath>F:\boost_1_72_0\lib64-msvc-14.2;</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -83,7 +83,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>F:\boost_1_72_0;$(IncludePath)</IncludePath>
-    <LibraryPath>F:\boost_1_72_0\lib64-msvc-14.2</LibraryPath>
+    <LibraryPath>F:\boost_1_72_0\lib64-msvc-14.2;</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
