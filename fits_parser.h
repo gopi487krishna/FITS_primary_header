@@ -200,7 +200,7 @@ namespace fits {
 				{
 					typename parsing_policy::value_type value = values_iter->second;
 					// Convert the value from variant type to its actual type
-					if (auto pval = std::get_if<conversion_type::value_type>(&value)) {
+					if (auto pval = std::get_if<typename conversion_type::value_type>(&value)) {
 						values.push_back(*pval);
 					}
 					else {
