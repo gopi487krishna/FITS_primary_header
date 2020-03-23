@@ -18,6 +18,6 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
 endif()
 
 #Create Executable
-add_executable(exe ${src} ${include})
-target_link_libraries(exe ${Boost_LIBRARIES})
+add_executable(Demo ${src} ${include})
+target_link_libraries(Demo ${Boost_LIBRARIES})
 

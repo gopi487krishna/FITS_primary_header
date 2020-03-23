@@ -43,25 +43,23 @@ To test if everything works correctly write the following code and check whether
 #include "fits.h"
 #include "fits_standard_spec.h"
 
+int main() {
 
-int main(){
-    
     using namespace fits;
     primary_header<fits_standard_spec> prime_header;
-    prime_header.readData("FITS_SATELLITE.txt"); // Should be present in current directory
+    prime_header.readData("FITS_FULL.txt"); // Should be present in current directory
 
     auto value = prime_header.get< double>("MEANC100");
     if (value) {
-    
-        std::cout << *value<<std::endl; // value comes out to be 0.3916293
+
+        std::cout << *value << std::endl; // value comes out to be 0.3916293
     }
 
-    prime_header.insert(4, "BSCALE", 32.0,"Something");
+    prime_header.insert("BSCALE", 32.0, "Something");
     prime_header.writeToFile("MASTER.txt");
 
     std::cin.get();
 }
-
 ```
 ## Basic Structure of FITS Reader
 
@@ -119,17 +117,19 @@ prime_header.readData(filename,fits::reading_mode::stream);
  auto value = prime_header.get< double>("MEANC100");
 ```
 
-**insert()** : This function takes a position ( where to insert ) , keyword, value (optional), comment( optional ) as argument and is used to insert/ update a card in FITS Reader. 
+**insert()** : This function takes a  keyword, value (optional), comment( optional ) as argument and is used to insert/ update a card in FITS Reader. 
+
+If the keyword was already present in the FITS file and is not multivalued ( COMMENT or HISTORY) then the keywords value is updated and scheduled to be written on that keyword's old  position in file,  otherwise a new keyword value pair is created and the card is scheduled to be written just before the end keyword ( Other than required keywords, the position of keyword does not matter at all )
 
 >  This function does not write data back to the file but rather schedules it for writing . Actual writing is solely done by writeToFile() method
 
  - **Return Value** : A boolean indicating whether the changes could be made or not
 ```cpp
- prime_header.insert(4, "BSCALE", 32.0,"Something");
+ prime_header.insert("BSCALE", 32.0,"Something"); // key,value,comment
 // or
- prime_header.insert(4, "NO_VAL");   
+ prime_header.insert("NO_VAL"); // Only keyword  
 // or
- prime_header.insert(4, "VAL_NO_C",32.0);   
+ prime_header.insert("VAL_NO_C",32.0);  // No comment  
 ```
 
 **writeToFile()** :  Write to File function takes a file name as argument and writes the complete updated FITS data ( this includes scheduled data from previous insert calls)  to the file. If file does not exists then a new file is created .
@@ -258,11 +258,11 @@ class custom_parsing_policy{
 > Refer to **fits_standard_spec** class code for a detailed implementation of Parsing Policy class. ( Also there is still a lot to optimize :) so please bear with me )
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODI5Mjg3MjM3LC0yMTI3MjA4MjY1LC01Nj
-kxNjc3MSwtMTY5OTc2NjI5NSwxMDkwMjE5MTgsMjE0NDc1NTg3
-Miw0MTM1MDc2OCwxNDU3NTg0ODM1LDIwNTc3MzM1MzEsMTQwNT
-AyODY0OCwxODc5MTQyMTA5LDEzNDQ0MDI4NjEsLTEwNjg3MTE0
-MjMsMTYyMDU0NzExLDEyNjM2Mzk3MDYsNDkzMjUyOTgyLDEwNz
-YzODcyODIsLTE0ODM4MzMwNTUsMjAxMDgxNTU2NiwtMTUyOTM0
-NTQ5NV19
+eyJoaXN0b3J5IjpbLTE0NjA4OTQyMiw4MjkyODcyMzcsLTIxMj
+cyMDgyNjUsLTU2OTE2NzcxLC0xNjk5NzY2Mjk1LDEwOTAyMTkx
+OCwyMTQ0NzU1ODcyLDQxMzUwNzY4LDE0NTc1ODQ4MzUsMjA1Nz
+czMzUzMSwxNDA1MDI4NjQ4LDE4NzkxNDIxMDksMTM0NDQwMjg2
+MSwtMTA2ODcxMTQyMywxNjIwNTQ3MTEsMTI2MzYzOTcwNiw0OT
+MyNTI5ODIsMTA3NjM4NzI4MiwtMTQ4MzgzMzA1NSwyMDEwODE1
+NTY2XX0=
 -->
