@@ -117,17 +117,17 @@ prime_header.readData(filename,fits::reading_mode::stream);
  auto value = prime_header.get< double>("MEANC100");
 ```
 
-**insert()** : This function takes a position ( where to insert ) , keyword, value (optional), comment( optional ) as argument and is used to insert/ update a card in FITS Reader. 
+**insert()** : This function takes a  keyword, value (optional), comment( optional ) as argument and is used to insert/ update a card in FITS Reader. 
 
 >  This function does not write data back to the file but rather schedules it for writing . Actual writing is solely done by writeToFile() method
 
  - **Return Value** : A boolean indicating whether the changes could be made or not
 ```cpp
- prime_header.insert(4, "BSCALE", 32.0,"Something");
+ prime_header.insert("BSCALE", 32.0,"Something"); // key,value,comment
 // or
- prime_header.insert(4, "NO_VAL");   
+ prime_header.insert("NO_VAL"); // Only keyword  
 // or
- prime_header.insert(4, "VAL_NO_C",32.0);   
+ prime_header.insert("VAL_NO_C",32.0);  // No comment  
 ```
 
 **writeToFile()** :  Write to File function takes a file name as argument and writes the complete updated FITS data ( this includes scheduled data from previous insert calls)  to the file. If file does not exists then a new file is created .
@@ -256,11 +256,11 @@ class custom_parsing_policy{
 > Refer to **fits_standard_spec** class code for a detailed implementation of Parsing Policy class. ( Also there is still a lot to optimize :) so please bear with me )
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MTY1MDQ2NjMsODI5Mjg3MjM3LC0yMT
-I3MjA4MjY1LC01NjkxNjc3MSwtMTY5OTc2NjI5NSwxMDkwMjE5
-MTgsMjE0NDc1NTg3Miw0MTM1MDc2OCwxNDU3NTg0ODM1LDIwNT
-c3MzM1MzEsMTQwNTAyODY0OCwxODc5MTQyMTA5LDEzNDQ0MDI4
-NjEsLTEwNjg3MTE0MjMsMTYyMDU0NzExLDEyNjM2Mzk3MDYsND
-kzMjUyOTgyLDEwNzYzODcyODIsLTE0ODM4MzMwNTUsMjAxMDgx
-NTU2Nl19
+eyJoaXN0b3J5IjpbMjEzODcyMDQyNCw4MjkyODcyMzcsLTIxMj
+cyMDgyNjUsLTU2OTE2NzcxLC0xNjk5NzY2Mjk1LDEwOTAyMTkx
+OCwyMTQ0NzU1ODcyLDQxMzUwNzY4LDE0NTc1ODQ4MzUsMjA1Nz
+czMzUzMSwxNDA1MDI4NjQ4LDE4NzkxNDIxMDksMTM0NDQwMjg2
+MSwtMTA2ODcxMTQyMywxNjIwNTQ3MTEsMTI2MzYzOTcwNiw0OT
+MyNTI5ODIsMTA3NjM4NzI4MiwtMTQ4MzgzMzA1NSwyMDEwODE1
+NTY2XX0=
 -->
