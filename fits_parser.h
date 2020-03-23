@@ -31,7 +31,7 @@ namespace fits {
 		std::optional<conversion_type> get(const std::string& keyword);
 
 		template<typename Type>
-		bool insert(int position, const std::string& keyword, const Type& value = std::monostate{}, const std::string& comment = "");
+		bool insert(const std::string& keyword, const Type& value = std::monostate{}, const std::string& comment = "");
 		bool writeToFile(const std::string& filename);
 
 	};
@@ -41,7 +41,7 @@ namespace fits {
 
 	template<class parsing_policy>
 	template<typename Type>
-	bool fits_parser<parsing_policy>::insert(int position, const std::string& keyword, const Type& value, const std::string& comment) {
+	bool fits_parser<parsing_policy>::insert(const std::string& keyword, const Type& value, const std::string& comment) {
 
 		if (keyword.length() <= 8) {
 			std::string result_string;
@@ -76,35 +76,19 @@ namespace fits {
 			}
 			// We have the card now
 
-			bool can_be_inserted;
-			if (position == -1) {
-			
-				can_be_inserted = true;
+			// 
+			if (auto iter_pos = header_data.find(keyword); parsing_policy::isMultivalued(keyword) || iter_pos == header_data.end()) {
+
+				header_data.insert({ keyword,value });
+				scheduled_for_write.push_back({ -1,{result_string,false} });
 			}
 			else {
-			
-				can_be_inserted = ! std::any_of(scheduled_for_write.begin(), scheduled_for_write.end(), [position](const std::pair<int, std::pair<std::string, bool>>& sch_write) {return position == sch_write.first && position != -1; });
-			}
-
-			if (can_be_inserted) {
-
-
-				if (auto iter_pos = header_data.find(keyword); parsing_policy::isMultivalued(keyword) || iter_pos == header_data.end()) {
-
-					header_data.insert({ keyword,value });
-					scheduled_for_write.push_back({ position,{result_string,false} });
-				}
-				else {
-					//Updation of values ( Does not respect position )
-					iter_pos->second = value;
-					scheduled_for_write.push_back({ offset_map[keyword],{result_string,true} });
-
-				}
-
-				return true;
+				//Updation of values ( Does not respect position )
+				iter_pos->second = value;
+				scheduled_for_write.push_back({ offset_map[keyword],{result_string,true} });
 
 			}
-			return false;
+			return true; 			
 		}
 		else {
 			return false; // Keyword length exceeded the standards limits

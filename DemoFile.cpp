@@ -37,22 +37,25 @@ int main(){
         }
 
 
-        // Offset position is ignored and replaced by actual position if the keyword was already present.
-        prime_header.insert(4, "BSCALE", 32.0, "Something");
+        // BSCALE value will be replaced with 32.0 if already present in FITS file
+        prime_header.insert("BSCALE", 32.0, "Something");
 
-        // 3 will get ignored ( as SIMPLE is already present at 1 )
-        prime_header.insert(3, "SIMPLE", 'F', "Does not conform to fits standard");
+        // Similar to BSCALE
+        prime_header.insert("SIMPLE", 'F', "Does not conform to fits standard");
 
-        // The card will be inserted at the end before END keyword
-        prime_header.insert(-1, "GSOC", "BOOST", "This fits reader and writer is for boost");
+        // This card will be inserted at the end before END keywords as according to the FITS standard except for the required keywords
+        // The position does not matter
+        prime_header.insert("GSOC", "BOOST", "This fits reader and writer is for boost");
 
 
+        // Internal data structure was updated automatically
         auto gsoc_value = prime_header.get<std::string>("GSOC");
         if (gsoc_value.has_value()) {
         
             std::cout << *gsoc_value;
         }
         
+        // Write the scheduled changes back to File
         prime_header.writeToFile("MASTER.txt");    
     }
     std::cin.get();
